@@ -21,10 +21,6 @@ jobs:
       with:
         fetch-depth: 1
         
-    - name: Update composer
-      run: |
-        composer update
-        
     - name: Install composer dependencies
       run: |
         composer install --no-scripts
