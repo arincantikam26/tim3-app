@@ -14,7 +14,10 @@ use Illuminate\Support\Facades\Route;
 */
 
 Route::get('/', function () {
-    return view('welcome');
+    return view('users.index', [
+        'title' => 'Home',
+        'active' => 'home'
+    ]);
 });
 
 Route::get('/login', function () {
@@ -24,3 +27,4 @@ Route::get('/login', function () {
 Route::get('/register', function () {
     return view('auth.register');
 });
+
