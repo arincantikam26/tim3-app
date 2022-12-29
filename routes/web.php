@@ -1,5 +1,7 @@
 <?php
 
+use App\Http\Controllers\JurusanController;
+use App\Http\Controllers\ProdiController;
 use Illuminate\Support\Facades\Route;
 
 /*
@@ -21,10 +23,16 @@ Route::get('/', function () {
 });
 
 Route::get('/login', function () {
-    return view('auth.login');
+    return view('auth.login', [
+        'title' => 'Login'
+    ]);
 });
 
 Route::get('/register', function () {
-    return view('auth.register');
+    return view('auth.register', [
+        'title' => 'Register'
+    ]);
 });
 
+Route::resource('prodi', ProdiController::class);
+Route::resource('jurusan', JurusanController::class);
