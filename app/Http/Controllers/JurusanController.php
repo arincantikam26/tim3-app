@@ -16,7 +16,8 @@ class JurusanController extends Controller
     {
         return view('jurusan.index', [
             'title' => 'Jurusan',
-            'jurusan' => Jurusan::latest()->get()
+            'jurusan' => Jurusan::latest()->get(),
+            'active' => 'jurusan'
         ]);
     }
 

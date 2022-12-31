@@ -3,10 +3,11 @@
 namespace App\Http\Controllers;
 
 use App\Models\Jurusan;
-use App\Models\Prodi;
 use Illuminate\Http\Request;
+use Illuminate\Support\Collection;
 
-class ProdiController extends Controller
+
+class UserController extends Controller
 {
     /**
      * Display a listing of the resource.
@@ -15,10 +16,12 @@ class ProdiController extends Controller
      */
     public function index()
     {
-        return view('prodi.index', [
-            'title' => 'Prodi',
-            'jurusan' => Jurusan::all(),
-            'active' => 'prodi'
+        // $jurusan = Jurusan::inRandomOrder()->limit(3)->get();
+        $jurusan = Jurusan::all();
+        return view('users.index', [
+            'title' => 'Home',
+            'active' => 'home',
+            'datajurusan' => $jurusan
         ]);
     }
 
