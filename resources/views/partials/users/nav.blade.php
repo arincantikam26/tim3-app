@@ -25,8 +25,8 @@
             </ul>
 
             <div class="text-end">
-                <button type="button" class="btn btn-outline-dark order-0 me-2">Login</button>
-                <button type="button" class="btn btn-dark">Sign-up</button>
+                <a href="/login" class="text-decoration-none btn btn-outline-dark order-0 me-2">Login</a>
+                <a href="/register" class="text-decoration-none btn btn-dark">Sign-up</a>
             </div>
         </div>
     </div>
