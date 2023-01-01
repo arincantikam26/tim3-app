@@ -2,6 +2,7 @@
 
 use App\Http\Controllers\JurusanController;
 use App\Http\Controllers\ProdiController;
+use App\Http\Controllers\UserController;
 use Illuminate\Support\Facades\Route;
 
 /*
@@ -15,12 +16,14 @@ use Illuminate\Support\Facades\Route;
 |
 */
 
-Route::get('/', function () {
-    return view('users.index', [
-        'title' => 'Home',
-        'active' => 'home'
-    ]);
-});
+// Route::get('/', function () {
+//     return view('users.index', [
+//         'title' => 'Home',
+//         'active' => 'home'
+//     ]);
+// });
+
+Route::get('/', [UserController::class, 'index']);
 
 Route::get('/admin', function () {
     return view('admin.index', [

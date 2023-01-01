@@ -1,4 +1,4 @@
-@extends('auth.auth')
+@extends('layouts.main_users')
 @section('content')
     <link href="/assets/vendor/simple-datatables/style.css" rel="stylesheet">
     <section>
@@ -6,7 +6,7 @@
             <h3 class="text-center">Data {{ $title }}</h3>
             <div class="col-lg-8 offset-2">
                 <div class="table-responsive">
-                    <table class="table table-info datatable">
+                    <table class="table table-striped datatable">
                         <thead>
                             <tr>
                                 <th scope="col">No</th>
