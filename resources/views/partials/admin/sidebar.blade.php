@@ -16,7 +16,7 @@
 
   <ul class="menu-inner py-1">
     <!-- Dashboard -->
-    <li class="menu-item active">
+    <li class="menu-item {{ $active === 'admin' ? 'active' : '' }}">
       <a href="#" class="menu-link">
         <i class="menu-icon fa-solid fa-gauge"></i>
         <div data-i18n="Analytics">Dashboard</div>
@@ -26,7 +26,7 @@
     <li class="menu-header small text-uppercase">
       <span class="menu-header-text">Jurusan</span>
     </li>
-    <li class="menu-item">
+    <li class="menu-item {{ $active === 'kampus' ? 'active' : '' }}">
       <a href="javascript:void(0);" class="menu-link menu-toggle">
         <i class="menu-icon fa-solid fa-school-flag"></i>
         <div data-i18n="Account Settings">Data Kampus</div>
@@ -34,17 +34,17 @@
       <ul class="menu-sub">
         <li class="menu-item">
           <a href="#" class="menu-link">
-            <div data-i18n="Account">Jurusan</div>
+            <div data-i18n="Basic">Jurusan</div>
           </a>
         </li>
         <li class="menu-item">
           <a href="#" class="menu-link">
-            <div data-i18n="Notifications">Prodi</div>
+            <div data-i18n="Basic">Prodi</div>
           </a>
         </li>
       </ul>
     </li>
-    <li class="menu-item">
+    <li class="menu-item {{ $active === 'sekolah' ? 'active' : '' }}">
       <a href="javascript:void(0);" class="menu-link menu-toggle">
         <i class="menu-icon fa-solid fa-school"></i>
         <div data-i18n="Authentications">Data Sekolah</div>
@@ -60,25 +60,25 @@
     <!-- Components -->
     <li class="menu-header small text-uppercase"><span class="menu-header-text">Metode</span></li>
     <!-- Cards -->
-    <li class="menu-item">
+    <li class="menu-item {{ $active === 'kriteria' ? 'active' : '' }}">
       <a href="cards-basic.html" class="menu-link">
         <i class="menu-icon fa-solid fa-list-check"></i>
         <div data-i18n="Basic">Kriteria</div>
       </a>
     </li>
-    <li class="menu-item">
+    <li class="menu-item {{ $active === 'pertanyaan' ? 'active' : '' }} ">
       <a href="cards-basic.html" class="menu-link">
         <i class="menu-icon fa-solid fa-clipboard-question"></i>
         <div data-i18n="Basic">Pertanyaan</div>
       </a>
     </li>
     <!-- Components -->
-    <li class="menu-header small text-uppercase"><span class="menu-header-text">User</span></li>
+    <li class="menu-header small text-uppercase"><span class="menu-header-text">Pengguna</span></li>
     <!-- Extended components -->
-    <li class="menu-item">
+    <li class="menu-item {{ $active === 'pengguna' ? 'active' : '' }}">
       <a href="javascript:void(0)" class="menu-link menu-toggle">
         <i class="menu-icon fa-solid fa-users"></i>
-        <div data-i18n="Extended UI">Data User</div>
+        <div data-i18n="Basic">Data Pengguna</div>
       </a>
       <ul class="menu-sub">
         <li class="menu-item">

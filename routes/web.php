@@ -28,7 +28,7 @@ Route::get('/', [UserController::class, 'index']);
 Route::get('/admin', function () {
     return view('admin.index', [
         'title' => 'Home',
-        'active' => 'home'
+        'active' => 'admin'
     ]);
 });
 
