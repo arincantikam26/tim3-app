@@ -18,7 +18,7 @@ class UserController extends Controller
     {
         // $jurusan = Jurusan::inRandomOrder()->limit(3)->get();
         $jurusan = Jurusan::all();
-        return view('users.index', [
+        return view('home.index', [
             'title' => 'Home',
             'active' => 'home',
             'datajurusan' => $jurusan

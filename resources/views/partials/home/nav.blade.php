@@ -22,11 +22,14 @@
                     <a class="nav-link text-decoration-none {{ $active === 'prodi' ? 'active' : '' }}"
                         aria-current="page" href="/prodi">Prodi</a>
                 </li>
+                <li class="nav-item px-2" data-anchor="data-anchor">
+                    <a class="nav-link text-decoration-none {{ $active === 'about' ? 'active' : '' }}"
+                        aria-current="page" href="/about">About</a>
+                </li>
             </ul>
-
             <div class="text-end">
                 <a href="/login" class="text-decoration-none btn btn-outline-dark order-0 me-2">Login</a>
-                <a href="/register" class="text-decoration-none btn btn-dark">Sign-up</a>
+                <a href="/register" class="btn btn-dark px-4 gap-3 text-decoration-none">Sign-up</a>
             </div>
         </div>
     </div>
