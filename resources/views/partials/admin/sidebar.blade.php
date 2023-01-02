@@ -22,134 +22,68 @@
         <div data-i18n="Analytics">Dashboard</div>
       </a>
     </li>
-
-    <!-- Layouts -->
-    <li class="menu-item">
-      <a href="javascript:void(0);" class="menu-link menu-toggle">
-        <i class="menu-icon fa-solid fa-table-columns"></i>
-        <div data-i18n="Layouts">Layouts</div>
-      </a>
-
-      <ul class="menu-sub">
-        <li class="menu-item">
-          <a href="#" class="menu-link">
-            <div data-i18n="Without menu">Without menu</div>
-          </a>
-        </li>
-        <li class="menu-item">
-          <a href="#" class="menu-link">
-            <div data-i18n="Without navbar">Without navbar</div>
-          </a>
-        </li>
-        <li class="menu-item">
-          <a href="#" class="menu-link">
-            <div data-i18n="Container">Container</div>
-          </a>
-        </li>
-        <li class="menu-item">
-          <a href="#" class="menu-link">
-            <div data-i18n="Fluid">Fluid</div>
-          </a>
-        </li>
-        <li class="menu-item">
-          <a href="#" class="menu-link">
-            <div data-i18n="Blank">Blank</div>
-          </a>
-        </li>
-      </ul>
-    </li>
-
+    <!-- Sekolah -->
     <li class="menu-header small text-uppercase">
-      <span class="menu-header-text">Pages</span>
+      <span class="menu-header-text">Jurusan</span>
     </li>
     <li class="menu-item">
       <a href="javascript:void(0);" class="menu-link menu-toggle">
-        <i class="menu-icon fa-solid fa-gear"></i>
-        <div data-i18n="Account Settings">Account Settings</div>
+        <i class="menu-icon fa-solid fa-school-flag"></i>
+        <div data-i18n="Account Settings">Data Kampus</div>
       </a>
       <ul class="menu-sub">
         <li class="menu-item">
           <a href="#" class="menu-link">
-            <div data-i18n="Account">Account</div>
+            <div data-i18n="Account">Jurusan</div>
           </a>
         </li>
         <li class="menu-item">
           <a href="#" class="menu-link">
-            <div data-i18n="Notifications">Notifications</div>
-          </a>
-        </li>
-        <li class="menu-item">
-          <a href="#" class="menu-link">
-            <div data-i18n="Connections">Connections</div>
+            <div data-i18n="Notifications">Prodi</div>
           </a>
         </li>
       </ul>
     </li>
     <li class="menu-item">
       <a href="javascript:void(0);" class="menu-link menu-toggle">
-        <i class="menu-icon fa-solid fa-unlock-keyhole"></i>
-        <div data-i18n="Authentications">Authentications</div>
+        <i class="menu-icon fa-solid fa-school"></i>
+        <div data-i18n="Authentications">Data Sekolah</div>
       </a>
       <ul class="menu-sub">
         <li class="menu-item">
           <a href="#" class="menu-link" target="_blank">
-            <div data-i18n="Basic">Login</div>
-          </a>
-        </li>
-        <li class="menu-item">
-          <a href="#" class="menu-link" target="_blank">
-            <div data-i18n="Basic">Register</div>
-          </a>
-        </li>
-        <li class="menu-item">
-          <a href="#" class="menu-link" target="_blank">
-            <div data-i18n="Basic">Forgot Password</div>
-          </a>
-        </li>
-      </ul>
-    </li>
-    <li class="menu-item">
-      <a href="javascript:void(0);" class="menu-link menu-toggle">
-        <i class="menu-icon fa-solid fa-box"></i>
-        <div data-i18n="Misc">Misc</div>
-      </a>
-      <ul class="menu-sub">
-        <li class="menu-item">
-          <a href="#" class="menu-link">
-            <div data-i18n="Error">Error</div>
-          </a>
-        </li>
-        <li class="menu-item">
-          <a href="#" class="menu-link">
-            <div data-i18n="Under Maintenance">Under Maintenance</div>
+            <div data-i18n="Basic">Jurusan</div>
           </a>
         </li>
       </ul>
     </li>
     <!-- Components -->
-    <li class="menu-header small text-uppercase"><span class="menu-header-text">Components</span></li>
+    <li class="menu-header small text-uppercase"><span class="menu-header-text">Metode</span></li>
     <!-- Cards -->
     <li class="menu-item">
       <a href="cards-basic.html" class="menu-link">
-        <i class="menu-icon fa-solid fa-clipboard"></i>
-        <div data-i18n="Basic">Cards</div>
+        <i class="menu-icon fa-solid fa-list-check"></i>
+        <div data-i18n="Basic">Kriteria</div>
       </a>
     </li>
+    <li class="menu-item">
+      <a href="cards-basic.html" class="menu-link">
+        <i class="menu-icon fa-solid fa-clipboard-question"></i>
+        <div data-i18n="Basic">Pertanyaan</div>
+      </a>
+    </li>
+    <!-- Components -->
+    <li class="menu-header small text-uppercase"><span class="menu-header-text">User</span></li>
     <!-- Extended components -->
     <li class="menu-item">
       <a href="javascript:void(0)" class="menu-link menu-toggle">
-        <i class="menu-icon fa-solid fa-images"></i>
-        <div data-i18n="Extended UI">Extended UI</div>
+        <i class="menu-icon fa-solid fa-users"></i>
+        <div data-i18n="Extended UI">Data User</div>
       </a>
       <ul class="menu-sub">
         <li class="menu-item">
           <a href="#" class="menu-link">
-            <div data-i18n="Perfect Scrollbar">Perfect scrollbar</div>
-          </a>
-        </li>
-        <li class="menu-item">
-          <a href="#" class="menu-link">
-            <div data-i18n="Text Divider">Text Divider</div>
+            <div data-i18n="Perfect Scrollbar">List Pengguna</div>
           </a>
         </li>
       </ul>
