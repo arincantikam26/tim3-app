@@ -1,5 +1,6 @@
 <?php
 
+use App\Http\Controllers\AdminController;
 use App\Http\Controllers\JurusanController;
 use App\Http\Controllers\ProdiController;
 use App\Http\Controllers\UserController;
@@ -25,12 +26,14 @@ use Illuminate\Support\Facades\Route;
 
 Route::get('/', [UserController::class, 'index']);
 
-Route::get('/admin', function () {
-    return view('admin.index', [
-        'title' => 'Home',
-        'active' => 'admin'
-    ]);
-});
+Route::get('/admin', [AdminController::class, 'index']);
+
+Route::get('/admin/jurusan', [AdminController::class, 'jurusan']);
+Route::get('/admin/prodi', [AdminController::class, 'prodi']);
+Route::get('/admin/jurusan-sekolah', [AdminController::class, 'sekolah']);
+Route::get('/admin/kriteria', [AdminController::class, 'kriteria']);
+Route::get('/admin/pertanyaan', [AdminController::class, 'pertanyaan']);
+Route::get('/admin/user', [AdminController::class, 'user']);
 
 Route::get('/login', function () {
     return view('auth.login', [
