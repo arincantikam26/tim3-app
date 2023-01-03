@@ -2,7 +2,7 @@
 @section('content')
 
 <section id="hero">
-    <div class="row mb-2">
+    <div class="row">
         <div class="col-md">
             <div class="card mb-3">
                 <div class="row g-0">
@@ -32,7 +32,7 @@
 
 <section id="data-admin">
     <div class="row">
-        <div class="col-lg-4 col-md-4 order-0">
+        <div class="col-lg-4 col-md-4 order-0 mb-3">
             <div class="card">
                 <div class="card-body">
                   <div class="card-title d-flex align-items-start justify-content-between">
@@ -46,7 +46,7 @@
                 </div>
             </div>
         </div>
-        <div class="col-lg-4 col-md-4 order-0">
+        <div class="col-lg-4 col-md-4 order-0 mb-3">
             <div class="card">
                 <div class="card-body">
                   <div class="card-title d-flex align-items-start justify-content-between">
@@ -60,7 +60,7 @@
                 </div>
             </div>
         </div>
-        <div class="col-lg-4 col-md-4 order-0">
+        <div class="col-lg-4 col-md-4 order-0 mb-3">
             <div class="card">
                 <div class="card-body">
                   <div class="card-title d-flex align-items-start justify-content-between">
@@ -77,9 +77,6 @@
         
     </div> 
 </section>
-
-
-
 
 <script>
     function display_ct5() {
