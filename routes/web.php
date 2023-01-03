@@ -46,3 +46,9 @@ Route::get('/register', function () {
 
 Route::resource('prodi', ProdiController::class);
 Route::resource('jurusan', JurusanController::class);
+
+Route::get('/rekomendasi', function () {
+    return view('users.rekomendasi', [
+        'title' => 'rekomendasi'
+    ]);
+});

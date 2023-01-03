@@ -1,0 +1,12 @@
+  /* HERO SECTION */
+  .hero {
+    width: 100%;
+    background-image: url("/assets/image/5578661.jpg");
+    background-position: center center;
+    background-repeat: no-repeat;
+    background-attachment: fixed;
+    background-size: cover;
+    position: relative;
+    min-height: 50vh;
+    padding: 20vh 0 20vh;
+  }
