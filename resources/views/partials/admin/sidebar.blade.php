@@ -76,13 +76,13 @@
     <!-- Components -->
     <li class="menu-header small text-uppercase"><span class="menu-header-text">Pengguna</span></li>
     <!-- Extended components -->
-    <li class="menu-item {{ $active === 'pengguna' ? 'active' : '' }}">
+    <li class="menu-item {{ $active === 'user' ? 'active' : '' }}">
       <a href="javascript:void(0)" class="menu-link menu-toggle">
         <i class="menu-icon fa-solid fa-users"></i>
         <div data-i18n="Basic">Data Pengguna</div>
       </a>
       <ul class="menu-sub">
-        <li class="menu-item">
+        <li class="menu-item {{ $active === 'user' ? 'active' : '' }}">
           <a href="/admin/user" class="menu-link">
             <div data-i18n="Perfect Scrollbar">List Pengguna</div>
           </a>
