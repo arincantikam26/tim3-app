@@ -1,4 +1,4 @@
-@extends('layouts.main_users')
+@extends('layouts.main_home')
 @section('content')
     <link href="/assets/vendor/simple-datatables/style.css" rel="stylesheet">
     <section>
