@@ -7,7 +7,6 @@
                 <div class="col-lg-8">
                     <h5>Edit {{ $prodi->nama_prodi }}</h5>
                 </div>
-
             </div>
         </div>
         <div class="table-responsive text-nowrap">

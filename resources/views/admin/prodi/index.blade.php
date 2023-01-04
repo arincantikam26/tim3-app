@@ -36,9 +36,10 @@
                             <td>
                                 @foreach ($item->prodis()->get() as $prodi)
                                     <p>
-                                    <form action="" method="POST">
-                                        <a class="ps-5" href=""><i class='bx bx-edit crud-icon'
-                                                style="font-size: 1.5em; color:green;" title="Edit"></i></a>
+                                    <form action="{{ route('prodi.destroy', $prodi->id_prodi) }}" method="POST">
+                                        <a class="ps-5" href="{{ route('prodi.edit', $prodi->id_prodi) }}"><i
+                                                class='bx bx-edit crud-icon' style="font-size: 1.5em; color:green;"
+                                                title="Edit"></i></a>
                                         @csrf
                                         @method('DELETE')
                                         <button class="pe-5 bg-transparent border-0"

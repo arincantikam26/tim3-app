@@ -7,7 +7,6 @@
                 <div class="col-lg-8">
                     <h5>{{ $title }}</h5>
                 </div>
-
             </div>
         </div>
         <div class="table-responsive text-nowrap">
