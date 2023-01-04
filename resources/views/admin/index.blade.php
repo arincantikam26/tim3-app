@@ -37,11 +37,11 @@
                 <div class="card-body">
                   <div class="card-title d-flex align-items-start justify-content-between">
                     <div class="avatar flex-shrink-0">
-                      <i class="fa-solid fa-school-flag" style="color:rgb(117, 233, 117); font-size:2em;"></i>
+                      <i class="bx bxs-buildings" style="color:rgb(117, 233, 117); font-size:2em;"></i>
                     </div>
                   </div>
                   <span class="fw-semibold d-block mb-1">Jurusan Kampus</span>
-                  <h3 class="card-title mb-2">7 Jurusan</h3>
+                  <h3 class="card-title mb-2">{{ $jurusan }} Jurusan</h3>
                   <small class="text-success fw-semibold"><a href="#"> Details <i class="fa-solid fa-angles-right"></i></a></small>
                 </div>
             </div>
@@ -51,7 +51,7 @@
                 <div class="card-body">
                   <div class="card-title d-flex align-items-start justify-content-between">
                     <div class="avatar flex-shrink-0">
-                      <i class="fa-solid fa-school" style="color:rgb(117, 233, 117); font-size:2em;"></i>
+                      <i class="bx bxs-school" style="color:rgb(117, 233, 117); font-size:2em;"></i>
                     </div>
                   </div>
                   <span class="fw-semibold d-block mb-1">Jurusan Sekolah</span>
@@ -65,11 +65,11 @@
                 <div class="card-body">
                   <div class="card-title d-flex align-items-start justify-content-between">
                     <div class="avatar flex-shrink-0">
-                      <i class="fa-solid fa-users-line" style="color:rgb(117, 233, 117); font-size:2em;"></i>
+                      <i class="bx bxs-user" style="color:rgb(117, 233, 117); font-size:2em;"></i>
                     </div>
                   </div>
                   <span class="fw-semibold d-block mb-1">Data User</span>
-                  <h3 class="card-title mb-2">2 Pengguna</h3>
+                  <h3 class="card-title mb-2">{{ $user }} Pengguna</h3>
                   <small class="text-success fw-semibold"><a href="#"> Details <i class="fa-solid fa-angles-right"></i></a></small>
                 </div>
             </div>

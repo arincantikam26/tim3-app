@@ -8,7 +8,7 @@
                     <h5>{{ $title }}</h5>
                 </div>
                 <div class="col-lg-4 text-end">
-                    <a href="#" class="btn btn-success"><i class='bx bx-plus'></i> Tambah User</a>
+                    <a href="#" class="btn btn-success"><i class='bx bx-plus-circle' style="font-size: 1.5em"></i> Tambah User</a>
                 </div>
             </div>
         </div>
@@ -39,7 +39,6 @@
                                 </div>
                                 <div class="col-lg-6">
                                     <a href="#"><i class='bx bxs-eraser' style="font-size: 1.5em; color:red;"></i></a>
-                                    
                                 </div>
                             </div>
                         </td>
