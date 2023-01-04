@@ -3,6 +3,7 @@
 use App\Http\Controllers\AdminController;
 use App\Http\Controllers\JurusanController;
 use App\Http\Controllers\ProdiController;
+use App\Http\Controllers\RegisterController;
 use App\Http\Controllers\UserController;
 use Illuminate\Support\Facades\Route;
 
@@ -24,7 +25,30 @@ use Illuminate\Support\Facades\Route;
 //     ]);
 // });
 
+//LOGIN DAN REGISTER
+Route::group(['middleware' => ['guest']], function () {
+    /**
+     * Register Routes
+     */
+    Route::get('/register', [RegisterController::class, 'show'])->name('register.show');
+    Route::post('/register/post', [RegisterController::class, 'register'])->name('register.request');
+
+    /**
+     * Login Routes
+     */
+    Route::get('/login', [LoginController::class, 'show'])->name('login.show');
+    Route::post('/login/post', [LoginController::class, 'login'])->name('login.request');
+});
+
+Route::group(['middleware' => ['auth']], function () {
+    /**
+     * Logout Routes
+     */
+    Route::get('/logout', [LogoutController::class, 'perform'])->name('logout.request');
+});
+
 Route::get('/', [UserController::class, 'index']);
+Route::get('/verify-email', [RegisterController::class, 'verifyEmail'])->name('verify-email');
 
 Route::get('/admin', [AdminController::class, 'index']);
 

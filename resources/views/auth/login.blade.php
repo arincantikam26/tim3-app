@@ -16,12 +16,16 @@
                          </h4>
                          <p class="mb-4">&nbsp;</p>
 
-                         <form class="mb-3" action="" method="POST">
+                         <form class="mb-3" action="{{ route('login.request') }}" method="POST">
                              @csrf
+                             @include('partials.messages')
                              <div class="mb-3">
                                  <label for="username" class="form-label">Username</label>
                                  <input type="text" class="form-control" id="username" name="username"
                                      placeholder="Silahkan masukkan username anda" autofocus />
+                                 @if ($errors->has('username'))
+                                     <span class="text-danger text-left">{{ $errors->first('username') }}</span>
+                                 @endif
                              </div>
                              <div class="mb-3 form-password-toggle">
                                  <div class="d-flex justify-content-between">
@@ -36,6 +40,9 @@
                                          aria-describedby="password" />
                                      <span class="input-group-text cursor-pointer"><i class="bx bx-hide"></i></span>
                                  </div>
+                                 @if ($errors->has('password'))
+                                     <span class="text-danger text-left">{{ $errors->first('password') }}</span>
+                                 @endif
                              </div>
                              <div class="mb-3">
                                  &nbsp;

@@ -27,8 +27,9 @@ class DatabaseSeeder extends Seeder
             'username' => 'admin',
             'email' => 'admin@gmail.com',
             'email_verified_at' => now(),
-            'password' => 'admin',
-            'role' => 'admin'
+            'password' => bcrypt('admin'),
+            'is_permission' => 1,
+            'remember_token' => 'hxdd5rxZft'
         ]);
 
         User::factory(5)->create();
