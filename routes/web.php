@@ -5,6 +5,7 @@ use App\Http\Controllers\JurusanController;
 use App\Http\Controllers\ProdiController;
 use App\Http\Controllers\RegisterController;
 use App\Http\Controllers\UserController;
+use App\Http\Controllers\UserCrudController;
 use Illuminate\Support\Facades\Route;
 
 /*
@@ -57,7 +58,8 @@ Route::get('/admin/prodi', [AdminController::class, 'prodi']);
 Route::get('/admin/jurusan-sekolah', [AdminController::class, 'sekolah']);
 Route::get('/admin/kriteria', [AdminController::class, 'kriteria']);
 Route::get('/admin/pertanyaan', [AdminController::class, 'pertanyaan']);
-Route::get('/admin/user', [AdminController::class, 'user']);
+
+Route::resource('/admin/usercrud', UserCrudController::class);
 
 Route::get('/login', function () {
     return view('auth.login', [

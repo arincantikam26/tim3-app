@@ -83,7 +83,7 @@
       </a>
       <ul class="menu-sub">
         <li class="menu-item {{ $active === 'user' ? 'active' : '' }}">
-          <a href="/admin/user" class="menu-link">
+          <a href="{{ route('usercrud.index') }}" class="menu-link">
             <div data-i18n="Perfect Scrollbar">List Pengguna</div>
           </a>
         </li>

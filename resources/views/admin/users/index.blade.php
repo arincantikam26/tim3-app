@@ -3,14 +3,7 @@
     <h1>{{ $title }}</h1>
     <div class="card">
         <div class="card-header">
-        <div class="row">
-                <div class="col-lg-8">
-                    <h5>{{ $title }}</h5>
-                </div>
-                <div class="col-lg-4 text-end">
-                    <a href="#" class="btn btn-success"><i class='bx bx-plus-circle' style="font-size: 1.5em"></i> Tambah User</a>
-                </div>
-            </div>
+            <h5>{{ $title }}</h5>
         </div>
         <div class="table-responsive text-nowrap">
             <table class="table table-striped">
@@ -31,11 +24,21 @@
                         <td>{{ $item->username }}</td>
                         <td>{{ $item->name }}</td>
                         <td>{{ $item->email }}</td>
-                        <td>{{ $item->role }}</td>
+                        <td>
+                            <?php 
+                                if( isset($item) == 1) {
+                                    if ($item->is_permission == 1) {
+                                        echo 'admin';
+                                    } else {
+                                        echo 'user';
+                                    }
+                                }
+                            ?>
+                        </td>
                         <td>
                            <div class="row"> 
                                 <div class="col-lg-6">
-                                    <a href="#"><i class='bx bx-edit crud-icon' style="font-size: 1.5em; color:green;"></i></a>
+                                    <a href="{{ route('usercrud.edit', 1) }}"><i class='bx bx-edit crud-icon' style="font-size: 1.5em; color:green;"></i></a>
                                 </div>
                                 <div class="col-lg-6">
                                     <a href="#"><i class='bx bxs-eraser' style="font-size: 1.5em; color:red;"></i></a>
