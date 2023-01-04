@@ -10,11 +10,11 @@
                     <h5>{{ $title }}</h5>
                 </div>
                 <div class="col-lg-4 text-end mb-3">
-                    <a href="" class="btn btn-success"><i class='bx bx-plus-circle' style="font-size: 1.5em"></i> Tambah
+                    <a href="{{ route('prodi.create') }}" class="btn btn-success"><i class='bx bx-plus-circle'
+                            style="font-size: 1.5em"></i> Tambah
                         {{ $title }}</a>
                 </div>
                 @include('partials.messages')
-
             </div>
         </div>
         <div class="table-responsive text-nowrap">
