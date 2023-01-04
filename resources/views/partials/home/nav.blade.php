@@ -27,12 +27,13 @@
                         aria-current="page" href="/about">About</a>
                 </li>
             </ul>
-            @guest
-                <div class="text-end">
-                    <a href="/login" class="text-decoration-none btn btn-outline-dark order-0 me-2">Login</a>
-                    <a href="/register" class="btn btn-dark px-4 gap-3 text-decoration-none">Sign-up</a>
-                </div>
-            @endguest
+
+            <div class="text-end">
+                <a href="{{ route('login-index') }}"
+                    class="text-decoration-none btn btn-outline-dark order-0 me-2">Login</a>
+                <a href="{{ route('register-show') }}" class="btn btn-dark px-4 gap-3 text-decoration-none">Sign-up</a>
+            </div>
+
         </div>
     </div>
 </nav>

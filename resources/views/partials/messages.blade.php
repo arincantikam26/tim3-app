@@ -24,3 +24,10 @@
         </div>
     @endif
 @endif
+
+@if (Session()->has('loginError'))
+    <div class="alert alert-danger text-center" role="alert">
+        <i class="fa fa-check"></i>
+        {{ session('loginError') }}
+    </div>
+@endif

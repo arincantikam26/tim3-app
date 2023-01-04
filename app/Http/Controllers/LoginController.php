@@ -2,43 +2,31 @@
 
 namespace App\Http\Controllers;
 
-use App\Http\Requests\LoginRequest;
 use Illuminate\Support\Facades\Auth;
-
 use Illuminate\Http\Request;
 
 class LoginController extends Controller
 {
     public function index()
     {
-        return view('auth.login');
+        return view('auth.login', [
+            "title" => "Login"
+        ]);
     }
 
-    public function login(LoginRequest $request)
+    public function authenticate(Request $request)
     {
-        $credentials = $request->getCredentials();
+        $credentials = $request->validate([
+            'username' => 'required',
+            'password' => 'required',
+        ]);
 
-        if (!Auth::validate($credentials)) :
-            return redirect()->to('login')
-                ->withErrors(trans('auth.failed'));
-        endif;
+        if (Auth::attempt($credentials)) {
+            $request->session()->regenerate();
 
-        $user = Auth::getProvider()->retrieveByCredentials($credentials);
+            return redirect()->intended('dashboard');
+        }
 
-        Auth::login($user);
-
-        return $this->authenticated($request, $user);
-    }
-    /**
-     * Handle response after user authenticated
-     * 
-     * @param Request $request
-     * @param Auth $user
-     * 
-     * @return \Illuminate\Http\Response
-     */
-    protected function authenticated(Request $request, $user)
-    {
-        return redirect()->intended();
+        return back()->with('loginError', 'Login Failed');
     }
 }

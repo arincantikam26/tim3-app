@@ -2,6 +2,7 @@
 
 use App\Http\Controllers\AdminController;
 use App\Http\Controllers\JurusanController;
+use App\Http\Controllers\LoginController;
 use App\Http\Controllers\ProdiController;
 use App\Http\Controllers\RegisterController;
 use App\Http\Controllers\UserController;
@@ -26,19 +27,19 @@ use Illuminate\Support\Facades\Route;
 // });
 
 //LOGIN DAN REGISTER
-Route::group(['middleware' => ['guest']], function () {
-    /**
-     * Register Routes
-     */
-    Route::get('/register', [RegisterController::class, 'show'])->name('register.show');
-    Route::post('/register/post', [RegisterController::class, 'register'])->name('register.request');
 
-    /**
-     * Login Routes
-     */
-    Route::get('/login', [LoginController::class, 'show'])->name('login.show');
-    Route::post('/login/post', [LoginController::class, 'login'])->name('login.request');
-});
+/**
+ * Register Routes
+ */
+Route::get('/register', [RegisterController::class, 'show'])->name('register-show');
+Route::post('/register/post', [RegisterController::class, 'register'])->name('register.request');
+
+/**
+ * Login Routes
+ */
+Route::get('/login', [LoginController::class, 'index'])->name('login-index');
+Route::post('/login', [LoginController::class, 'authenticate'])->name('login.request');
+
 
 Route::group(['middleware' => ['auth']], function () {
     /**
@@ -58,18 +59,6 @@ Route::get('/admin/jurusan-sekolah', [AdminController::class, 'sekolah']);
 Route::get('/admin/kriteria', [AdminController::class, 'kriteria']);
 Route::get('/admin/pertanyaan', [AdminController::class, 'pertanyaan']);
 Route::get('/admin/user', [AdminController::class, 'user']);
-
-Route::get('/login', function () {
-    return view('auth.login', [
-        'title' => 'Login'
-    ]);
-});
-
-Route::get('/register', function () {
-    return view('auth.register', [
-        'title' => 'Register'
-    ]);
-});
 
 Route::resource('prodi', ProdiController::class);
 Route::resource('jurusan', JurusanController::class);
