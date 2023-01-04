@@ -13,13 +13,13 @@
     @if (is_array($data))
         @foreach ($data as $msg)
             <div class="alert alert-warning" role="alert">
-                <i class="fa fa-check"></i>
+                <i class="bx bx-check"></i>
                 {{ $msg }}
             </div>
         @endforeach
     @else
-        <div class="alert alert-warning" role="alert">
-            <i class="fa fa-check"></i>
+        <div class="alert alert-success" role="alert">
+            <i class="bx bx-check"></i>
             {{ $data }}
         </div>
     @endif
@@ -27,7 +27,7 @@
 
 @if (Session()->has('loginError'))
     <div class="alert alert-danger text-center" role="alert">
-        <i class="fa fa-check"></i>
+        <i class="bx bx-check"></i>
         {{ session('loginError') }}
     </div>
 @endif

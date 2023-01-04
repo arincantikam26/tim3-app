@@ -10,7 +10,7 @@ class Jurusan extends Model
     use HasFactory;
 
     protected $table = 'tbl_jurusan';
-    protected $guarded = [];
+    protected $guarded = ['id'];
 
     public function prodis()
     {

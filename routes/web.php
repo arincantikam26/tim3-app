@@ -56,7 +56,7 @@ Route::get('/', [UserController::class, 'index']);
 Route::get('/admin', [AdminController::class, 'index']);
 
 Route::get('/admin/jurusan', [AdminController::class, 'jurusan']);
-Route::get('/admin/prodi', [AdminController::class, 'prodi']);
+Route::get('/admin/prodi', [AdminController::class, 'prodi'])->name('prodi_index');
 Route::get('/admin/jurusan-sekolah', [AdminController::class, 'sekolah']);
 Route::get('/admin/kriteria', [AdminController::class, 'kriteria']);
 Route::get('/admin/pertanyaan', [AdminController::class, 'pertanyaan']);
