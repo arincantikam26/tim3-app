@@ -1,6 +1,7 @@
 <?php
 
 use App\Http\Controllers\AdminController;
+use App\Http\Controllers\HomeController;
 use App\Http\Controllers\JurusanController;
 use App\Http\Controllers\LoginController;
 use App\Http\Controllers\ProdiController;
@@ -33,6 +34,7 @@ use Illuminate\Support\Facades\Route;
  */
 Route::get('/register', [RegisterController::class, 'show'])->name('register-show');
 Route::post('/register/post', [RegisterController::class, 'register'])->name('register.request');
+// Route::get('/verify-email', [RegisterController::class, 'verifyEmail'])->name('verify-email');
 
 /**
  * Login Routes
@@ -40,6 +42,7 @@ Route::post('/register/post', [RegisterController::class, 'register'])->name('re
 Route::get('/login', [LoginController::class, 'index'])->name('login-index');
 Route::post('/login', [LoginController::class, 'authenticate'])->name('login.request');
 
+Route::get('/dashboard', [HomeController::class, 'index']);
 
 Route::group(['middleware' => ['auth']], function () {
     /**
@@ -49,7 +52,6 @@ Route::group(['middleware' => ['auth']], function () {
 });
 
 Route::get('/', [UserController::class, 'index']);
-Route::get('/verify-email', [RegisterController::class, 'verifyEmail'])->name('verify-email');
 
 Route::get('/admin', [AdminController::class, 'index']);
 
