@@ -17,11 +17,11 @@
                 @include('partials.messages')
             </div>
         </div>
-        <div class="table-responsive text-nowrap">
+        <div class="table-responsive text-nowrap p-3">
             <table class="table table-striped datatable">
                 <thead>
                     <tr>
-                        <th>No</th>
+                        <th class="text-center">No</th>
                         <th>
                             <span class="ps-5">Action </span>
                             <span class="ps-5"> Nama Prodi</span>
@@ -32,7 +32,7 @@
                 <tbody class="table-border-bottom-0">
                     @foreach ($prodi as $index => $item)
                         <tr>
-                            <th scope="row">{{ $index + 1 }}</th>
+                            <th class="text-center" scope="row">{{ $index + 1 }}</th>
                             <td>
                                 @foreach ($item->prodis()->get() as $prodi)
                                     <p>
@@ -58,8 +58,8 @@
             </table>
         </div>
     </div>
+
     <script src="/assets/vendor/simple-datatables/simple-datatables.js"></script>
     <script src="/assets/vendor/tinymce/tinymce.min.js"></script>
-    <!-- Template Main JS File -->
     <script src="/assets/js/main2.js"></script>
 @endsection
