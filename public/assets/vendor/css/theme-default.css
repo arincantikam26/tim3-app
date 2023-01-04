@@ -76,6 +76,11 @@
   transition: all 0.3s ease-in-out;
 }
 
+.crud-icon {
+  font-size: 1.5em; 
+  color:green;
+}
+
 .app-brand .layout-menu-toggle {
   position: absolute;
   left: 15rem;

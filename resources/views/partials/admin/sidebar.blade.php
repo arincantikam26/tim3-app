@@ -18,7 +18,7 @@
     <!-- Dashboard -->
     <li class="menu-item {{ $active === 'admin' ? 'active' : '' }}">
       <a href="/admin" class="menu-link">
-        <i class="menu-icon fa-solid fa-gauge"></i>
+        <i class='menu-icon bx bxs-dashboard'></i>
         <div data-i18n="Analytics">Dashboard</div>
       </a>
     </li>
@@ -36,7 +36,7 @@
                             }
                           ?>">
       <a href="javascript:void(0);" class="menu-link menu-toggle">
-        <i class="menu-icon fa-solid fa-school-flag"></i>
+        <i class='menu-icon bx bxs-buildings'></i>
         <div data-i18n="Account Settings">Data Kampus</div>
       </a>
       <ul class="menu-sub">
@@ -54,7 +54,7 @@
     </li>
     <li class="menu-item {{ $active === 'sekolah' ? 'active' : '' }}">
       <a href="/admin/jurusan-sekolah" class="menu-link">
-        <i class="menu-icon fa-solid fa-school"></i>
+        <i class='menu-icon bx bxs-school'></i>
         <div data-i18n="Authentications">Data Sekolah</div>
       </a>
     </li>
@@ -63,13 +63,13 @@
     <!-- Cards -->
     <li class="menu-item {{ $active === 'kriteria' ? 'active' : '' }}">
       <a href="/admin/kriteria" class="menu-link">
-        <i class="menu-icon fa-solid fa-list-check"></i>
+        <i class='menu-icon bx bx-task'></i>
         <div data-i18n="Basic">Kriteria</div>
       </a>
     </li>
     <li class="menu-item {{ $active === 'pertanyaan' ? 'active' : '' }} ">
       <a href="/admin/pertanyaan" class="menu-link">
-        <i class="menu-icon fa-solid fa-clipboard-question"></i>
+        <i class='menu-icon bx bx-search-alt'></i>
         <div data-i18n="Basic">Pertanyaan</div>
       </a>
     </li>
@@ -78,7 +78,7 @@
     <!-- Extended components -->
     <li class="menu-item {{ $active === 'user' ? 'active' : '' }}">
       <a href="javascript:void(0)" class="menu-link menu-toggle">
-        <i class="menu-icon fa-solid fa-users"></i>
+        <i class='menu-icon bx bx-user'></i>
         <div data-i18n="Basic">Data Pengguna</div>
       </a>
       <ul class="menu-sub">
