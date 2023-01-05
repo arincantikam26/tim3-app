@@ -29,7 +29,11 @@ class ProdiController extends Controller
      */
     public function create()
     {
-        //
+        return view('admin.prodi.create', [
+            'title' => 'Program Studi',
+            'active' => 'prodi',
+            'jurusan' => Jurusan::all(),
+        ]);
     }
 
     /**
@@ -40,7 +44,15 @@ class ProdiController extends Controller
      */
     public function store(Request $request)
     {
-        //
+        // dd($request);
+        $request->validate([
+            'nama_prodi' => 'required',
+            'jurusan_id' => 'required'
+        ]);
+
+        Prodi::create($request->all());
+
+        return redirect()->route('prodi_index')->with('success', 'Data Berhasil Ditambahkan');;
     }
 
     /**
@@ -60,9 +72,15 @@ class ProdiController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function edit($id)
+    public function edit($id_prodi)
     {
-        //
+        $prodi = Prodi::find($id_prodi);
+        return view('admin.prodi.edit', [
+            'title' => 'Program Studi',
+            'active' => 'prodi',
+            'jurusan' => Jurusan::all(),
+            'prodi' => $prodi
+        ]);
     }
 
     /**
@@ -72,9 +90,11 @@ class ProdiController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function update(Request $request, $id)
+    public function update(Request $request, $id_prodi)
     {
-        //
+        $data = Prodi::find($id_prodi);
+        $data->update($request->all());
+        return redirect()->route('prodi_index')->with('success', 'Data Berhasil Diperbarui');
     }
 
     /**
@@ -83,8 +103,10 @@ class ProdiController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function destroy($id)
+    public function destroy($id_prodi)
     {
-        //
+        $data = Prodi::find($id_prodi);
+        $data->delete();
+        return redirect()->route('prodi_index')->with('success', 'Data Berhasil Dihapus');
     }
 }

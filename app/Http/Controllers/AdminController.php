@@ -8,8 +8,9 @@ use App\Models\User;
 
 class AdminController extends Controller
 {
-    public function index() {
-        $jurusan= Jurusan::count();
+    public function index()
+    {
+        $jurusan = Jurusan::count();
         $user = User::count();
 
         return view('admin.index', [
@@ -21,35 +22,42 @@ class AdminController extends Controller
         ]);
     }
 
-    public function jurusan() {
+    public function jurusan()
+    {
         return view('admin.jurusan', [
             'title' => 'Jurusan',
             'active' => 'jurusan'
         ]);
     }
 
-    public function prodi() {
-        return view('admin.prodi', [
+    public function prodi()
+    {
+        return view('admin.prodi.index', [
             'title' => 'Program Studi',
-            'active' => 'prodi'
+            'active' => 'prodi',
+            'prodi' => Jurusan::all(),
+
         ]);
     }
 
-    public function sekolah() {
+    public function sekolah()
+    {
         return view('admin.sekolah', [
             'title' => 'Jurusan Sekolah',
             'active' => 'sekolah'
         ]);
     }
 
-    public function kriteria() {
+    public function kriteria()
+    {
         return view('admin.kriteria', [
             'title' => 'Kriteria',
             'active' => 'kriteria'
         ]);
     }
 
-    public function pertanyaan() {
+    public function pertanyaan()
+    {
         return view('admin.pertanyaan', [
             'title' => 'Pertanyaan',
             'active' => 'pertanyaan'
