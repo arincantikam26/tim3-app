@@ -74,4 +74,4 @@ Route::get('/rekomendasi', function () {
     ]);
 });
 
-Route::get('/user', [UserController::class, 'dashboard']);  
+Route::get('/user', [UserController::class, 'dashboard'])->name('user');
