@@ -9,4 +9,11 @@ class Preferensi extends Model
 {
     use HasFactory;
     protected $guarded=['id'];
+    protected $table = 'preferensis';
+    
+
+    public function preferensi()
+    {
+        return $this->hasMany(Preferensi::class);
+    }
 }

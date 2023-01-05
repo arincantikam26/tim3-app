@@ -7,6 +7,7 @@ use App\Http\Controllers\LoginController;
 use App\Http\Controllers\ProdiController;
 use App\Http\Controllers\RegisterController;
 use App\Http\Controllers\UserController;
+use App\Http\Controllers\PreferensiController;
 use Illuminate\Support\Facades\Route;
 
 /*
@@ -64,6 +65,7 @@ Route::get('/admin/user', [AdminController::class, 'user']);
 
 Route::resource('prodi', ProdiController::class);
 Route::resource('jurusan', JurusanController::class);
+Route::resource('preferensi', PreferensiController::class);
 
 Route::get('/rekomendasi', function () {
     return view('users.rekomendasi', [
