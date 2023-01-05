@@ -1,4 +1,4 @@
-@extends('layouts.main_admin')
+@extends('layouts.main_users')
 @section('content')
 
 <section id="hero">

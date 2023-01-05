@@ -69,7 +69,8 @@ Route::resource('jurusan', JurusanController::class);
 
 Route::get('/rekomendasi', function () {
     return view('users.rekomendasi', [
-        'title' => 'rekomendasi'
+        'title' => 'rekomendasi',
+        'active' => 'cek_jurusan'
     ]);
 });
 

@@ -32,7 +32,7 @@
 
 <section id="data-admin">
     <div class="row">
-        <div class="col-lg-4 col-md-4 order-0 mb-3">
+        <div class="col-lg-3 col-md-3 order-0 mb-3">
             <div class="card">
                 <div class="card-body">
                   <div class="card-title d-flex align-items-start justify-content-between">
@@ -42,11 +42,25 @@
                   </div>
                   <span class="fw-semibold d-block mb-1">Jurusan Kampus</span>
                   <h3 class="card-title mb-2">{{ $jurusan }} Jurusan</h3>
-                  <small class="text-success fw-semibold"><a href="#"> Details <i class="fa-solid fa-angles-right"></i></a></small>
+                  <small class="text-success fw-semibold"><a href="/admin/jurusan"> Details <i class="fa-solid fa-angles-right"></i></a></small>
                 </div>
             </div>
         </div>
-        <div class="col-lg-4 col-md-4 order-0 mb-3">
+        <div class="col-lg-3 col-md-3 order-0 mb-3">
+            <div class="card">
+                <div class="card-body">
+                  <div class="card-title d-flex align-items-start justify-content-between">
+                    <div class="avatar flex-shrink-0">
+                      <i class='bx bxs-city' style="color:rgb(117, 233, 117); font-size:2em;"></i>
+                    </div>
+                  </div>
+                  <span class="fw-semibold d-block mb-1">Prodi</span>
+                  <h3 class="card-title mb-2">{{ $prodi }} Prodi</h3>
+                  <small class="text-success fw-semibold"><a href="/admin/prodi"> Details <i class="fa-solid fa-angles-right"></i></a></small>
+                </div>
+            </div>
+        </div>
+        <div class="col-lg-3 col-md-3 order-0 mb-3">
             <div class="card">
                 <div class="card-body">
                   <div class="card-title d-flex align-items-start justify-content-between">
@@ -54,13 +68,13 @@
                       <i class="bx bxs-school" style="color:rgb(117, 233, 117); font-size:2em;"></i>
                     </div>
                   </div>
-                  <span class="fw-semibold d-block mb-1">Jurusan Sekolah</span>
-                  <h3 class="card-title mb-2">6 Jurusan</h3>
-                  <small class="text-success fw-semibold"><a href="#"> Details <i class="fa-solid fa-angles-right"></i></a></small>
+                  <span class="fw-semibold d-block mb-1">Sekolah</span>
+                  <h3 class="card-title mb-2">{{ $sekolah }} Sekolah</h3>
+                  <small class="text-success fw-semibold"><a href="/admin/jurusan-sekolah"> Details <i class="fa-solid fa-angles-right"></i></a></small>
                 </div>
             </div>
         </div>
-        <div class="col-lg-4 col-md-4 order-0 mb-3">
+        <div class="col-lg-3 col-md-3 order-0 mb-3">
             <div class="card">
                 <div class="card-body">
                   <div class="card-title d-flex align-items-start justify-content-between">
@@ -70,7 +84,7 @@
                   </div>
                   <span class="fw-semibold d-block mb-1">Data User</span>
                   <h3 class="card-title mb-2">{{ $user }} Pengguna</h3>
-                  <small class="text-success fw-semibold"><a href="#"> Details <i class="fa-solid fa-angles-right"></i></a></small>
+                  <small class="text-success fw-semibold"><a href="{{ route('usercrud.index') }}"> Details <i class="fa-solid fa-angles-right"></i></a></small>
                 </div>
             </div>
         </div>
