@@ -1,7 +1,6 @@
 @extends('layouts.main_users')
 @section('content')
     <section id="main">
-        <div class="container mt-3">
             <div class="card text-center mb-3">
                 
               <div class="card-body">
@@ -62,7 +61,5 @@
                 
               </div>
             </div>
-
-        </div>
     </section>
 @endsection
