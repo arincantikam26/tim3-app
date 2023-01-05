@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use App\Models\Jurusan;
+use App\Models\Prodi;
 use Illuminate\Http\Request;
 use Illuminate\Support\Collection;
 
@@ -22,6 +23,18 @@ class UserController extends Controller
             'title' => 'Home',
             'active' => 'home',
             'datajurusan' => $jurusan
+        ]);
+    }
+
+    public function dashboard(){
+        $jurusan = Jurusan::count();
+        $prodi=Prodi::count();
+
+        return view('users.index', [
+            'title' => 'Home',
+            'active' => 'user', 
+            'jurusan'=> $jurusan,
+            'prodi'=>$prodi
         ]);
     }
 
