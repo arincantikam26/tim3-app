@@ -7,6 +7,7 @@ use App\Http\Controllers\LoginController;
 use App\Http\Controllers\ProdiController;
 use App\Http\Controllers\RegisterController;
 use App\Http\Controllers\UserController;
+use App\Http\Controllers\UserCrudController;
 use Illuminate\Support\Facades\Route;
 
 /*
@@ -60,14 +61,16 @@ Route::get('/admin/prodi', [AdminController::class, 'prodi'])->name('prodi_index
 Route::get('/admin/jurusan-sekolah', [AdminController::class, 'sekolah']);
 Route::get('/admin/kriteria', [AdminController::class, 'kriteria']);
 Route::get('/admin/pertanyaan', [AdminController::class, 'pertanyaan']);
-Route::get('/admin/user', [AdminController::class, 'user']);
+
+Route::resource('/admin/usercrud', UserCrudController::class);
 
 Route::resource('prodi', ProdiController::class);
 Route::resource('jurusan', JurusanController::class);
 
 Route::get('/rekomendasi', function () {
     return view('users.rekomendasi', [
-        'title' => 'rekomendasi'
+        'title' => 'rekomendasi',
+        'active' => 'cek_jurusan'
     ]);
 });
 
