@@ -3,9 +3,19 @@
     <h1>{{ $title }}</h1>
     <div class="card">
         <div class="card-header">
-            <h5>{{ $title }}</h5>
+            <div class="row">
+                <div class="col-lg-8">
+                    <h5>{{ $title }}</h5>
+                </div>
+                <div class="col-lg-4 text-end mb-3">
+                    <a href="{{ route('admin-user.create') }}" class="btn btn-success"><i class='bx bx-plus-circle'
+                            style="font-size: 1.5em"></i> Tambah
+                        {{ $title }}</a>
+                </div>
+                @include('partials.messages')
+            </div>
         </div>
-        <div class="table-responsive text-nowrap">
+        <div class="table-responsive text-nowrap p-3">
             <table class="table table-striped">
                 <thead>
                     <tr>

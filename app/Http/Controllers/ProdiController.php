@@ -48,7 +48,7 @@ class ProdiController extends Controller
 
         Prodi::create($request->all());
 
-        return redirect()->route('prodi_index')->with('success', 'Data Berhasil Ditambahkan');;
+        return redirect()->route('admin-prodi')->with('success', 'Data Berhasil Ditambahkan');;
     }
 
     /**
@@ -90,7 +90,7 @@ class ProdiController extends Controller
     {
         $data = Prodi::find($id_prodi);
         $data->update($request->all());
-        return redirect()->route('prodi_index')->with('success', 'Data Berhasil Diperbarui');
+        return redirect()->route('admin-prodi')->with('success', 'Data Berhasil Diperbarui');
     }
 
     /**
@@ -103,6 +103,6 @@ class ProdiController extends Controller
     {
         $data = Prodi::find($id_prodi);
         $data->delete();
-        return redirect()->route('prodi_index')->with('success', 'Data Berhasil Dihapus');
+        return redirect()->route('admin-prodi')->with('success', 'Data Berhasil Dihapus');
     }
 }

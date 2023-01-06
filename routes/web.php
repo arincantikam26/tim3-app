@@ -34,59 +34,33 @@ use SebastianBergmann\CodeCoverage\Report\Html\Dashboard;
 // });
 
 
-Route::group(['namespace' => 'App\Http\Controllers'], function () {
-    /**
-     * Home Routes
-     */
-    Route::get('/', [HomeController::class, 'home']);
 
+Route::get('dashboard', [DashboardController::class, 'index'])->name('dashboard');
+Route::get('/', [HomeController::class, 'home']);
+Route::get('/home/prodi', [HomeController::class, 'prodi'])->name('prodi');
+Route::get('/home/jurusan', [HomeController::class, 'jurusan'])->name('jurusan');
+Route::get('/logout',  [LogoutController::class, 'perform'])->name('logout.perform')->middleware('auth');
 
-    Route::group(['middleware' => ['guest']], function () {
-        /**
-         * Register Routes
-         */
-        Route::get('/register', [RegisterController::class, 'show'])->name('register.show');
-        Route::post('/register', [RegisterController::class, 'register'])->name('register-request');
-
-        /**
-         * Login Routes
-         */
-        Route::get('/login', [LoginController::class, 'show'])->name('login.show');
-        Route::post('/login',  [LoginController::class, 'login'])->name('login-request');
-    });
-
-    /**
-     * Logout Routes
-     */
-    Route::get('/dashboard', [DashboardController::class, 'index'])->name('dashboard')->middleware('auth');
-
-    Route::get('/logout',  [LogoutController::class, 'perform'])->name('logout.perform')->middleware('auth');
+Route::group(['middleware' => ['guest']], function () {
+    Route::get('/register', [RegisterController::class, 'show'])->name('register.show');
+    Route::post('/register', [RegisterController::class, 'register'])->name('register-request');
+    Route::get('/login', [LoginController::class, 'show'])->name('login.show');
+    Route::post('/login',  [LoginController::class, 'login'])->name('login-request');
 });
 
 Route::group(['middleware' => 'check-permission:user'], function () {
     Route::get('/dashboard/user', [UserController::class, 'dashboard'])->name('dashboard-user');
+    Route::get('/rekomendasi', [UserController::class, 'rekomendasi'])->name('rekomendasi');
 });
 
 Route::group(['middleware' => 'check-permission:admin'], function () {
     Route::get('/dashboard/admin', [AdminController::class, 'dashboard'])->name('dashboard-admin');
-    Route::resource('/admin/usercrud', UserCrudController::class);
+    Route::get('/admin/jurusan', [AdminController::class, 'jurusan'])->name('admin-jurusan');
+    Route::get('/admin/prodi', [AdminController::class, 'prodi'])->name('admin-prodi');
+    Route::resource('prodi', ProdiController::class);
+    Route::resource('jurusan', JurusanController::class);
+    Route::get('/admin/jurusan-sekolah', [AdminController::class, 'sekolah'])->name('admin-sekolah');
+    Route::get('/admin/kriteria', [AdminController::class, 'kriteria'])->name('admin-kriteria');
+    Route::get('/admin/pertanyaan', [AdminController::class, 'pertanyaan'])->name('admin-pertanyaan');
+    Route::resource('/admin-user', UserCrudController::class);
 });
-
-
-
-// Route::get('/', [HomeController::class, 'home']);
-// Route::get('/prodi', [HomeController::class, 'prodi'])->name('prodi');
-// Route::get('/jurusan', [HomeController::class, 'jurusan'])->name('jurusan');
-// Route::get('/rekomendasi', [HomeController::class, 'jurusan'])->name('jurusan');
-// Route::get('/login', [LoginController::class, 'index'])->name('login-show');
-// Route::post('/login', [LoginController::class, 'authenticate'])->name('login-request');
-// Route::get('/register', [RegisterController::class, 'show'])->name('register-show');
-// Route::post('/register', [RegisterController::class, 'register'])->name('register-request');
-
-// Route::get('dashboard', [DashboardController::class, 'index'])->name('dashboard');
-
-// Route::group(['middleware' => 'check-permission:user'], function () {
-//     Route::get('/dashboard/user', [UserController::class, 'dashboard'])->name('dashboard-user');
-// });
-
-// Route::get('/dashboard/admin', [AdminController::class, 'dashboard'])->name('dashboard-admin');

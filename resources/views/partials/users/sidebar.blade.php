@@ -47,14 +47,14 @@
                     </a>
                 </li>
                 <li class="menu-item {{ $active === 'prodi' ? 'active' : '' }}">
-                    <a href="/user/prodi" class="menu-link">
-                        <div data-i18n="Basic">Jurusan Calon Mahasiswa</div>
+                    <a href="{{ route('rekomendasi') }}" class="menu-link">
+                        <div data-i18n="Basic">Rekomendasi</div>
                     </a>
                 </li>
             </ul>
         </li>
         <li class="menu-item {{ $active === 'sekolah' ? 'active' : '' }}">
-            <a href=" " class="menu-link">
+            <a href="#" class="menu-link">
                 <i class='menu-icon bx bxs-school'></i>
                 <div data-i18n="Authentications">Preferensi</div>
             </a>

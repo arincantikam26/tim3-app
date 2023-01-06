@@ -42,19 +42,19 @@
             </a>
             <ul class="menu-sub">
                 <li class="menu-item {{ $active === 'jurusan' ? 'active' : '' }}">
-                    <a href="/admin/jurusan" class="menu-link">
+                    <a href="{{ route('admin-jurusan') }}" class="menu-link">
                         <div data-i18n="Basic">Jurusan</div>
                     </a>
                 </li>
                 <li class="menu-item {{ $active === 'prodi' ? 'active' : '' }}">
-                    <a href="/admin/prodi" class="menu-link">
+                    <a href="{{ route('admin-prodi') }}" class="menu-link">
                         <div data-i18n="Basic">Prodi</div>
                     </a>
                 </li>
             </ul>
         </li>
         <li class="menu-item {{ $active === 'sekolah' ? 'active' : '' }}">
-            <a href="/admin/jurusan-sekolah" class="menu-link">
+            <a href="{{ route('admin-sekolah') }}" class="menu-link">
                 <i class='menu-icon bx bxs-school'></i>
                 <div data-i18n="Authentications">Data Sekolah</div>
             </a>
@@ -63,13 +63,13 @@
         <li class="menu-header small text-uppercase"><span class="menu-header-text">Metode</span></li>
         <!-- Cards -->
         <li class="menu-item {{ $active === 'kriteria' ? 'active' : '' }}">
-            <a href="/admin/kriteria" class="menu-link">
+            <a href="{{ route('admin-kriteria') }}" class="menu-link">
                 <i class='menu-icon bx bx-task'></i>
                 <div data-i18n="Basic">Kriteria</div>
             </a>
         </li>
         <li class="menu-item {{ $active === 'pertanyaan' ? 'active' : '' }} ">
-            <a href="/admin/pertanyaan" class="menu-link">
+            <a href="{{ route('admin-pertanyaan') }}" class="menu-link">
                 <i class='menu-icon bx bx-search-alt'></i>
                 <div data-i18n="Basic">Pertanyaan</div>
             </a>
@@ -78,10 +78,10 @@
         <li class="menu-header small text-uppercase"><span class="menu-header-text">Pengguna</span></li>
         <!-- Extended components -->
         <li class="menu-item {{ $active === 'user' ? 'active' : '' }}">
-          <a href="{{ route('usercrud.index') }}" class="menu-link">
-            <i class='menu-icon bx bx-user'></i>
-            <div data-i18n="Perfect Scrollbar">List Pengguna</div>
-          </a>
+            <a href="{{ route('admin-user.index') }}" class="menu-link">
+                <i class='menu-icon bx bx-user'></i>
+                <div data-i18n="Perfect Scrollbar">List Pengguna</div>
+            </a>
         </li>
     </ul>
 </aside>

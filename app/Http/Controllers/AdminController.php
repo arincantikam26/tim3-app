@@ -23,7 +23,7 @@ class AdminController extends Controller
         $j_sekolah = JurusanSekolah::count();
 
         return view('admin.index', [
-            'title' => 'Home',
+            'title' => 'Dashboard',
             'active' => 'admin',
             'jurusan' => $jurusan,
             'user' => $user,
