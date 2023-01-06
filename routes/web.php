@@ -62,5 +62,5 @@ Route::group(['middleware' => 'check-permission:admin'], function () {
     Route::get('/admin/jurusan-sekolah', [AdminController::class, 'sekolah'])->name('admin-sekolah');
     Route::get('/admin/kriteria', [AdminController::class, 'kriteria'])->name('admin-kriteria');
     Route::get('/admin/pertanyaan', [AdminController::class, 'pertanyaan'])->name('admin-pertanyaan');
-    Route::resource('/admin-user', UserCrudController::class);
+    Route::resource('admin-user', UserCrudController::class);
 });

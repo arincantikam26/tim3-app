@@ -4,13 +4,6 @@
     <h1>{{ $title }}</h1>
     <div class="card">
         <div class="card-header">
-<<<<<<< HEAD
-            <h5>{{ $title }}</h5>
-            @include('partials.messages')
-        </div>
-        <div class="table-responsive text-nowrap p-3">
-            <table class="table table-striped datatable">
-=======
             <div class="row">
                 <div class="col-lg-8">
                     <h5>{{ $title }}</h5>
@@ -24,8 +17,7 @@
             </div>
         </div>
         <div class="table-responsive text-nowrap p-3">
-            <table class="table table-striped">
->>>>>>> 23fe0cb9584945bd435fac13d1450a823febc0cb
+            <table class="table table-striped datatable">
                 <thead>
                     <tr>
                         <th class="text-center">No</th>
@@ -44,8 +36,8 @@
                             <th class="text-center" scope="row">{{ $index + 1 }}</th>
                             <td>
                                 <p>
-                                    <form action="{{ route('usercrud.destroy', $item->id) }}" method="POST">
-                                        <a class="ps-5" href="{{ route('usercrud.edit', $item->id) }}">
+                                    <form action="{{ route('admin-user.destroy', $item->id) }}" method="POST">
+                                        <a class="ps-5" href="{{ route('admin-user.edit', $item->id) }}">
                                             <i class='bx bx-edit crud-icon' style="font-size: 1.5em; color:green;"title="Edit"></i>
                                         </a>
                                         @csrf
