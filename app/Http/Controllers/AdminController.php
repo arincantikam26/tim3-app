@@ -4,6 +4,8 @@ namespace App\Http\Controllers;
 
 use App\Http\Controllers\Controller;
 use App\Models\Jurusan;
+use App\Models\JurusanSekolah;
+use App\Models\Prodi;
 use App\Models\User;
 
 class AdminController extends Controller
@@ -12,12 +14,16 @@ class AdminController extends Controller
     {
         $jurusan = Jurusan::count();
         $user = User::count();
+        $prodi = Prodi::count();
+        $j_sekolah = JurusanSekolah::count();
 
         return view('admin.index', [
             'title' => 'Home',
             'active' => 'admin',
             'jurusan' => $jurusan,
-            'user' => $user
+            'user' => $user,
+            'prodi' => $prodi,
+            'sekolah' => $j_sekolah
 
         ]);
     }
@@ -64,12 +70,4 @@ class AdminController extends Controller
         ]);
     }
 
-    public function user()
-    {
-        return view('admin.user', [
-            'title' => 'Pengguna',
-            'active' => 'user',
-            'user' => User::all()
-        ]);
-    }
 }

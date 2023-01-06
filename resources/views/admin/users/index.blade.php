@@ -3,15 +3,7 @@
     <h1>{{ $title }}</h1>
     <div class="card">
         <div class="card-header">
-            <div class="row">
-                <div class="col-lg-8">
-                    <h5>{{ $title }}</h5>
-                </div>
-                <div class="col-lg-4 text-end">
-                    <a href="#" class="btn btn-success"><i class='bx bx-plus-circle' style="font-size: 1.5em"></i> Tambah
-                        User</a>
-                </div>
-            </div>
+            <h5>{{ $title }}</h5>
         </div>
         <div class="table-responsive text-nowrap">
             <table class="table table-striped">

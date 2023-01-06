@@ -75,12 +75,12 @@
             </a>
         </li>
         <!-- Components -->
-        <li class="menu-header small text-uppercase"><span class="menu-header-text">Pengguna</span></li>
+        <li class="menu-header small text-uppercase"><span class="menu-header-text">Cek Jurusan</span></li>
         <!-- Extended components -->
-        <li class="menu-item {{ $active === 'user' ? 'active' : '' }}">
-          <a href="{{ route('usercrud.index') }}" class="menu-link">
+        <li class="menu-item {{ $active === 'cek_jurusan' ? 'active' : '' }}">
+          <a href="/rekomendasi" class="menu-link">
             <i class='menu-icon bx bx-user'></i>
-            <div data-i18n="Perfect Scrollbar">List Pengguna</div>
+            <div data-i18n="Perfect Scrollbar">Cek Jurusan</div>
           </a>
         </li>
     </ul>
