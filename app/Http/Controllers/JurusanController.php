@@ -14,11 +14,7 @@ class JurusanController extends Controller
      */
     public function index()
     {
-        return view('jurusan.index', [
-            'title' => 'Jurusan',
-            'jurusan' => Jurusan::all(),
-            'active' => 'jurusan'
-        ]);
+        //
     }
 
     /**

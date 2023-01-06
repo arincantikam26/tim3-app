@@ -15,26 +15,22 @@ class UserController extends Controller
      *
      * @return \Illuminate\Http\Response
      */
-    public function index()
+
+    public function __construct()
     {
-        // $jurusan = Jurusan::inRandomOrder()->limit(3)->get();
-        $jurusan = Jurusan::all();
-        return view('home.index', [
-            'title' => 'Home',
-            'active' => 'home',
-            'datajurusan' => $jurusan
-        ]);
+        $this->middleware('auth');
     }
 
-    public function dashboard(){
+    public function dashboard()
+    {
         $jurusan = Jurusan::count();
-        $prodi=Prodi::count();
+        $prodi = Prodi::count();
 
         return view('users.index', [
             'title' => 'Home',
-            'active' => 'user', 
-            'jurusan'=> $jurusan,
-            'prodi'=>$prodi
+            'active' => 'user',
+            'jurusan' => $jurusan,
+            'prodi' => $prodi
         ]);
     }
 

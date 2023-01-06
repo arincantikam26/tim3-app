@@ -16,7 +16,7 @@
                          </h4>
                          <p class="mb-4">&nbsp;</p>
 
-                         <form class="mb-3" action="{{ route('login.request') }}" method="POST">
+                         <form class="mb-3" action="{{ route('login-request') }}" method="POST">
                              @csrf
                              @include('partials.messages')
                              <div class="mb-3">

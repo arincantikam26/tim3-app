@@ -17,8 +17,8 @@
 
     <ul class="menu-inner py-1">
         <!-- Dashboard -->
-        <li class="menu-item {{ $active === 'admin' ? 'active' : '' }}">
-            <a href="/admin" class="menu-link">
+        <li class="menu-item {{ $active === 'user' ? 'active' : '' }}">
+            <a href="/dashboard/user" class="menu-link">
                 <i class='menu-icon bx bxs-dashboard'></i>
                 <div data-i18n="Analytics">Dashboard</div>
             </a>
@@ -38,38 +38,38 @@
         ?>">
             <a href="javascript:void(0);" class="menu-link menu-toggle">
                 <i class='menu-icon bx bxs-buildings'></i>
-                <div data-i18n="Account Settings">Data Kampus</div>
+                <div data-i18n="Account Settings">Data Calon Mahasiswa</div>
             </a>
             <ul class="menu-sub">
                 <li class="menu-item {{ $active === 'jurusan' ? 'active' : '' }}">
-                    <a href="/admin/jurusan" class="menu-link">
-                        <div data-i18n="Basic">Jurusan</div>
+                    <a href="/user/jurusan" class="menu-link">
+                        <div data-i18n="Basic">Biodata</div>
                     </a>
                 </li>
                 <li class="menu-item {{ $active === 'prodi' ? 'active' : '' }}">
-                    <a href="/admin/prodi" class="menu-link">
-                        <div data-i18n="Basic">Prodi</div>
+                    <a href="/user/prodi" class="menu-link">
+                        <div data-i18n="Basic">Jurusan Calon Mahasiswa</div>
                     </a>
                 </li>
             </ul>
         </li>
         <li class="menu-item {{ $active === 'sekolah' ? 'active' : '' }}">
-            <a href="/admin/jurusan-sekolah" class="menu-link">
+            <a href=" " class="menu-link">
                 <i class='menu-icon bx bxs-school'></i>
-                <div data-i18n="Authentications">Data Sekolah</div>
+                <div data-i18n="Authentications">Preferensi</div>
             </a>
         </li>
         <!-- Components -->
         <li class="menu-header small text-uppercase"><span class="menu-header-text">Metode</span></li>
         <!-- Cards -->
         <li class="menu-item {{ $active === 'kriteria' ? 'active' : '' }}">
-            <a href="/admin/kriteria" class="menu-link">
+            <a href="/user/kriteria" class="menu-link">
                 <i class='menu-icon bx bx-task'></i>
                 <div data-i18n="Basic">Kriteria</div>
             </a>
         </li>
         <li class="menu-item {{ $active === 'pertanyaan' ? 'active' : '' }} ">
-            <a href="/admin/pertanyaan" class="menu-link">
+            <a href="/user/pertanyaan" class="menu-link">
                 <i class='menu-icon bx bx-search-alt'></i>
                 <div data-i18n="Basic">Pertanyaan</div>
             </a>
@@ -78,10 +78,10 @@
         <li class="menu-header small text-uppercase"><span class="menu-header-text">Cek Jurusan</span></li>
         <!-- Extended components -->
         <li class="menu-item {{ $active === 'cek_jurusan' ? 'active' : '' }}">
-          <a href="/rekomendasi" class="menu-link">
-            <i class='menu-icon bx bx-user'></i>
-            <div data-i18n="Perfect Scrollbar">Cek Jurusan</div>
-          </a>
+            <a href="/rekomendasi" class="menu-link">
+                <i class='menu-icon bx bx-user'></i>
+                <div data-i18n="Perfect Scrollbar">Cek Jurusan</div>
+            </a>
         </li>
     </ul>
 </aside>

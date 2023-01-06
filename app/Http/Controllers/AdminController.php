@@ -10,7 +10,12 @@ use App\Models\User;
 
 class AdminController extends Controller
 {
-    public function index()
+    public function __construct()
+    {
+        $this->middleware('auth');
+    }
+
+    public function dashboard()
     {
         $jurusan = Jurusan::count();
         $user = User::count();
@@ -69,5 +74,4 @@ class AdminController extends Controller
             'active' => 'pertanyaan'
         ]);
     }
-
 }

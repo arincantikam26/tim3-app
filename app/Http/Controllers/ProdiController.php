@@ -15,11 +15,7 @@ class ProdiController extends Controller
      */
     public function index()
     {
-        return view('prodi.index', [
-            'title' => 'Prodi',
-            'jurusan' => Jurusan::all(),
-            'active' => 'prodi'
-        ]);
+        //
     }
 
     /**

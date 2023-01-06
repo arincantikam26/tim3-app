@@ -22,21 +22,37 @@
                     <a class="nav-link text-decoration-none {{ $active === 'prodi' ? 'active' : '' }}"
                         aria-current="page" href="/prodi">Prodi</a>
                 </li>
-                <li class="nav-item px-2" data-anchor="data-anchor">
+                {{-- <li class="nav-item px-2" data-anchor="data-anchor">
                     <a class="nav-link text-decoration-none {{ $active === 'preferensi' ? 'active' : '' }}"
                         aria-current="page" href="/preferensi">Preferensi</a>
-                </li>
+                </li> --}}
                 <li class="nav-item px-2" data-anchor="data-anchor">
                     <a class="nav-link text-decoration-none {{ $active === 'about' ? 'active' : '' }}"
                         aria-current="page" href="/about">About</a>
                 </li>
             </ul>
 
-            <div class="text-end">
-                <a href="{{ route('login-index') }}"
-                    class="text-decoration-none btn btn-outline-dark order-0 me-2">Login</a>
-                <a href="{{ route('register-show') }}" class="btn btn-dark px-4 gap-3 text-decoration-none">Sign-up</a>
-            </div>
+            @auth
+                <div class="text-end">
+                    @if (auth()->user()->is_permission == 1)
+                        <a href="{{ route('dashboard-admin') }}"
+                            class="text-decoration-none btn btn-outline-dark order-0 me-2">Back
+                            to Dashboard</a>
+                    @else
+                        <a href="{{ route('dashboard-user') }}"
+                            class="text-decoration-none btn btn-outline-dark order-0 me-2">Back
+                            to Dashboard</a>
+                    @endif
+                    <a href="{{ route('logout.perform') }}" class="btn btn-dark px-4 gap-3 text-decoration-none">Logout</a>
+                </div>
+            @endauth
+            @guest
+                <div class="text-end">
+                    <a href="{{ route('login.show') }}"
+                        class="text-decoration-none btn btn-outline-dark order-0 me-2">Login</a>
+                    <a href="{{ route('register.show') }}" class="btn btn-dark px-4 gap-3 text-decoration-none">Sign-up</a>
+                </div>
+            @endguest
 
         </div>
     </div>

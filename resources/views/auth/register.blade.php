@@ -14,7 +14,7 @@
                          <h4 class="mb-2 text-center">Selamat Datang 🚀</h4>
                          <p class="mb-4">Silahkan daftarkan akunmu pada form berikut!</p>
 
-                         <form class="mb-3" action="{{ route('register.request') }}" method="POST">
+                         <form class="mb-3" action="{{ route('register-request') }}" method="POST">
                              @csrf
                              <div class="mb-3">
                                  <label for="name" class="form-label">Nama Lengkap</label>
