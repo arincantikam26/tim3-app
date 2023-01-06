@@ -36,17 +36,9 @@ class DatabaseSeeder extends Seeder
 
         User::factory(5)->create();
 
-        JurusanSekolah::create([
-            'nama_jurusan' => 'SMA-IPA'
-        ]);
-        JurusanSekolah::create([
-            'nama_jurusan' => 'SMA-IPS'
-        ]);
-        JurusanSekolah::create([
-            'nama_jurusan' => 'SMK'
-        ]);
 
         $this->call(ProdiSeeder::class);
         $this->call(JurusanSeeder::class);
+        $this->call(JurusanSekolahSeeder::class);
     }
 }
