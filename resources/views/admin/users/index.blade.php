@@ -1,5 +1,6 @@
 @extends('layouts.main_admin')
 @section('content')
+    
     <h1>{{ $title }}</h1>
     <div class="card">
         <div class="card-header">
@@ -16,22 +17,41 @@
             </div>
         </div>
         <div class="table-responsive text-nowrap p-3">
-            <table class="table table-striped">
+            <table class="table table-striped datatable">
                 <thead>
                     <tr>
-                        <th>No</th>
-                        <th>Username</th>
+                        <th class="text-center">No</th>
+                        <th>
+                            <span class="ps-5">Action</span>
+                            <span class="ps-5">Username</span>
+                        </th>
                         <th>Nama</th>
                         <th>Email</th>
                         <th>Role</th>
-                        <th>Action</th>
                     </tr>
                 </thead>
                 <tbody class="table-border-bottom-0">
                     @foreach ($user as $index => $item)
                         <tr>
-                            <th scope="row">{{ $index + 1 }}</th>
-                            <td>{{ $item->username }}</td>
+                            <th class="text-center" scope="row">{{ $index + 1 }}</th>
+                            <td>
+                                <p>
+                                    <form action="{{ route('admin-user.destroy', $item->id) }}" method="POST">
+                                        <a class="ps-5" href="{{ route('admin-user.edit', $item->id) }}">
+                                            <i class='bx bx-edit crud-icon' style="font-size: 1.5em; color:green;"title="Edit"></i>
+                                        </a>
+                                        @csrf
+                                        @method('DELETE')
+                                        <button class="pe-5 bg-transparent border-0"
+                                            onclick="return confirm('Apakah Anda Yakin Ingin Menghapus?')">
+                                            <i class='bx bxs-eraser' style="font-size: 1.5em; color:red;"title="Hapus"></i>
+                                        </button>
+
+                                        {{ $item->username }}
+                                    </form>
+                                </p>
+                                
+                            </td>
                             <td>{{ $item->name }}</td>
                             <td>{{ $item->email }}</td>
                             <td>
@@ -40,18 +60,6 @@
                                 @else
                                     User
                                 @endif
-                            </td>
-                            <td>
-                                <div class="row">
-                                    <div class="col-lg-6">
-                                        <a href="#"><i class='bx bx-edit crud-icon'
-                                                style="font-size: 1.5em; color:green;"></i></a>
-                                    </div>
-                                    <div class="col-lg-6">
-                                        <a href="#"><i class='bx bxs-eraser'
-                                                style="font-size: 1.5em; color:red;"></i></a>
-                                    </div>
-                                </div>
                             </td>
                         </tr>
                     @endforeach

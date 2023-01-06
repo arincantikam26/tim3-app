@@ -31,6 +31,18 @@
                                 <span class="text-danger text-left">{{ $errors->first('username') }}</span>
                             @endif
                         </div>
+                        <div class="mb-3 form-password-toggle">
+                            <label class="form-label" for="password">Password</label>
+                            <div class="input-group input-group-merge">
+                                <input type="password" id="password" class="form-control" name="password"
+                                    placeholder="&#xb7;&#xb7;&#xb7;&#xb7;&#xb7;&#xb7;&#xb7;&#xb7;&#xb7;&#xb7;&#xb7;&#xb7;"
+                                    aria-describedby="password" required="required" />
+                                <span class="input-group-text cursor-pointer"><i class="bx bx-hide"></i></span>
+                            </div>
+                            @if ($errors->has('password'))
+                                <span class="text-danger text-left">{{ $errors->first('password') }}</span>
+                            @endif
+                        </div>
                         <div class="mb-3">
                             <label for="email" class="form-label">Email</label>
                             <input type="email" name="email" class="form-control" placeholder=" "

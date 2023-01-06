@@ -42,7 +42,16 @@ class UserCrudController extends Controller
      */
     public function store(Request $request)
     {
-        //
+        $request->validate([
+            'name' => 'required|min:3|max:255',
+            'username' => 'required|min:3|max:255|unique:users',
+            'password' => 'required|min:8',
+            'email' => 'required|email|unique:users',
+            'is_permission' => 'required'
+        ]);
+        User::create($request->all());
+
+        return redirect()->route('admin-user.index')->with('success', 'Data Berhasil Ditambahkan');
     }
 
     /**
@@ -64,10 +73,11 @@ class UserCrudController extends Controller
      */
     public function edit($id)
     {
+        $user = User::find($id);
         return view('admin.users.update', [
             'title' => 'Pengguna',
             'active' => 'user',
-            'user' => User::all()
+            'user' => $user
         ]);
     }
 
@@ -80,7 +90,9 @@ class UserCrudController extends Controller
      */
     public function update(Request $request, $id)
     {
-        //
+        $data = User::find($id);
+        $data->update($request->all());
+        return redirect()->route('admin-user.index')->with('success', 'Data Berhasil Disimpan');
     }
 
     /**
@@ -91,6 +103,8 @@ class UserCrudController extends Controller
      */
     public function destroy($id)
     {
-        //
+        $data = User::find($id);
+        $data->delete();
+        return redirect()->route('admin-user.index')->with('success', 'Data Berhasil Dihapus');
     }
 }
