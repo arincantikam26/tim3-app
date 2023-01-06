@@ -61,10 +61,11 @@ class UserCrudController extends Controller
      */
     public function edit($id)
     {
+        $user = User::find($id);
         return view('admin.users.update', [
             'title' => 'Pengguna',
             'active' => 'user',
-            'user' => User::all()
+            'user' => $user
         ]);
     }
 
@@ -88,6 +89,8 @@ class UserCrudController extends Controller
      */
     public function destroy($id)
     {
-        //
+        $user = User::find($id);
+        $user->delete();
+        return redirect()->route('usercrud.index')->with('success', 'Data Berhasil Dihapus');
     }
 }

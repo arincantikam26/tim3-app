@@ -1,7 +1,5 @@
 @extends('layouts.main_admin')
 @section('content')
-    <link href="/assets/vendor/simple-datatables/style.css" rel="stylesheet">
-
     <h1>{{ $title }}</h1>
     <div class="card">
         <div class="card-header">
@@ -59,7 +57,4 @@
         </div>
     </div>
 
-    <script src="/assets/vendor/simple-datatables/simple-datatables.js"></script>
-    <script src="/assets/vendor/tinymce/tinymce.min.js"></script>
-    <script src="/assets/js/main2.js"></script>
 @endsection
