@@ -31,22 +31,14 @@ class DatabaseSeeder extends Seeder
             'email_verified_at' => now(),
             'password' => Hash::make('admin123'),
             'is_permission' => 1,
-            'remember_token' => 'hxdd5rxZft'
+            // 'remember_token' => 'hxdd5rxZft'
         ]);
 
         User::factory(5)->create();
 
-        JurusanSekolah::create([
-            'nama_jurusan' => 'SMA-IPA'
-        ]);
-        JurusanSekolah::create([
-            'nama_jurusan' => 'SMA-IPS'
-        ]);
-        JurusanSekolah::create([
-            'nama_jurusan' => 'SMK'
-        ]);
 
         $this->call(ProdiSeeder::class);
         $this->call(JurusanSeeder::class);
+        $this->call(JurusanSekolahSeeder::class);
     }
 }

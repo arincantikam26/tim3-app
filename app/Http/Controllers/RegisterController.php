@@ -15,18 +15,19 @@ class RegisterController extends Controller
         ]);
     }
 
-    public function verifyEmail()
-    {
-        return 'verify email';
-    }
-
+    /**
+     * Handle account registration request
+     * 
+     * @param RegisterRequest $request
+     * 
+     * @return \Illuminate\Http\Response
+     */
     public function register(RegisterRequest $request)
     {
-        $user = User::create($request->validated());
+        User::create($request->validated());
 
-        auth()->login($user);
+        // auth()->login($user);
 
-        // return redirect()->route('verify-email')->with('success', "Account successfully registered.");
-        return redirect('/login');
+        return redirect('login')->with('success', "Registrasi Berhasil !! Silahkan Login.");
     }
 }

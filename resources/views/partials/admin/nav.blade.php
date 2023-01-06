@@ -20,9 +20,7 @@
         <ul class="navbar-nav flex-row align-items-center ms-auto">
             <!-- Place this tag where you want the button to render. -->
             <li class="nav-item lh-1 me-3">
-                <a class="github-button" href="#" data-icon="octicon-star" data-size="large"
-                    data-show-count="true" aria-label="Star themeselection/sneat-html-admin-template-free on GitHub"><i
-                        class="fa-regular fa-star"></i>Star</a>
+                <a class="text-decoration-none" href="#">{{ auth()->user()->name }}</a>
             </li>
             <!-- User -->
             <li class="nav-item navbar-dropdown dropdown-user dropdown">
@@ -43,8 +41,9 @@
                                     </div>
                                 </div>
                                 <div class="flex-grow-1">
-                                    <span class="fw-semibold d-block">John Doe</span>
-                                    <small class="text-muted">Admin</small>
+                                    <span class="fw-semibold d-block">{{ auth()->user()->username }} </span>
+                                    <small
+                                        class="text-muted">{{ auth()->user()->is_permission == 1 ? 'Admin' : 'User' }}</small>
                                 </div>
                             </div>
                         </a>
@@ -54,22 +53,16 @@
                     </li>
                     <li>
                         <a class="dropdown-item" href="#">
-                            <i class="fa-solid fa-user me-2"></i>
+                            <i class="menu-icon bx bx-user me-2"></i>
                             <span class="align-middle">My Profile</span>
-                        </a>
-                    </li>
-                    <li>
-                        <a class="dropdown-item" href="#">
-                            <i class="fa-solid fa-gear me-2"></i>
-                            <span class="align-middle">Settings</span>
                         </a>
                     </li>
                     <li>
                         <div class="dropdown-divider"></div>
                     </li>
                     <li>
-                        <a class="dropdown-item" href="auth-login-basic.html">
-                            <i class="fa-solid fa-right-from-bracket me-2"></i>
+                        <a class="dropdown-item" href="{{ route('logout.perform') }}">
+                            <i class='menu-icon bx bx-door-open me-2'></i>
                             <span class="align-middle">Log Out</span>
                         </a>
                     </li>

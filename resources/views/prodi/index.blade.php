@@ -15,7 +15,7 @@
                             </tr>
                         </thead>
                         <tbody>
-                            @foreach ($jurusan as $index => $item)
+                            @foreach ($prodi as $index => $item)
                                 <tr>
                                     <th scope="row">{{ $index + 1 }}</th>
                                     <td>{{ $item->nama_jurusan }}</td>

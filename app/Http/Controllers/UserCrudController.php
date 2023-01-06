@@ -28,7 +28,10 @@ class UserCrudController extends Controller
      */
     public function create()
     {
-        // 
+        return view('admin.users.create', [
+            'title' => 'Pengguna',
+            'active' => 'user',
+        ]);
     }
 
     /**

@@ -39,7 +39,7 @@
                         </div>
                         <div class="mb-5">
                             <button type="submit" class="btn btn-primary">Simpan</button>
-                            <a href="{{ route('prodi_index') }}" class="btn btn-danger">Batal</a>
+                            <a href="{{ route('admin-prodi') }}" class="btn btn-danger">Batal</a>
                         </div>
                     </div>
                 </form>
