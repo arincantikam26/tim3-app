@@ -1,6 +1,5 @@
 @extends('layouts.main_admin')
 @section('content')
-    
     <h1>{{ $title }}</h1>
     <div class="card">
         <div class="card-header">
@@ -36,21 +35,22 @@
                             <th class="text-center" scope="row">{{ $index + 1 }}</th>
                             <td>
                                 <p>
-                                    <form action="{{ route('admin-user.destroy', $item->id) }}" method="POST">
-                                        <a class="ps-5" href="{{ route('admin-user.edit', $item->id) }}">
-                                            <i class='bx bx-edit crud-icon' style="font-size: 1.5em; color:green;"title="Edit"></i>
-                                        </a>
-                                        @csrf
-                                        @method('DELETE')
-                                        <button class="pe-5 bg-transparent border-0"
-                                            onclick="return confirm('Apakah Anda Yakin Ingin Menghapus?')">
-                                            <i class='bx bxs-eraser' style="font-size: 1.5em; color:red;"title="Hapus"></i>
-                                        </button>
+                                <form action="{{ route('admin-user.destroy', $item->id) }}" method="POST">
+                                    <a class="ps-5" href="{{ route('admin-user.edit', $item->id) }}">
+                                        <i class='bx bx-edit crud-icon'
+                                            style="font-size: 1.5em; color:green;"title="Edit"></i>
+                                    </a>
+                                    @csrf
+                                    @method('DELETE')
+                                    <button class="pe-5 bg-transparent border-0"
+                                        onclick="return confirm('Apakah Anda Yakin Ingin Menghapus?')">
+                                        <i class='bx bxs-eraser' style="font-size: 1.5em; color:red;"title="Hapus"></i>
+                                    </button>
 
-                                        {{ $item->username }}
-                                    </form>
+                                    {{ $item->username }}
+                                </form>
                                 </p>
-                                
+
                             </td>
                             <td>{{ $item->name }}</td>
                             <td>{{ $item->email }}</td>

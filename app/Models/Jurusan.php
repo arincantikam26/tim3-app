@@ -9,7 +9,7 @@ class Jurusan extends Model
 {
     use HasFactory;
 
-    protected $table = 'tbl_jurusan';
+    protected $table = 'jurusan';
     protected $guarded = ['id'];
 
     public function prodis()

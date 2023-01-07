@@ -17,7 +17,7 @@ class UserCrudController extends Controller
         return view('admin.users.index', [
             'title' => 'Pengguna',
             'active' => 'user',
-            'user' => User::all()
+            'user' => User::latest()->get()
         ]);
     }
 

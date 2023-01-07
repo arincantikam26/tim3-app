@@ -8,12 +8,12 @@ use Illuminate\Database\Eloquent\Model;
 class Preferensi extends Model
 {
     use HasFactory;
-    protected $guarded=['id'];
-    protected $table = 'preferensis';
-    
+    protected $guarded = ['id'];
+    protected $table = 'preferensi';
 
-    public function preferensi()
-    {
-        return $this->hasMany(Preferensi::class);
-    }
+
+    // public function preferensi()
+    // {
+    //     return $this->hasMany(Preferensi::class);
+    // }
 }
