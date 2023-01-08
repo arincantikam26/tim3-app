@@ -5,6 +5,7 @@ namespace App\Http\Controllers;
 use App\Http\Controllers\Controller;
 use App\Models\Jurusan;
 use App\Models\JurusanSekolah;
+use App\Models\Preferensi;
 use App\Models\Prodi;
 use App\Models\User;
 
@@ -59,11 +60,12 @@ class AdminController extends Controller
         ]);
     }
 
-    public function kriteria()
+    public function preferensi()
     {
-        return view('admin.kriteria', [
-            'title' => 'Kriteria',
-            'active' => 'kriteria'
+        return view('admin.preferensi.index', [
+            'title' => 'Preferensi',
+            'active' => 'preferensi',
+            'preferensi' => Preferensi::all()
         ]);
     }
 

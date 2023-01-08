@@ -62,10 +62,10 @@
         <!-- Components -->
         <li class="menu-header small text-uppercase"><span class="menu-header-text">Metode</span></li>
         <!-- Cards -->
-        <li class="menu-item {{ $active === 'kriteria' ? 'active' : '' }}">
-            <a href="{{ route('admin-kriteria') }}" class="menu-link">
+        <li class="menu-item {{ $active === 'preferensi' ? 'active' : '' }}">
+            <a href="{{ route('admin-preferensi') }}" class="menu-link">
                 <i class='menu-icon bx bx-task'></i>
-                <div data-i18n="Basic">Kriteria</div>
+                <div data-i18n="Basic">Preferensi</div>
             </a>
         </li>
         <li class="menu-item {{ $active === 'pertanyaan' ? 'active' : '' }} ">
