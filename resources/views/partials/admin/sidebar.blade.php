@@ -18,7 +18,7 @@
     <ul class="menu-inner py-1">
         <!-- Dashboard -->
         <li class="menu-item {{ $active === 'admin' ? 'active' : '' }}">
-            <a href="/admin" class="menu-link">
+            <a href="{{ route('dashboard-admin') }}" class="menu-link">
                 <i class='menu-icon bx bxs-dashboard'></i>
                 <div data-i18n="Analytics">Dashboard</div>
             </a>
