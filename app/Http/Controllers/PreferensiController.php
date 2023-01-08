@@ -28,7 +28,10 @@ class PreferensiController extends Controller
      */
     public function create()
     {
-        //
+        return view('admin.preferensi.create', [
+            'title' => 'Preferensi',
+            'active' => 'preferensi',
+        ]);
     }
 
     /**
@@ -39,7 +42,12 @@ class PreferensiController extends Controller
      */
     public function store(Request $request)
     {
-        //
+        $request->validate([
+            'keterangan' => 'required|min:3',
+            'nilai' => 'required'
+        ]);
+        Preferensi::create($request->all());
+        return redirect()->route('admin-preferensi')->with('success', 'Data Berhasil Ditambahkan');
     }
 
     /**
@@ -61,7 +69,12 @@ class PreferensiController extends Controller
      */
     public function edit($id)
     {
-        //
+        $data = Preferensi::find($id);
+        return view('admin.preferensi.edit', [
+            'title' => 'Preferensi',
+            'active' => 'preferensi',
+            'preferensi' => $data
+        ]);
     }
 
     /**
@@ -73,7 +86,9 @@ class PreferensiController extends Controller
      */
     public function update(Request $request, $id)
     {
-        //
+        $data = Preferensi::find($id);
+        $data->update($request->all());
+        return redirect()->route('admin-preferensi')->with('success', 'Data Berhasil Disimpan');
     }
 
     /**
@@ -84,6 +99,8 @@ class PreferensiController extends Controller
      */
     public function destroy($id)
     {
-        //
+        $data = Preferensi::find($id);
+        $data->delete();
+        return redirect()->route('admin-preferensi')->with('success', 'Data Berhasil Dihapus');
     }
 }
