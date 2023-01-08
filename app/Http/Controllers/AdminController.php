@@ -52,14 +52,6 @@ class AdminController extends Controller
         ]);
     }
 
-    public function sekolah()
-    {
-        return view('admin.sekolah', [
-            'title' => 'Jurusan Sekolah',
-            'active' => 'sekolah'
-        ]);
-    }
-
     public function preferensi()
     {
         return view('admin.preferensi.index', [
