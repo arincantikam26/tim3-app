@@ -22,10 +22,10 @@
                     <a class="nav-link text-decoration-none {{ $active === 'prodi' ? 'active' : '' }}"
                         aria-current="page" href="{{ route('prodi') }}">Prodi</a>
                 </li>
-                {{-- <li class="nav-item px-2" data-anchor="data-anchor">
+                <li class="nav-item px-2" data-anchor="data-anchor">
                     <a class="nav-link text-decoration-none {{ $active === 'preferensi' ? 'active' : '' }}"
                         aria-current="page" href="/preferensi">Preferensi</a>
-                </li> --}}
+                </li>
                 <li class="nav-item px-2" data-anchor="data-anchor">
                     <a class="nav-link text-decoration-none {{ $active === 'about' ? 'active' : '' }}"
                         aria-current="page" href="/about">About</a>

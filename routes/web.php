@@ -41,6 +41,8 @@ Route::get('/home/prodi', [HomeController::class, 'prodi'])->name('prodi');
 Route::get('/home/jurusan', [HomeController::class, 'jurusan'])->name('jurusan');
 Route::get('/logout',  [LogoutController::class, 'perform'])->name('logout.perform')->middleware('auth');
 
+Route::resource('preferensi', PreferensiController::class);
+
 Route::group(['middleware' => ['guest']], function () {
     Route::get('/register', [RegisterController::class, 'show'])->name('register.show');
     Route::post('/register', [RegisterController::class, 'register'])->name('register-request');
