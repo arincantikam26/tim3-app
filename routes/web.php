@@ -10,6 +10,7 @@ use App\Http\Controllers\ProdiController;
 use App\Http\Controllers\RegisterController;
 use App\Http\Controllers\UserController;
 use App\Http\Controllers\PreferensiController;
+use App\Http\Controllers\SekolahController;
 use App\Http\Controllers\UserCrudController;
 use Illuminate\Support\Facades\Route;
 use SebastianBergmann\CodeCoverage\Report\Html\Dashboard;
@@ -66,4 +67,5 @@ Route::group(['middleware' => 'check-permission:admin'], function () {
     Route::get('/admin/pertanyaan', [AdminController::class, 'pertanyaan'])->name('admin-pertanyaan');
     Route::resource('admin-user', UserCrudController::class);
     Route::resource('admin-preferensi', PreferensiController::class);
+    Route::resource('admin-sekolah', SekolahController::class);
 });

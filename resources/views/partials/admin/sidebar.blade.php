@@ -54,7 +54,7 @@
             </ul>
         </li>
         <li class="menu-item {{ $active === 'sekolah' ? 'active' : '' }}">
-            <a href="{{ route('admin-sekolah') }}" class="menu-link">
+            <a href="{{ route('admin-sekolah.index') }}" class="menu-link">
                 <i class='menu-icon bx bxs-school'></i>
                 <div data-i18n="Authentications">Data Sekolah</div>
             </a>
