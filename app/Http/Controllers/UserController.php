@@ -4,9 +4,10 @@ namespace App\Http\Controllers;
 
 use App\Models\Jurusan;
 use App\Models\Prodi;
+use App\Models\User;
 use Illuminate\Http\Request;
 use Illuminate\Support\Collection;
-
+use Illuminate\Support\Facades\Auth;
 
 class UserController extends Controller
 {
@@ -41,4 +42,17 @@ class UserController extends Controller
             'active' => 'cek_jurusan'
         ]);
     }
+
+    public function profile() {
+        $id = Auth::id();
+        $user = User::find($id);
+        return view('users.profile', [
+            'title' => 'Profile',
+            'active' => 'profile',
+            'page' => 'user',
+            'user' => $user
+            
+        ]);
+    }
+
 }
