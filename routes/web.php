@@ -54,12 +54,15 @@ Route::group(['middleware' => ['guest']], function () {
 Route::group(['middleware' => 'check-permission:user'], function () {
     Route::get('/dashboard/user', [UserController::class, 'dashboard'])->name('dashboard-user');
     Route::get('/rekomendasi', [UserController::class, 'rekomendasi'])->name('rekomendasi');
+    Route::get('/profile', [UserController::class, 'profile'])->name('user-profile');
+    Route::put('/edit-profile/{id}', [UserController::class, 'update'])->name('edit-profile');
 });
 
 Route::group(['middleware' => 'check-permission:admin'], function () {
     Route::get('/dashboard/admin', [AdminController::class, 'dashboard'])->name('dashboard-admin');
     Route::get('/admin/jurusan', [AdminController::class, 'jurusan'])->name('admin-jurusan');
     Route::get('/admin/prodi', [AdminController::class, 'prodi'])->name('admin-prodi');
+    Route::get('/profile', [AdminController::class, 'profile'])->name('user-profile');
     Route::resource('prodi', ProdiController::class);
     Route::resource('jurusan', JurusanController::class);
     Route::get('/admin/jurusan-sekolah', [AdminController::class, 'sekolah'])->name('admin-sekolah');
