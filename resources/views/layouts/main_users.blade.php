@@ -26,6 +26,7 @@
 
     <!-- Vendors CSS -->
     <link rel="stylesheet" href="{{ asset('assets/vendor/libs/perfect-scrollbar/perfect-scrollbar.css') }}">
+    <link href="/assets/vendor/simple-datatables/style.css" rel="stylesheet">
 
 </head>
 
@@ -60,6 +61,11 @@
     <script src="/assets/vendor/js/menu.js"></script>
     <script src="/assets/vendor/js/helpers.js"></script>
     <script src="/assets/js/main.js"></script>
+
+
+    <script src="/assets/vendor/simple-datatables/simple-datatables.js"></script>
+    <script src="/assets/vendor/tinymce/tinymce.min.js"></script>
+    <script src="/assets/js/main2.js"></script>
 
     <script async defer src="https://buttons.github.io/buttons.js"></script>
 

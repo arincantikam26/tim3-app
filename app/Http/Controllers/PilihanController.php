@@ -2,11 +2,12 @@
 
 namespace App\Http\Controllers;
 
-use App\Models\Jurusan;
+use App\Models\JurusanSekolah;
+use App\Models\Pilihan;
 use App\Models\Prodi;
 use Illuminate\Http\Request;
 
-class ProdiController extends Controller
+class PilihanController extends Controller
 {
     /**
      * Display a listing of the resource.
@@ -15,7 +16,11 @@ class ProdiController extends Controller
      */
     public function index()
     {
-        //
+        return view('users.pilihan.index', [
+            "title" => 'Pilihan',
+            "active" => 'pilihan',
+            "pilihan" => Pilihan::with(['jurusansekolah', 'prodi'])->get()
+        ]);
     }
 
     /**
@@ -25,10 +30,12 @@ class ProdiController extends Controller
      */
     public function create()
     {
-        return view('admin.prodi.create', [
-            'title' => 'Program Studi',
-            'active' => 'prodi',
-            'jurusan' => Jurusan::all(),
+        return view('users.pilihan.create', [
+            "title" => 'Pilihan',
+            "active" => 'pilihan',
+            "jurusansekolah" => JurusanSekolah::all(),
+            "prodi" => Prodi::all()
+
         ]);
     }
 
@@ -40,15 +47,14 @@ class ProdiController extends Controller
      */
     public function store(Request $request)
     {
-        // dd($request);
         $request->validate([
-            'nama_prodi' => 'required',
-            'jurusan_id' => 'required'
+            'id_jurusan_sekolah' => 'required',
+            'prodi_id' => 'required'
         ]);
 
-        Prodi::create($request->all());
+        Pilihan::create($request->all());
 
-        return redirect()->route('admin-prodi')->with('success', 'Data Berhasil Ditambahkan');
+        return redirect()->route('user-pilihan.index')->with('success', 'Data Berhasil Ditambahkan');
     }
 
     /**
@@ -68,14 +74,15 @@ class ProdiController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function edit($id_prodi)
+    public function edit($id)
     {
-        $prodi = Prodi::find($id_prodi);
-        return view('admin.prodi.edit', [
-            'title' => 'Program Studi',
-            'active' => 'prodi',
-            'jurusan' => Jurusan::all(),
-            'prodi' => $prodi
+        $pilihan = Pilihan::find($id);
+        return view('users.pilihan.edit', [
+            'title' => 'Pilihan',
+            'active' => 'pilihan',
+            "jurusansekolah" => JurusanSekolah::all(),
+            "prodi" => Prodi::all(),
+            'pilihan' => $pilihan
         ]);
     }
 
@@ -86,11 +93,11 @@ class ProdiController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function update(Request $request, $id_prodi)
+    public function update(Request $request, $id)
     {
-        $data = Prodi::find($id_prodi);
+        $data = Pilihan::find($id);
         $data->update($request->all());
-        return redirect()->route('admin-prodi')->with('success', 'Data Berhasil Diperbarui');
+        return redirect()->route('user-pilihan.index')->with('success', 'Data Berhasil Diperbarui');
     }
 
     /**
@@ -99,10 +106,10 @@ class ProdiController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function destroy($id_prodi)
+    public function destroy($id)
     {
-        $data = Prodi::find($id_prodi);
+        $data = Pilihan::find($id);
         $data->delete();
-        return redirect()->route('admin-prodi')->with('success', 'Data Berhasil Dihapus');
+        return redirect()->route('user-pilihan.index')->with('success', 'Data Berhasil Dihapus');
     }
 }

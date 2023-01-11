@@ -16,7 +16,7 @@ return new class extends Migration
         Schema::create('pilihan', function (Blueprint $table) {
             $table->id();
             $table->foreignId('id_jurusan_sekolah');
-            $table->foreignId('id_prodi');
+            $table->foreignId('prodi_id');
             $table->timestamps();
         });
     }

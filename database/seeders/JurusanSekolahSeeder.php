@@ -17,13 +17,16 @@ class JurusanSekolahSeeder extends Seeder
     {
         $data = [
             [
-                'nama_jurusan' => 'SMA-IPA'
+                'nama_jurusan' => 'SMA-IPA',
+                'created_at' => now()
             ],
             [
-                'nama_jurusan' => 'SMA-IPS'
+                'nama_jurusan' => 'SMA-IPS',
+                'created_at' => now()
             ],
             [
-                'nama_jurusan' => 'SMK'
+                'nama_jurusan' => 'SMK',
+                'created_at' => now()
             ]
         ];
         JurusanSekolah::insert($data);

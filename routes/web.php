@@ -6,6 +6,7 @@ use App\Http\Controllers\HomeController;
 use App\Http\Controllers\JurusanController;
 use App\Http\Controllers\LoginController;
 use App\Http\Controllers\LogoutController;
+use App\Http\Controllers\PilihanController;
 use App\Http\Controllers\ProdiController;
 use App\Http\Controllers\RegisterController;
 use App\Http\Controllers\UserController;
@@ -56,6 +57,7 @@ Route::group(['middleware' => 'check-permission:user'], function () {
     Route::get('/rekomendasi', [UserController::class, 'rekomendasi'])->name('rekomendasi');
     Route::get('/profile', [UserController::class, 'profile'])->name('user-profile');
     Route::put('/edit-profile/{id}', [UserController::class, 'update'])->name('edit-profile');
+    Route::resource('user-pilihan', PilihanController::class);
 });
 
 Route::group(['middleware' => 'check-permission:admin'], function () {
