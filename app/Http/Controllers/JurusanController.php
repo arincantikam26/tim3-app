@@ -1,8 +1,7 @@
 <?php
 
 namespace App\Http\Controllers;
-
-use App\Models\Jurusan;
+use app\Models\Jurusan;
 use Illuminate\Http\Request;
 
 class JurusanController extends Controller
@@ -14,7 +13,11 @@ class JurusanController extends Controller
      */
     public function index()
     {
-        //
+        return view('admin.jurusan.index', [
+            'title' => 'Jurusan',
+            'active' => 'jurusan',
+            'jurusan' => Jurusan::latest()->get()
+        ]);
     }
 
     /**
@@ -24,7 +27,10 @@ class JurusanController extends Controller
      */
     public function create()
     {
-        //
+        return view('admin.jurusan.create', [
+            'title' => 'Jurusan',
+            'active' => 'jurusan',
+        ]);
     }
 
     /**
@@ -35,7 +41,12 @@ class JurusanController extends Controller
      */
     public function store(Request $request)
     {
-        //
+        $request->validate([
+            'nama_jurusan' => 'required'
+        ]);
+        Jurusan::create($request->all());
+
+        return redirect()->route('admin-jurusan.index')->with('success', 'Data Berhasil Ditambahkan');
     }
 
     /**
@@ -57,7 +68,12 @@ class JurusanController extends Controller
      */
     public function edit($id)
     {
-        //
+        $data = Jurusan::find($id);
+        return view('admin.jurusan.edit', [
+            'title' => 'Jurusan',
+            'active' => 'jurusan',
+            'jurusan' => $data
+        ]);
     }
 
     /**
@@ -69,7 +85,9 @@ class JurusanController extends Controller
      */
     public function update(Request $request, $id)
     {
-        //
+        $data = Jurusan::find($id);
+        $data->update($request->all());
+        return redirect()->route('admin-jurusan.index')->with('success', 'Data Berhasil Disimpan');
     }
 
     /**
@@ -80,6 +98,8 @@ class JurusanController extends Controller
      */
     public function destroy($id)
     {
-        //
+        $data = Jurusan::find($id);
+        $data->delete();
+        return redirect()->route('admin-jurusan.index')->with('success', 'Data Berhasil Dihapus');
     }
 }

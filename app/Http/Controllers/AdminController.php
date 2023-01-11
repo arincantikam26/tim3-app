@@ -36,9 +36,10 @@ class AdminController extends Controller
 
     public function jurusan()
     {
-        return view('admin.jurusan', [
+        return view('admin.jurusan.index', [
             'title' => 'Jurusan',
-            'active' => 'jurusan'
+            'active' => 'jurusan',
+            'jurusan' => Jurusan::all()
         ]);
     }
 
