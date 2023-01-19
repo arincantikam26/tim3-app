@@ -69,11 +69,19 @@
             </a>
         </li>
         <li class="menu-item {{ $active === 'pertanyaan' ? 'active' : '' }} ">
-            <a href="{{ route('admin-pertanyaan') }}" class="menu-link">
+            <a href="{{ route('admin-pertanyaan.index') }}" class="menu-link">
                 <i class='menu-icon bx bx-search-alt'></i>
                 <div data-i18n="Basic">Pertanyaan</div>
             </a>
         </li>
+
+        <li class="menu-item {{ $active === 'kriteria' ? 'active' : '' }} ">
+            <a href="{{ route('admin-kriteria.index') }}" class="menu-link">
+                <i class='menu-icon bx bx-table'></i>
+                <div data-i18n="Basic">Kriteria</div>
+            </a>
+        </li>
+
         <!-- Components -->
         <li class="menu-header small text-uppercase"><span class="menu-header-text">Pengguna</span></li>
         <!-- Extended components -->

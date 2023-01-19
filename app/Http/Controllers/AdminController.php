@@ -66,14 +66,11 @@ class AdminController extends Controller
 
     public function pertanyaan()
     {
-        return view('admin.pertanyaan.index', [
-            'title' => 'Pertanyaan',
-            'active' => 'pertanyaan',
-            'pertanyaan' => Pertanyaan::all()
-        ]);
+        //
     }
 
-    public function profile() {
+    public function profile()
+    {
         $id = Auth::id();
         $user = User::find($id);
         return view('admin.profile', [

@@ -40,5 +40,6 @@ class DatabaseSeeder extends Seeder
         $this->call(ProdiSeeder::class);
         $this->call(JurusanSeeder::class);
         $this->call(JurusanSekolahSeeder::class);
+        $this->call(KriteriaSeeder::class);
     }
 }

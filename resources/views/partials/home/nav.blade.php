@@ -22,10 +22,7 @@
                     <a class="nav-link text-decoration-none {{ $active === 'prodi' ? 'active' : '' }}"
                         aria-current="page" href="{{ route('prodi') }}">Prodi</a>
                 </li>
-                <li class="nav-item px-2" data-anchor="data-anchor">
-                    <a class="nav-link text-decoration-none {{ $active === 'preferensi' ? 'active' : '' }}"
-                        aria-current="page" href="/preferensi">Preferensi</a>
-                </li>
+
                 <li class="nav-item px-2" data-anchor="data-anchor">
                     <a class="nav-link text-decoration-none {{ $active === 'about' ? 'active' : '' }}"
                         aria-current="page" href="/about">About</a>
@@ -48,8 +45,7 @@
             @endauth
             @guest
                 <div class="text-end">
-                    <a href="{{ route('login.show') }}"
-                        class="text-decoration-none btn btn-outline-dark order-0 me-2">Login</a>
+                    <a href="{{ route('login') }}" class="text-decoration-none btn btn-outline-dark order-0 me-2">Login</a>
                     <a href="{{ route('register.show') }}" class="btn btn-dark px-4 gap-3 text-decoration-none">Sign-up</a>
                 </div>
             @endguest

@@ -53,12 +53,7 @@
                 </li>
             </ul>
         </li>
-        <li class="menu-item {{ $active === 'sekolah' ? 'active' : '' }}">
-            <a href="#" class="menu-link">
-                <i class='menu-icon bx bxs-school'></i>
-                <div data-i18n="Authentications">Preferensi</div>
-            </a>
-        </li>
+
         <!-- Components -->
         <li class="menu-header small text-uppercase"><span class="menu-header-text">Metode</span></li>
         <!-- Cards -->

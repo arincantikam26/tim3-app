@@ -2,11 +2,10 @@
 
 namespace App\Http\Controllers;
 
-use App\Models\Pertanyaan;
+use App\Models\Kriteria;
 use Illuminate\Http\Request;
-use App\Models\Prodi;
 
-class PertanyaanController extends Controller
+class KriteriaController extends Controller
 {
     /**
      * Display a listing of the resource.
@@ -20,10 +19,10 @@ class PertanyaanController extends Controller
 
     public function index()
     {
-        return view('admin.pertanyaan.index', [
-            'title' => 'Pertanyaan',
-            'active' => 'pertanyaan',
-            'pertanyaan' => Pertanyaan::all()
+        return view('admin.kriteria.index', [
+            'title' => 'Kriteria',
+            'active' => 'kriteria',
+            'kriteria' => Kriteria::all()
         ]);
     }
 
@@ -34,7 +33,10 @@ class PertanyaanController extends Controller
      */
     public function create()
     {
-        //
+        return view('admin.kriteria.create', [
+            'title' => 'Kriteria',
+            'active' => 'kriteria',
+        ]);
     }
 
     /**
@@ -45,7 +47,11 @@ class PertanyaanController extends Controller
      */
     public function store(Request $request)
     {
-        //
+        $request->validate([
+            'nama_kriteria' => 'required'
+        ]);
+        Kriteria::create($request->all());
+        return redirect()->route('admin-kriteria.index')->with('success', 'Data Berhasil Ditambahkan');
     }
 
     /**
@@ -67,7 +73,12 @@ class PertanyaanController extends Controller
      */
     public function edit($id)
     {
-        //
+        $data = Kriteria::find($id);
+        return view('admin.kriteria.edit', [
+            'title' => 'Kriteria',
+            'active' => 'kriteria',
+            'kriteria' => $data
+        ]);
     }
 
     /**
@@ -79,7 +90,9 @@ class PertanyaanController extends Controller
      */
     public function update(Request $request, $id)
     {
-        //
+        $data = Kriteria::find($id);
+        $data->update($request->all());
+        return redirect()->route('admin-kriteria.index')->with('success', 'Data Berhasil Diupdate');
     }
 
     /**
@@ -90,6 +103,8 @@ class PertanyaanController extends Controller
      */
     public function destroy($id)
     {
-        //
+        $data = Kriteria::find($id);
+        $data->delete();
+        return redirect()->route('admin-kriteria.index')->with('success', 'Data Berhasil Dihapus');
     }
 }
