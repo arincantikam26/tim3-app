@@ -82,6 +82,13 @@
             </a>
         </li>
 
+        <li class="menu-item {{ $active === 'pilihan' ? 'active' : '' }}">
+            <a href="{{ route('admin-pilihan.index') }}" class="menu-link">
+                <i class='menu-icon bx bx-select-multiple'></i>
+                <div data-i18n="Basic">Pilihan</div>
+            </a>
+        </li>
+
         <!-- Components -->
         <li class="menu-header small text-uppercase"><span class="menu-header-text">Pengguna</span></li>
         <!-- Extended components -->

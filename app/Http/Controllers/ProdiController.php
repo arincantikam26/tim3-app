@@ -47,7 +47,7 @@ class ProdiController extends Controller
     {
         // dd($request);
         $request->validate([
-            'nama_prodi' => 'required',
+            'nama_prodi' => 'required|unique:prodi',
             'jurusan_id' => 'required'
         ]);
 

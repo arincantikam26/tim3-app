@@ -48,7 +48,7 @@ class JurusanController extends Controller
     public function store(Request $request)
     {
         $request->validate([
-            'nama_jurusan' => 'required'
+            'nama_jurusan' => 'required|unique:jurusan'
         ]);
         Jurusan::create($request->all());
 

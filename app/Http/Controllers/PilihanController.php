@@ -5,6 +5,7 @@ namespace App\Http\Controllers;
 use App\Models\JurusanSekolah;
 use App\Models\Pilihan;
 use App\Models\Prodi;
+use Database\Seeders\JurusanSeeder;
 use Illuminate\Http\Request;
 
 class PilihanController extends Controller
@@ -21,10 +22,10 @@ class PilihanController extends Controller
 
     public function index()
     {
-        return view('users.pilihan.index', [
+        return view('admin.pilihan.index', [
             "title" => 'Pilihan',
             "active" => 'pilihan',
-            "pilihan" => Pilihan::with(['jurusansekolah', 'prodi'])->get()
+            "pilihan" => JurusanSekolah::with('prodis')->get()
         ]);
     }
 
@@ -35,7 +36,7 @@ class PilihanController extends Controller
      */
     public function create()
     {
-        return view('users.pilihan.create', [
+        return view('admin.pilihan.create', [
             "title" => 'Pilihan',
             "active" => 'pilihan',
             "jurusansekolah" => JurusanSekolah::all(),
@@ -59,7 +60,7 @@ class PilihanController extends Controller
 
         Pilihan::create($request->all());
 
-        return redirect()->route('user-pilihan.index')->with('success', 'Data Berhasil Ditambahkan');
+        return redirect()->route('admin-pilihan.index')->with('success', 'Data Berhasil Ditambahkan');
     }
 
     /**
@@ -82,7 +83,7 @@ class PilihanController extends Controller
     public function edit($id)
     {
         $pilihan = Pilihan::find($id);
-        return view('users.pilihan.edit', [
+        return view('admin.pilihan.edit', [
             'title' => 'Pilihan',
             'active' => 'pilihan',
             "jurusansekolah" => JurusanSekolah::all(),
@@ -102,7 +103,7 @@ class PilihanController extends Controller
     {
         $data = Pilihan::find($id);
         $data->update($request->all());
-        return redirect()->route('user-pilihan.index')->with('success', 'Data Berhasil Diperbarui');
+        return redirect()->route('admin-pilihan.index')->with('success', 'Data Berhasil Diperbarui');
     }
 
     /**
@@ -115,6 +116,6 @@ class PilihanController extends Controller
     {
         $data = Pilihan::find($id);
         $data->delete();
-        return redirect()->route('user-pilihan.index')->with('success', 'Data Berhasil Dihapus');
+        return redirect()->route('admin-pilihan.index')->with('success', 'Data Berhasil Dihapus');
     }
 }

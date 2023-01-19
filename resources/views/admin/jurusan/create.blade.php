@@ -23,14 +23,14 @@
                                 <span class="text-danger text-left">{{ $errors->first('nama_jurusan') }}</span>
                             @endif
                         </div>
-                        <div class="mb-3">
-                            <label for="gambar" class="form-label">Gambar</label>
-                            <input type="image" name="gambar" class="form-control" placeholder="Gambar"
-                                aria-describedby="helpId" required="required" value="{{ old('gambar') }}">
-                            @if ($errors->has('gambar'))
-                                <span class="text-danger text-left">{{ $errors->first('gambar') }}</span>
+                        {{-- <div class="mb-3">
+                            <label for="gambar_jurusan" class="form-label">Gambar Jurusan</label>
+                            <input type="file" name="gambar_jurusan" class="form-control" placeholder="gambar_jurusan"
+                                aria-describedby="helpId" required="required" value="{{ old('gambar_jurusan') }}">
+                            @if ($errors->has('gambar_jurusan'))
+                                <span class="text-danger text-left">{{ $errors->first('gambar_jurusan') }}</span>
                             @endif
-                        </div>
+                        </div> --}}
                         <div class="mb-5">
                             <button type="submit" class="btn btn-primary">Simpan</button>
                             <a href="{{ route('jurusan.index') }}" class="btn btn-danger">Batal</a>

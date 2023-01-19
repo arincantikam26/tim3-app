@@ -11,4 +11,9 @@ class JurusanSekolah extends Model
 
     protected $table = 'jurusan_sekolah';
     protected $guarded = ['id'];
+
+    public function prodis()
+    {
+        return $this->hasMany(Prodi::class);
+    }
 }

@@ -57,17 +57,18 @@ Route::group(['middleware' => ['guest']], function () {
 
 Route::group(['middleware' => 'check-permission:user'], function () {
     Route::get('/dashboard/user', [UserController::class, 'dashboard'])->name('dashboard-user');
-    Route::get('/rekomendasi', [UserController::class, 'rekomendasi'])->name('rekomendasi');
+    Route::get('/user/prodi', [UserController::class, 'prodi'])->name('prodi');
+    Route::get('/user/jurusan', [UserController::class, 'jurusan'])->name('jurusan');
+    Route::get('/user/jurusan-sekolah', [UserController::class, 'jurusan_sekolah'])->name('jurusan-sekolah');
     Route::get('/profile', [UserController::class, 'profile'])->name('user-profile');
     Route::put('/edit-profile/{id}', [UserController::class, 'update'])->name('edit-profile');
-    Route::resource('user-pilihan', PilihanController::class);
 });
 
 Route::group(['middleware' => 'check-permission:admin'], function () {
     Route::get('/dashboard/admin', [AdminController::class, 'dashboard'])->name('dashboard-admin');
     Route::get('/admin/jurusan', [AdminController::class, 'jurusan'])->name('admin-jurusan');
     Route::get('/admin/prodi', [AdminController::class, 'prodi'])->name('admin-prodi');
-    Route::get('/profile', [AdminController::class, 'profile'])->name('user-profile');
+    Route::get('/admin/profile', [AdminController::class, 'profile'])->name('admin-profile');
     Route::resource('prodi', ProdiController::class);
     Route::resource('jurusan', JurusanController::class);
     Route::get('/admin/jurusan-sekolah', [AdminController::class, 'sekolah'])->name('admin-sekolah');
@@ -77,4 +78,5 @@ Route::group(['middleware' => 'check-permission:admin'], function () {
     Route::resource('admin-sekolah', SekolahController::class);
     Route::resource('admin-pertanyaan', PertanyaanController::class);
     Route::resource('admin-kriteria', KriteriaController::class);
+    Route::resource('admin-pilihan', PilihanController::class);
 });
