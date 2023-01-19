@@ -8,7 +8,7 @@
                 <h5>{{ $title }}</h5>
             </div>
             <div class="col-lg-4 text-end mb-3">
-                <a href="{{ route('admin-jurusan.create') }}" class="btn btn-success"><i class='bx bx-plus-circle'
+                <a href="{{ route('jurusan.create') }}" class="btn btn-success"><i class='bx bx-plus-circle'
                         style="font-size: 1.5em"></i> Tambah
                     {{ $title }}</a>
             </div>
@@ -27,13 +27,13 @@
                 </tr>
             </thead>
             <tbody class="table-border-bottom-0">
-                @foreach ($sekolah as $index => $item)
+                @foreach ($jurusan as $index => $item)
                     <tr>
                         <th class="text-center" scope="row">{{ $index + 1 }}</th>
                         <td>
                             <p>
-                            <form action="{{ route('admin-jurusan.destroy', $item->id) }}" method="POST">
-                                <a class="ps-5" href="{{ route('admin-jurusan.edit', $item->id) }}">
+                            <form action="{{ route('jurusan.destroy', $item->id) }}" method="POST">
+                                <a class="ps-5" href="{{ route('jurusan.edit', $item->id) }}">
                                     <i class='bx bx-edit crud-icon'
                                         style="font-size: 1.5em; color:green;"title="Edit"></i>
                                 </a>
