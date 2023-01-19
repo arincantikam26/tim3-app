@@ -1,7 +1,8 @@
 <?php
 
 namespace App\Http\Controllers;
-use app\Models\Jurusan;
+
+use App\Models\Jurusan;
 use Illuminate\Http\Request;
 
 class JurusanController extends Controller
@@ -46,7 +47,7 @@ class JurusanController extends Controller
         ]);
         Jurusan::create($request->all());
 
-        return redirect()->route('admin-jurusan.index')->with('success', 'Data Berhasil Ditambahkan');
+        return redirect()->route('jurusan.index')->with('success', 'Data Berhasil Ditambahkan');
     }
 
     /**
@@ -87,7 +88,7 @@ class JurusanController extends Controller
     {
         $data = Jurusan::find($id);
         $data->update($request->all());
-        return redirect()->route('admin-jurusan.index')->with('success', 'Data Berhasil Disimpan');
+        return redirect()->route('jurusan.index')->with('success', 'Data Berhasil Disimpan');
     }
 
     /**
@@ -100,6 +101,6 @@ class JurusanController extends Controller
     {
         $data = Jurusan::find($id);
         $data->delete();
-        return redirect()->route('admin-jurusan.index')->with('success', 'Data Berhasil Dihapus');
+        return redirect()->route('jurusan.index')->with('success', 'Data Berhasil Dihapus');
     }
 }

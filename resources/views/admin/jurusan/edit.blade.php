@@ -12,7 +12,7 @@
         <div class="table-responsive text-nowrap">
             <div class="row">
                 <form class="needs-validation forms-sample" method="POST"
-                    action="{{ route('admin-jurusan.update', $jurusan->id) }}" novalidate>
+                    action="{{ route('jurusan.update', $jurusan->id) }}" novalidate>
                     @csrf
                     @method('PUT')
                     <div class="col-lg-6 offset-2 col-md-4">
@@ -20,7 +20,7 @@
                         <div class="mb-3">
                             <label for="nama_jurusan" class="form-label">Nama Jurusan</label>
                             <input type="text" id="nama_jurusan" name="nama_jurusan" class="form-control" placeholder="Nama Jurusan"
-                                aria-describedby="helpId" required="required" value="{{ $sekolah->nama_jurusan }}">
+                                aria-describedby="helpId" required="required" value="{{ $jurusan->nama_jurusan }}">
                            
                         </div>
                         <div class="mb-3">
@@ -31,7 +31,7 @@
                         </div>
                         <div class="mb-5">
                             <button type="submit" class="btn btn-primary">Simpan</button>
-                            <a href="{{ route('admin-jurusan.index') }}" class="btn btn-danger">Batal</a>
+                            <a href="{{ route('jurusan.index') }}" class="btn btn-danger">Batal</a>
                         </div>
                     </div>
                 </form>
