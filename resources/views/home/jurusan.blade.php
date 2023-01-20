@@ -26,9 +26,4 @@
             </div>
         </div>
     </section>
-
-    <script src="/assets/vendor/simple-datatables/simple-datatables.js"></script>
-    <script src="/assets/vendor/tinymce/tinymce.min.js"></script>
-    <!-- Template Main JS File -->
-    <script src="/assets/js/main2.js"></script>
 @endsection

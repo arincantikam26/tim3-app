@@ -16,16 +16,11 @@
                 </li>
                 <li class="nav-item px-2" data-anchor="data-anchor">
                     <a class="nav-link text-decoration-none {{ $active === 'jurusan' ? 'active' : '' }}"
-                        aria-current="page" href="{{ route('jurusan') }}">Jurusan</a>
+                        aria-current="page" href="/home/jurusan">Jurusan</a>
                 </li>
                 <li class="nav-item px-2" data-anchor="data-anchor">
                     <a class="nav-link text-decoration-none {{ $active === 'prodi' ? 'active' : '' }}"
-                        aria-current="page" href="{{ route('prodi') }}">Prodi</a>
-                </li>
-
-                <li class="nav-item px-2" data-anchor="data-anchor">
-                    <a class="nav-link text-decoration-none {{ $active === 'about' ? 'active' : '' }}"
-                        aria-current="page" href="/about">About</a>
+                        aria-current="page" href="/home/prodi">Prodi</a>
                 </li>
             </ul>
 

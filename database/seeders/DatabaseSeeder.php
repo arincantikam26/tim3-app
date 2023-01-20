@@ -26,5 +26,7 @@ class DatabaseSeeder extends Seeder
         $this->call(KriteriaSeeder::class);
         $this->call(PilihanSeeder::class);
         $this->call(AdminSeeder::class);
+        // $this->call(PertanyaanSeeder::class);
+        // $this->call(PreferensiSeeder::class);
     }
 }
