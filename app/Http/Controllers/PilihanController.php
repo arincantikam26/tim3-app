@@ -2,10 +2,10 @@
 
 namespace App\Http\Controllers;
 
+use App\Models\Jurusan;
 use App\Models\JurusanSekolah;
 use App\Models\Pilihan;
 use App\Models\Prodi;
-use Database\Seeders\JurusanSeeder;
 use Illuminate\Http\Request;
 
 class PilihanController extends Controller
@@ -25,7 +25,7 @@ class PilihanController extends Controller
         return view('admin.pilihan.index', [
             "title" => 'Pilihan',
             "active" => 'pilihan',
-            "pilihan" => JurusanSekolah::with('prodis')->get()
+            "jurusansekolah" => JurusanSekolah::with('pilihan')->latest()->get()
         ]);
     }
 
@@ -36,13 +36,7 @@ class PilihanController extends Controller
      */
     public function create()
     {
-        return view('admin.pilihan.create', [
-            "title" => 'Pilihan',
-            "active" => 'pilihan',
-            "jurusansekolah" => JurusanSekolah::all(),
-            "prodi" => Prodi::all()
-
-        ]);
+        //
     }
 
     /**
@@ -51,14 +45,20 @@ class PilihanController extends Controller
      * @param  \Illuminate\Http\Request  $request
      * @return \Illuminate\Http\Response
      */
-    public function store(Request $request)
+    public function store($id)
     {
-        $request->validate([
-            'id_jurusan_sekolah' => 'required',
-            'prodi_id' => 'required'
-        ]);
 
-        Pilihan::create($request->all());
+        Pilihan::whereIdJurusanSekolah($id)->delete();
+        $pilihan = request('pilihan');
+
+        if ($pilihan != null) {
+            foreach ($pilihan as $item) {
+                Pilihan::create([
+                    'id_jurusan_sekolah' => $id,
+                    'prodi_id' => $item
+                ]);
+            }
+        }
 
         return redirect()->route('admin-pilihan.index')->with('success', 'Data Berhasil Ditambahkan');
     }
@@ -71,7 +71,19 @@ class PilihanController extends Controller
      */
     public function show($id)
     {
-        //
+        $arrayIndex = 0;
+        $idJurusanSekolah = $id;
+        $jurusansekolah = JurusanSekolah::find($id);
+        $jurusans = Jurusan::all();
+
+        return view('admin.pilihan.create', [
+            'jurusans' => $jurusans,
+            'arrayIndex' => $arrayIndex,
+            'title' => 'Pilihan',
+            'active' => 'pilihan',
+            'jurusansekolah' => $jurusansekolah,
+            'idJurusanSekolah' => $idJurusanSekolah
+        ]);
     }
 
     /**

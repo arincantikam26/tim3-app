@@ -18,28 +18,13 @@ class DatabaseSeeder extends Seeder
      */
     public function run()
     {
-        // \App\Models\User::factory(10)->create();
-
-        // \App\Models\User::factory()->create([
-        //     'name' => 'Test User',
-        //     'email' => 'test@example.com',
-        // ]);
-        User::create([
-            'name' => 'admin',
-            'username' => 'admin',
-            'email' => 'admin@gmail.com',
-            'email_verified_at' => now(),
-            'password' => Hash::make('admin123'),
-            'is_permission' => 1,
-            // 'remember_token' => 'hxdd5rxZft'
-        ]);
-
         User::factory(5)->create();
-
 
         $this->call(ProdiSeeder::class);
         $this->call(JurusanSeeder::class);
         $this->call(JurusanSekolahSeeder::class);
         $this->call(KriteriaSeeder::class);
+        $this->call(PilihanSeeder::class);
+        $this->call(AdminSeeder::class);
     }
 }

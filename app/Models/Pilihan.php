@@ -11,13 +11,13 @@ class Pilihan extends Model
     protected $table = 'pilihan';
     protected $guarded = ['id'];
 
-    // public function jurusansekolah()
-    // {
-    //     return $this->belongsTo(JurusanSekolah::class, 'id_jurusan_sekolah');
-    // }
+    public function jurusansekolah()
+    {
+        return $this->belongsTo(JurusanSekolah::class, 'id_jurusan_sekolah');
+    }
 
-    // public function prodis()
-    // {
-    //     return $this->hasMany(Prodi::class);
-    // }
+    public function prodi()
+    {
+        return $this->belongsTo(Prodi::class, 'prodi_id');
+    }
 }

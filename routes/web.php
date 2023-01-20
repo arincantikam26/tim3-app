@@ -79,4 +79,5 @@ Route::group(['middleware' => 'check-permission:admin'], function () {
     Route::resource('admin-pertanyaan', PertanyaanController::class);
     Route::resource('admin-kriteria', KriteriaController::class);
     Route::resource('admin-pilihan', PilihanController::class);
+    Route::post('admin-pilihan/{id}', [PilihanController::class, 'store']);
 });
