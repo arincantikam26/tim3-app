@@ -24,8 +24,7 @@
               </tbody>
             </table>
           </div>
-         
-          <div class="d-grid gap-2 col-lg-6 mx-asuto mt-3">
+          <div class="d-grid gap-2 col-lg-6 mx-auto mt-3">
             <a href="#" class="btn btn-primary btn-lg">Proses</a>
           </div>
 

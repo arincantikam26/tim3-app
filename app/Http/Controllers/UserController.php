@@ -25,14 +25,11 @@ class UserController extends Controller
 
     public function dashboard()
     {
-        $jurusan = Jurusan::count();
-        $prodi = Prodi::count();
 
         return view('users.index', [
             'title' => 'Dashboard',
             'active' => 'user',
-            'jurusan' => $jurusan,
-            'prodi' => $prodi
+            'jurusan' => JurusanSekolah::all()
         ]);
     }
 
@@ -51,7 +48,6 @@ class UserController extends Controller
         return view('users.profile', [
             'title' => 'Profile',
             'active' => 'profile',
-            'page' => 'user',
             'user' => $user
 
         ]);

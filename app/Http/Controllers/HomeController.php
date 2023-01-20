@@ -20,7 +20,7 @@ class HomeController extends Controller
 
     public function prodi()
     {
-        return view('prodi.index', [
+        return view('home.prodi', [
             'title' => 'Prodi',
             'prodi' => Jurusan::with('prodis')->latest()->get(),
             'active' => 'prodi'
@@ -29,7 +29,7 @@ class HomeController extends Controller
 
     public function jurusan()
     {
-        return view('jurusan.index', [
+        return view('home.jurusan', [
             'title' => 'Jurusan',
             'jurusan' => Jurusan::all(),
             'active' => 'jurusan'

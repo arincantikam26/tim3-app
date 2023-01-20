@@ -11,7 +11,7 @@
                         sesuai dengan anda.
                     </p>
                     <div class="d-grid gap-2 d-sm-flex justify-content-sm-center">
-                        <a href="" class="btn btn-primary btn-lg px-4 gap-3 text-decoration-none">Mulai Sekarang</a>
+                        <a href="{{ route('login') }}" class="btn btn-primary btn-lg px-4 gap-3 text-decoration-none">Mulai Sekarang</a>
                     </div>
                 </div>
             </div>
@@ -23,14 +23,6 @@
                 <div class="col-6">
                     <h3 class="mb-3">Jurusan Politeknik Negeri Padang</h3>
                 </div>
-                {{-- <div class="col-6 text-right">
-                    <a class="btn btn-primary mb-3 mr-1" href="#jurusanCarousel" role="button" data-bs-slide="prev">
-                        <i class="fa fa-arrow-left"></i>
-                    </a>
-                    <a class="btn btn-primary mb-3 " href="#jurusanCarousel" role="button" data-bs-slide="next">
-                        <i class="fa fa-arrow-right"></i>
-                    </a>
-                </div> --}}
                 <div class="col-12 mt-3">
                     <div id="jurusanCarousel" class="carousel slide" data-bs-ride="carousel">
                         <div class="carousel-inner">
