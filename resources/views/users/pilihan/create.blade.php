@@ -1,4 +1,4 @@
-@extends('layouts.main_users')
+@extends('layouts.main_admin')
 @section('content')
     <h1>Tambah {{ $title }}</h1>
     <div class="card mb-5">

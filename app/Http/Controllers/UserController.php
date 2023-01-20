@@ -2,11 +2,8 @@
 
 namespace App\Http\Controllers;
 
-use App\Models\Jurusan;
-use App\Models\Prodi;
+use App\Models\JurusanSekolah;
 use App\Models\User;
-use Illuminate\Http\Request;
-use Illuminate\Support\Collection;
 use Illuminate\Support\Facades\Auth;
 
 class UserController extends Controller
@@ -24,14 +21,11 @@ class UserController extends Controller
 
     public function dashboard()
     {
-        $jurusan = Jurusan::count();
-        $prodi = Prodi::count();
 
         return view('users.index', [
             'title' => 'Dashboard',
             'active' => 'user',
-            'jurusan' => $jurusan,
-            'prodi' => $prodi
+            'jurusan' => JurusanSekolah::all()
         ]);
     }
 
@@ -49,7 +43,6 @@ class UserController extends Controller
         return view('users.profile', [
             'title' => 'Profile',
             'active' => 'profile',
-            'page' => 'user',
             'user' => $user
             
         ]);

@@ -57,7 +57,7 @@ Route::group(['middleware' => 'check-permission:user'], function () {
     Route::get('/rekomendasi', [UserController::class, 'rekomendasi'])->name('rekomendasi');
     Route::get('/profile', [UserController::class, 'profile'])->name('user-profile');
     Route::put('/edit-profile/{id}', [UserController::class, 'update'])->name('edit-profile');
-    Route::resource('user-pilihan', PilihanController::class);
+    
 });
 
 Route::group(['middleware' => 'check-permission:admin'], function () {
@@ -73,4 +73,5 @@ Route::group(['middleware' => 'check-permission:admin'], function () {
     Route::resource('admin-user', UserCrudController::class);
     Route::resource('admin-preferensi', PreferensiController::class);
     Route::resource('admin-sekolah', SekolahController::class);
+    Route::resource('user-pilihan', PilihanController::class);
 });

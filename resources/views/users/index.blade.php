@@ -43,9 +43,11 @@
                             ></span>
                             <select class="form-select me-5" aria-label="Jurusan Sekolah">
                                 <option selected>Pilih Jurusan Sekolah</option>
-                                <option value="1">SMA-IPA</option>
-                                <option value="2">SMA-IPS</option>
-                                <option value="3">SMK</option>
+                                @foreach ($jurusan as $item)
+                                  <option value="{{ $item->id }}">
+                                    {{ $item->nama_jurusan }}
+                                  </option>
+                                @endforeach
                               </select>
                           </div>
                         </div>
