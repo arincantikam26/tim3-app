@@ -15,6 +15,7 @@ class Pilihan extends Model
     {
         return $this->belongsTo(JurusanSekolah::class, 'id_jurusan_sekolah');
     }
+
     public function prodi()
     {
         return $this->belongsTo(Prodi::class, 'prodi_id');

@@ -12,9 +12,14 @@ class PreferensiController extends Controller
      *
      * @return \Illuminate\Http\Response
      */
+    public function __construct()
+    {
+        $this->middleware('auth');
+    }
+
     public function index()
     {
-        return view('preferensi.index', [
+        return view('admin.preferensi.index', [
             'title' => 'Preferensi',
             'preferensi' => Preferensi::all(),
             'active' => 'preferensi'

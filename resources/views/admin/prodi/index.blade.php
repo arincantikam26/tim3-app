@@ -34,19 +34,45 @@
                             <td>
                                 @foreach ($item->prodis()->get() as $prodi)
                                     <p>
-                                    <form action="{{ route('prodi.destroy', $prodi->id_prodi) }}" method="POST">
                                         <a class="ps-5" href="{{ route('prodi.edit', $prodi->id_prodi) }}"><i
                                                 class='bx bx-edit crud-icon' style="font-size: 1.5em; color:green;"
                                                 title="Edit"></i></a>
-                                        @csrf
-                                        @method('DELETE')
-                                        <button class="pe-5 bg-transparent border-0"
-                                            onclick="return confirm('Apakah Anda Yakin Ingin Menghapus?')"><i
-                                                class='bx bxs-eraser' style="font-size: 1.5em; color:red;"
-                                                title="Hapus"></i></button>
+
+                                        <button type="button" class="bg-transparent border-0" data-bs-toggle="modal"
+                                            data-bs-target="#basicModal{{ $prodi->id_prodi }}">
+                                            <i class='bx bxs-eraser' style="font-size: 1.5em; color:red;"title="Hapus"></i>
+                                        </button>
                                         {{ $prodi->nama_prodi }}
-                                    </form>
                                     </p>
+                                    {{-- Modal --}}
+                                    <div class="modal fade" id="basicModal{{ $prodi->id_prodi }}" tabindex="-1"
+                                        aria-hidden="true">
+                                        <div class="modal-dialog" role="document">
+                                            <div class="modal-content">
+                                                <div class="modal-header">
+                                                    <h5 class="modal-title" id="exampleModalLabel1">Hapus Data
+                                                        {{ $title }}</h5>
+                                                    <button type="button" class="btn-close" data-bs-dismiss="modal"
+                                                        aria-label="Close"></button>
+                                                </div>
+                                                <div class="modal-body">Apakah Anda Yakin Ingin Menghapus?</div>
+                                                <div class="modal-footer">
+                                                    <form action="{{ route('prodi.destroy', $prodi->id_prodi) }}"
+                                                        method="POST">
+                                                        @csrf
+                                                        @method('DELETE')
+                                                        <button type="submit" class="btn btn-danger">Hapus</button>
+                                                    </form>
+                                                    <button type="button" class="btn btn-outline-secondary"
+                                                        data-bs-dismiss="modal">
+                                                        Batal
+                                                    </button>
+                                                </div>
+
+                                            </div>
+                                        </div>
+                                    </div>
+                                    {{-- End Modal --}}
                                 @endforeach
                             </td>
                             <td>{{ $item->nama_jurusan }}</td>
@@ -57,4 +83,7 @@
         </div>
     </div>
 
+    <script src="/assets/vendor/libs/jquery/jquery.js"></script>
+    <script src="/assets/vendor/libs/popper/popper.js"></script>
+    <script src="/assets/vendor/js/bootstrap.js"></script>
 @endsection

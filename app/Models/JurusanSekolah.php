@@ -11,4 +11,9 @@ class JurusanSekolah extends Model
 
     protected $table = 'jurusan_sekolah';
     protected $guarded = ['id'];
+
+    public function pilihan()
+    {
+        return $this->hasMany(Pilihan::class, 'id_jurusan_sekolah');
+    }
 }

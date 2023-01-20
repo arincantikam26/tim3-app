@@ -72,7 +72,7 @@
                         </div>
                         <span class="fw-semibold d-block mb-1">Sekolah</span>
                         <h3 class="card-title mb-2">{{ $sekolah }} Sekolah</h3>
-                        <small class="text-success fw-semibold"><a href="/admin/jurusan-sekolah"> Details <i
+                        <small class="text-success fw-semibold"><a href="{{ route('admin-sekolah.index') }}"> Details <i
                                     class="fa-solid fa-angles-right"></i></a></small>
                     </div>
                 </div>

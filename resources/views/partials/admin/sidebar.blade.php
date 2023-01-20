@@ -25,7 +25,7 @@
         </li>
         <!-- Sekolah -->
         <li class="menu-header small text-uppercase">
-            <span class="menu-header-text">Jurusan</span>
+            <span class="menu-header-text">Front End</span>
         </li>
         <li class="menu-item <?php
         if (isset($active)) {
@@ -59,27 +59,36 @@
                 <div data-i18n="Authentications">Data Sekolah</div>
             </a>
         </li>
+        <li class="menu-item {{ $active === 'pilihan' ? 'active' : '' }}">
+            <a href="{{ route('admin-pilihan.index') }}" class="menu-link">
+                <i class='menu-icon bx bx-select-multiple'></i>
+                <div data-i18n="Basic">Pilihan Prodi</div>
+            </a>
+        </li>
         <!-- Components -->
         <li class="menu-header small text-uppercase"><span class="menu-header-text">Metode</span></li>
         <!-- Cards -->
+
+        <li class="menu-item {{ $active === 'kriteria' ? 'active' : '' }} ">
+            <a href="{{ route('admin-kriteria.index') }}" class="menu-link">
+                <i class='menu-icon bx bx-table'></i>
+                <div data-i18n="Basic">Kriteria</div>
+            </a>
+        </li>
+        <li class="menu-item {{ $active === 'pertanyaan' ? 'active' : '' }} ">
+            <a href="{{ route('admin-pertanyaan.index') }}" class="menu-link">
+                <i class='menu-icon bx bx-search-alt'></i>
+                <div data-i18n="Basic">Pertanyaan</div>
+            </a>
+        </li>
         <li class="menu-item {{ $active === 'preferensi' ? 'active' : '' }}">
             <a href="{{ route('admin-preferensi') }}" class="menu-link">
                 <i class='menu-icon bx bx-task'></i>
                 <div data-i18n="Basic">Preferensi</div>
             </a>
         </li>
-        <li class="menu-item {{ $active === 'pertanyaan' ? 'active' : '' }} ">
-            <a href="{{ route('admin-pertanyaan') }}" class="menu-link">
-                <i class='menu-icon bx bx-search-alt'></i>
-                <div data-i18n="Basic">Pertanyaan</div>
-            </a>
-        </li>
-        <li class="menu-item {{ $active === 'pilihan' ? 'active' : '' }}">
-            <a href="{{ route('user-pilihan.index') }}" class="menu-link">
-                <i class='menu-icon bx bx-select-multiple'></i>
-                <div data-i18n="Basic">Pilihan</div>
-            </a>
-        </li>
+
+
         <!-- Components -->
         <li class="menu-header small text-uppercase"><span class="menu-header-text">Pengguna</span></li>
         <!-- Extended components -->

@@ -2,10 +2,10 @@
 
 namespace App\Http\Controllers;
 
-use App\Models\Jurusan;
+use App\Models\Kriteria;
 use Illuminate\Http\Request;
 
-class JurusanController extends Controller
+class KriteriaController extends Controller
 {
     /**
      * Display a listing of the resource.
@@ -19,10 +19,10 @@ class JurusanController extends Controller
 
     public function index()
     {
-        return view('admin.jurusan.index', [
-            'title' => 'Jurusan',
-            'active' => 'jurusan',
-            'jurusan' => Jurusan::latest()->get()
+        return view('admin.kriteria.index', [
+            'title' => 'Kriteria',
+            'active' => 'kriteria',
+            'kriteria' => Kriteria::all()
         ]);
     }
 
@@ -33,9 +33,9 @@ class JurusanController extends Controller
      */
     public function create()
     {
-        return view('admin.jurusan.create', [
-            'title' => 'Jurusan',
-            'active' => 'jurusan',
+        return view('admin.kriteria.create', [
+            'title' => 'Kriteria',
+            'active' => 'kriteria',
         ]);
     }
 
@@ -48,11 +48,10 @@ class JurusanController extends Controller
     public function store(Request $request)
     {
         $request->validate([
-            'nama_jurusan' => 'required|unique:jurusan'
+            'nama_kriteria' => 'required'
         ]);
-        Jurusan::create($request->all());
-
-        return redirect()->route('jurusan.index')->with('success', 'Data Berhasil Ditambahkan');
+        Kriteria::create($request->all());
+        return redirect()->route('admin-kriteria.index')->with('success', 'Data Berhasil Ditambahkan');
     }
 
     /**
@@ -74,11 +73,11 @@ class JurusanController extends Controller
      */
     public function edit($id)
     {
-        $data = Jurusan::find($id);
-        return view('admin.jurusan.edit', [
-            'title' => 'Jurusan',
-            'active' => 'jurusan',
-            'jurusan' => $data
+        $data = Kriteria::find($id);
+        return view('admin.kriteria.edit', [
+            'title' => 'Kriteria',
+            'active' => 'kriteria',
+            'kriteria' => $data
         ]);
     }
 
@@ -91,9 +90,9 @@ class JurusanController extends Controller
      */
     public function update(Request $request, $id)
     {
-        $data = Jurusan::find($id);
+        $data = Kriteria::find($id);
         $data->update($request->all());
-        return redirect()->route('jurusan.index')->with('success', 'Data Berhasil Disimpan');
+        return redirect()->route('admin-kriteria.index')->with('success', 'Data Berhasil Diupdate');
     }
 
     /**
@@ -104,8 +103,8 @@ class JurusanController extends Controller
      */
     public function destroy($id)
     {
-        $data = Jurusan::find($id);
+        $data = Kriteria::find($id);
         $data->delete();
-        return redirect()->route('jurusan.index')->with('success', 'Data Berhasil Dihapus');
+        return redirect()->route('admin-kriteria.index')->with('success', 'Data Berhasil Dihapus');
     }
 }

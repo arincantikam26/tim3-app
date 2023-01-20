@@ -8,7 +8,7 @@
                     <h5>{{ $title }}</h5>
                 </div>
                 <div class="col-lg-4 text-end mb-3">
-                    <a href="{{ route('jurusan.create') }}" class="btn btn-success"><i class='bx bx-plus-circle'
+                    <a href="{{ route('admin-kriteria.create') }}" class="btn btn-success"><i class='bx bx-plus-circle'
                             style="font-size: 1.5em"></i> Tambah
                         {{ $title }}</a>
                 </div>
@@ -20,21 +20,18 @@
                 <thead>
                     <tr>
                         <th class="text-center">No</th>
-                        <th>
-                            <span>Nama Jurusan</span>
-                        </th>
-                        <th>
-                            <span>Action</span>
-                        </th>
+                        <th>Kriteria</th>
+                        <th>Action</th>
                     </tr>
                 </thead>
                 <tbody class="table-border-bottom-0">
-                    @foreach ($jurusan as $index => $item)
+
+                    @foreach ($kriteria as $index => $item)
                         <tr>
                             <th class="text-center" scope="row">{{ $index + 1 }}</th>
-                            <td>{{ $item->nama_jurusan }}</td>
+                            <td>{{ $item->nama_kriteria }}</td>
                             <td>
-                                <a href="{{ route('jurusan.edit', $item->id) }}">
+                                <a href="{{ route('admin-kriteria.edit', $item->id) }}">
                                     <i class='bx bx-edit crud-icon' style="font-size: 1.5em; color:green;"
                                         title="Edit"></i>
                                 </a>
@@ -45,7 +42,7 @@
                             </td>
                         </tr>
 
-                        {{-- Modal Delete --}}
+                        {{-- Modal --}}
                         <div class="modal fade" id="basicModal{{ $item->id }}" tabindex="-1" aria-hidden="true">
                             <div class="modal-dialog" role="document">
                                 <div class="modal-content">
@@ -56,7 +53,7 @@
                                     </div>
                                     <div class="modal-body">Apakah Anda Yakin Ingin Menghapus?</div>
                                     <div class="modal-footer">
-                                        <form action="{{ route('jurusan.destroy', $item->id) }}" method="POST">
+                                        <form action="{{ route('admin-kriteria.destroy', $item->id) }}" method="POST">
                                             @csrf
                                             @method('DELETE')
                                             <button type="submit" class="btn btn-danger">Hapus</button>
@@ -76,6 +73,7 @@
             </table>
         </div>
     </div>
+
     <script src="/assets/vendor/libs/jquery/jquery.js"></script>
     <script src="/assets/vendor/libs/popper/popper.js"></script>
     <script src="/assets/vendor/js/bootstrap.js"></script>

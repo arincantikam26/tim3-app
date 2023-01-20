@@ -25,7 +25,7 @@
         </li>
         <!-- Sekolah -->
         <li class="menu-header small text-uppercase">
-            <span class="menu-header-text">Jurusan</span>
+            <span class="menu-header-text">Kampus</span>
         </li>
         <li class="menu-item <?php
         if (isset($active)) {
@@ -38,50 +38,39 @@
         ?>">
             <a href="javascript:void(0);" class="menu-link menu-toggle">
                 <i class='menu-icon bx bxs-buildings'></i>
-                <div data-i18n="Account Settings">Data Calon Mahasiswa</div>
+                <div data-i18n="Account Settings">Data Kampus</div>
             </a>
             <ul class="menu-sub">
                 <li class="menu-item {{ $active === 'jurusan' ? 'active' : '' }}">
                     <a href="/user/jurusan" class="menu-link">
-                        <div data-i18n="Basic">Biodata</div>
+                        <div data-i18n="Basic">List Jurusan</div>
                     </a>
                 </li>
                 <li class="menu-item {{ $active === 'prodi' ? 'active' : '' }}">
-                    <a href="{{ route('rekomendasi') }}" class="menu-link">
-                        <div data-i18n="Basic">Rekomendasi</div>
+                    <a href="/user/prodi" class="menu-link">
+                        <div data-i18n="Basic">List Prodi</div>
                     </a>
                 </li>
             </ul>
         </li>
-        <li class="menu-item {{ $active === 'sekolah' ? 'active' : '' }}">
-            <a href="#" class="menu-link">
-                <i class='menu-icon bx bxs-school'></i>
-                <div data-i18n="Authentications">Preferensi</div>
-            </a>
-        </li>
+
         <!-- Components -->
-        <li class="menu-header small text-uppercase"><span class="menu-header-text">Metode</span></li>
+        <li class="menu-header small text-uppercase"><span class="menu-header-text">Jurusan Sekolah</span></li>
         <!-- Cards -->
-       
-        <li class="menu-item {{ $active === 'kriteria' ? 'active' : '' }}">
-            <a href="/user/kriteria" class="menu-link">
-                <i class='menu-icon bx bx-task'></i>
-                <div data-i18n="Basic">Kriteria</div>
-            </a>
-        </li>
-        <li class="menu-item {{ $active === 'pertanyaan' ? 'active' : '' }} ">
-            <a href="/user/pertanyaan" class="menu-link">
+
+        <li class="menu-item {{ $active === 'jurusan-sekolah' ? 'active' : '' }} ">
+            <a href="{{ route('jurusan-sekolah') }}" class="menu-link">
                 <i class='menu-icon bx bx-search-alt'></i>
-                <div data-i18n="Basic">Pertanyaan</div>
+                <div data-i18n="Basic">List Jurusan Sekolah</div>
             </a>
         </li>
         <!-- Components -->
-        <li class="menu-header small text-uppercase"><span class="menu-header-text">Cek Jurusan</span></li>
+        <li class="menu-header small text-uppercase"><span class="menu-header-text">Profile</span></li>
         <!-- Extended components -->
-        <li class="menu-item {{ $active === 'cek_jurusan' ? 'active' : '' }}">
-            <a href="/rekomendasi" class="menu-link">
+        <li class="menu-item {{ $active === 'profile' ? 'active' : '' }}">
+            <a href="/profile" class="menu-link">
                 <i class='menu-icon bx bx-user'></i>
-                <div data-i18n="Perfect Scrollbar">Cek Jurusan</div>
+                <div data-i18n="Perfect Scrollbar">Edit Profile</div>
             </a>
         </li>
     </ul>

@@ -8,6 +8,7 @@ use App\Models\JurusanSekolah;
 use App\Models\Preferensi;
 use App\Models\Prodi;
 use App\Models\User;
+use App\Models\Pertanyaan;
 use Illuminate\Support\Facades\Auth;
 
 class AdminController extends Controller
@@ -65,13 +66,11 @@ class AdminController extends Controller
 
     public function pertanyaan()
     {
-        return view('admin.pertanyaan', [
-            'title' => 'Pertanyaan',
-            'active' => 'pertanyaan'
-        ]);
+        //
     }
 
-    public function profile() {
+    public function profile()
+    {
         $id = Auth::id();
         $user = User::find($id);
         return view('admin.profile', [
