@@ -69,10 +69,13 @@ Route::group(['middleware' => 'check-permission:admin'], function () {
     Route::get('/admin/jurusan', [AdminController::class, 'jurusan'])->name('admin-jurusan');
     Route::get('/admin/prodi', [AdminController::class, 'prodi'])->name('admin-prodi');
     Route::get('/admin/profile', [AdminController::class, 'profile'])->name('admin-profile');
-    Route::resource('prodi', ProdiController::class);
-    Route::resource('jurusan', JurusanController::class);
     Route::get('/admin/jurusan-sekolah', [AdminController::class, 'sekolah'])->name('admin-sekolah');
     Route::get('/admin/preferensi', [AdminController::class, 'preferensi'])->name('admin-preferensi');
+    Route::get('/admin/pertanyaan', [AdminController::class, 'pertanyaan'])->name('admin-pertanyaan');
+
+
+    Route::resource('prodi', ProdiController::class);
+    Route::resource('jurusan', JurusanController::class);
     Route::resource('admin-user', UserCrudController::class);
     Route::resource('admin-preferensi', PreferensiController::class);
     Route::resource('admin-sekolah', SekolahController::class);
