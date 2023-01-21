@@ -66,7 +66,11 @@ class AdminController extends Controller
 
     public function pertanyaan()
     {
-        //
+        return view('admin.pertanyaan.index', [
+            'title' => 'pertanyaan',
+            'active' => 'pertanyaan',
+            'pertanyaan' => Pertanyaan::all()
+        ]);
     }
 
     public function profile()
