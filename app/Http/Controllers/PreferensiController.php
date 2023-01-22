@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers;
 
+use App\Models\Kriteria;
 use App\Models\Preferensi;
 use Illuminate\Http\Request;
 
@@ -20,9 +21,9 @@ class PreferensiController extends Controller
     public function index()
     {
         return view('admin.preferensi.index', [
-            'title' => 'Preferensi',
+            'title' => 'Preferensi',    
+            'active' => 'preferensi',
             'preferensi' => Preferensi::all(),
-            'active' => 'preferensi'
         ]);
     }
 
@@ -36,6 +37,7 @@ class PreferensiController extends Controller
         return view('admin.preferensi.create', [
             'title' => 'Preferensi',
             'active' => 'preferensi',
+            'kriteria' => Kriteria::all()
         ]);
     }
 
@@ -49,7 +51,9 @@ class PreferensiController extends Controller
     {
         $request->validate([
             'keterangan' => 'required|min:3',
-            'nilai' => 'required'
+            'nilai' => 'required',
+            'kriteria1' => 'required',
+            'kriteria2' => 'required',
         ]);
         Preferensi::create($request->all());
         return redirect()->route('admin-preferensi')->with('success', 'Data Berhasil Ditambahkan');

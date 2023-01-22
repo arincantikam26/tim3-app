@@ -1,6 +1,6 @@
 @extends('layouts.main_home')
 @section('content')
-    <link href="/assets/vendor/simple-datatables/style.css" rel="stylesheet">
+   
     <section>
         <div class="row mt-5">
             <h3 class="text-center">Data {{ $title }}</h3>

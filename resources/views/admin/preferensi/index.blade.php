@@ -22,9 +22,12 @@
                     <th class="text-center">No</th>
                     <th>
                         <span class="ps-5">Action</span>
-                        <span class="ps-5">Keterangan</span>
-                    </th>
-                    <th>Nilai</th>
+                        <span class="ps-5">Label</span>
+                    </th>    
+                    <th>Bobot</th>
+                    <th>Kriteria 1</th>
+                    <th>Kriteria 2</th>
+                    <th>Dibuat Pada</th>
                 </tr>
             </thead>
             <tbody class="table-border-bottom-0">
@@ -32,25 +35,51 @@
                     <tr>
                         <th class="text-center" scope="row">{{ $index + 1 }}</th>
                         <td>
-                            <p>
-                            <form action="{{ route('admin-preferensi.destroy', $item->id) }}" method="POST">
-                                <a class="ps-5" href="{{ route('admin-preferensi.edit', $item->id) }}">
-                                    <i class='bx bx-edit crud-icon'
-                                        style="font-size: 1.5em; color:green;"title="Edit"></i>
-                                </a>
-                                @csrf
-                                @method('DELETE')
-                                <button class="pe-5 bg-transparent border-0"
-                                    onclick="return confirm('Apakah Anda Yakin Ingin Menghapus?')">
-                                    <i class='bx bxs-eraser' style="font-size: 1.5em; color:red;"title="Hapus"></i>
-                                </button>
+                           
+                            <a class="ps-5" href="{{ route('admin-preferensi.edit', $item->id) }}">
+                                <i class='bx bx-edit crud-icon'
+                                    style="font-size: 1.5em; color:green;"title="Edit"></i>
+                            </a>
+                            
+                            <button type="button" class="bg-transparent border-0" data-bs-toggle="modal"
+                                data-bs-target="#basicModal{{ $item->id }}">
+                                <i class='bx bxs-eraser' style="font-size: 1.5em; color:red;"title="Hapus"></i>
+                            </button>
+                                {{-- Modal Delete --}}
+                        <div class="modal fade" id="basicModal{{ $item->id }}" tabindex="-1" aria-hidden="true">
+                            <div class="modal-dialog" role="document">
+                                <div class="modal-content">
+                                    <div class="modal-header">
+                                        <h5 class="modal-title" id="exampleModalLabel1">Hapus Data {{ $title }}</h5>
+                                        <button type="button" class="btn-close" data-bs-dismiss="modal"
+                                            aria-label="Close"></button>
+                                    </div>
+                                    <div class="modal-body">Apakah Anda Yakin Ingin Menghapus?</div>
+                                    <div class="modal-footer">
+                                        <form action="{{ route('admin-preferensi.destroy', $item->id) }}" method="POST">
+                                            @csrf
+                                            @method('DELETE')
+                                            <button type="submit" class="btn btn-danger">Hapus</button>
+                                        </form>
 
-                                {{ $item->keterangan }}
-                            </form>
-                            </p>
+                                        <button type="button" class="btn btn-outline-secondary" data-bs-dismiss="modal">
+                                            Batal
+                                        </button>
+                                    </div>
 
+                                </div>
+                            </div>
+                        </div>
+                            {{ $item->keterangan }}
                         </td>
                         <td>{{ $item->nilai }}</td>
+                        @foreach ($item->kriteria()->get() as $kriteria)
+                            <td> {{ $kriteria->nama_kriteria }}</td>
+                            <td>{{ $kriteria->nama_kriteria }}</td>
+                        @endforeach
+                       
+                        
+                        <td>{{ $item->created_at->diffForHumans() }}</td>
                     </tr>
                 @endforeach
             </tbody>

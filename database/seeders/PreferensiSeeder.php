@@ -17,9 +17,30 @@ class PreferensiSeeder extends Seeder
     {
         $data = [
             [
-                '' => ''
-            ]
-            ];
-            Preferensi::insert($data);
+                'kriteria1' => 2,
+                'nilai' => 5,
+                'keterangan' => 'Penting dari',
+                'kriteria2' => 3,
+                'created_at' => now(),
+                'updated_at' => now()
+            ],
+            [
+                'kriteria1' => 1,
+                'nilai' => 7,
+                'keterangan' => 'Mutlak Penting',
+                'kriteria2' => 3,
+                'created_at' => now(),
+                'updated_at' => now()
+            ],
+            [
+                'kriteria1' => 1,
+                'nilai' => 5,
+                'keterangan' => 'Penting dari',
+                'kriteria2' => 2,
+                'created_at' => now(),
+                'updated_at' => now()
+            ],
+        ];
+        Preferensi::insert($data);
     }
 }
