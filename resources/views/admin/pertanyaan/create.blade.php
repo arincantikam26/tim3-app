@@ -11,37 +11,35 @@
         </div>
         <div class="table-responsive text-nowrap">
             <div class="row">
-                <form class="needs-validation forms-sample" method="POST" action="{{ route('admin-pertanyaan.create') }}" novalidate>
+                <form class="needs-validation forms-sample" method="POST" action="{{ route('admin-pertanyaan.store') }}"
+                    novalidate>
                     @csrf
                     <div class="col-lg-6 offset-2 col-md-4">
                         @include('partials.messages')
                         <div class="mb-3">
                             <label for="id_prodi" class="form-label">Nama Program Studi</label>
-                            <input type="text" name="id_prodi" class="form-control" placeholder="Nama Prodi"
-                                aria-describedby="helpId" required="required" value="{{ old('id_prodi') }}">
+                            <select class="form-select form-select-lg" name="id_prodi" id="id_prodi">
+                                <option value="">Pilih Prodi</option>
+                                @foreach ($prodi as $item)
+                                    <option value="{{ $item->id_prodi }}">{{ $item->nama_prodi }}</option>
+                                @endforeach
+                            </select>
                             @if ($errors->has('id_prodi'))
                                 <span class="text-danger text-left">{{ $errors->first('id_prodi') }}</span>
                             @endif
-                            {{-- <select class="form-select form-select-lg" name="id_prodi" id="id_prodi">
-                                <option value="">Pilih Program Studi</option>
-                                @foreach ($pertanyaan as $item)
-                                    <option value="{{ $item->id }}">{{ $item->nama_prodi }}</option>
-                                @endforeach
-                            </select> --}}
                         </div>
                         <div class="mb-3">
                             <label for="id_kriteria" class="form-label">Nama Kriteria</label>
-                            <input type="text" name="id_kriteria" class="form-control" placeholder="Nama Kriteria"
-                                aria-describedby="helpId" required="required" value="{{ old('id_kriteria') }}">
+                            <select class="form-select form-select-lg" name="id_kriteria" id="id_kriteria">
+                                <option value="">Pilih Kriteria</option>
+                                @foreach ($kriteria as $item)
+                                    <option value="{{ $item->id }}">{{ $item->nama_kriteria }}</option>
+                                @endforeach
+                            </select>
                             @if ($errors->has('id_kriteria'))
                                 <span class="text-danger text-left">{{ $errors->first('id_kriteria') }}</span>
                             @endif
-                            {{-- <select class="form-select form-select-lg" name="id_kriteria" id="id_kriteria">
-                                <option value="">Pilih Kriteria</option>
-                                @foreach ($pertanyaan as $item)
-                                    <option value="{{ $item->id }}">{{ $item->nama_kriteria }}</option>
-                                @endforeach
-                            </select> --}}
+
                         </div>
                         <div class="mb-3">
                             <label for="pertanyaan" class="form-label">Pertanyaan</label>
@@ -53,7 +51,7 @@
                         </div>
                         <div class="mb-5">
                             <button type="submit" class="btn btn-primary">Simpan</button>
-                            <a href="{{ route('admin-pertanyaan') }}" class="btn btn-danger">Batal</a>
+                            <a href="{{ route('admin-pertanyaan.index') }}" class="btn btn-danger">Batal</a>
                         </div>
                     </div>
                 </form>

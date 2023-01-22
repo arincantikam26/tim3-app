@@ -27,6 +27,9 @@
     <!-- Vendors CSS -->
     <link rel="stylesheet" href="{{ asset('assets/vendor/libs/perfect-scrollbar/perfect-scrollbar.css') }}">
     <link href="/assets/vendor/simple-datatables/style.css" rel="stylesheet">
+    {{-- CSS untuk Pencarian dalam select option --}}
+    <link rel="stylesheet"
+        href="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-select/1.13.2/css/bootstrap-select.min.css">
 
 </head>
 
@@ -68,6 +71,12 @@
     <script src="/assets/js/main2.js"></script>
 
     <script async defer src="https://buttons.github.io/buttons.js"></script>
+
+    {{-- JS untuk Pencarian dalam select option  --}}
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.1.0/js/bootstrap.bundle.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-select/1.13.2/js/bootstrap-select.min.js"></script>
+
 
 </body>
 

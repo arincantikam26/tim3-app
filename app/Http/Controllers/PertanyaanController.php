@@ -24,7 +24,7 @@ class PertanyaanController extends Controller
         return view('admin.pertanyaan.index', [
             'title' => 'Pertanyaan',
             'active' => 'pertanyaan',
-            'pertanyaan' => Pertanyaan::all()
+            'pertanyaan' => Pertanyaan::with(['prodi', 'kriteria'])->get()
         ]);
     }
 
@@ -39,6 +39,8 @@ class PertanyaanController extends Controller
             'title' => 'Pertanyaan',
             'active' => 'pertanyaan',
             'pertanyaan' => Pertanyaan::all(),
+            'prodi' => Prodi::all(),
+            'kriteria' => Kriteria::all()
         ]);
     }
 
@@ -58,7 +60,7 @@ class PertanyaanController extends Controller
 
         Pertanyaan::create($request->all());
 
-        return redirect()->route('admin-pertanyaan')->with('success', 'Data Berhasil Ditambahkan');
+        return redirect()->route('admin-pertanyaan.index')->with('success', 'Data Berhasil Ditambahkan');
     }
 
     /**
@@ -78,13 +80,14 @@ class PertanyaanController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function edit($id_pertanyaan)
+    public function edit($id)
     {
-        $pertanyaan = Pertanyaan::find($id_pertanyaan);
-        return view('admin.pertanyaan.edit',[
+        $pertanyaan = Pertanyaan::find($id);
+        return view('admin.pertanyaan.edit', [
             'title' => 'Pertanyaan',
             'active' => 'pertanyaan',
-            'pertanyaan' => Pertanyaan::all(),
+            'prodi' => Prodi::all(),
+            'kriteria' => Kriteria::all(),
             'pertanyaan' => $pertanyaan
         ]);
     }
@@ -96,11 +99,11 @@ class PertanyaanController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function update(Request $request, $id_pertanyaan)
+    public function update(Request $request, $id)
     {
-        $data = Pertanyaan::find($id_pertanyaan);
+        $data = Pertanyaan::find($id);
         $data->update($request->all());
-        return redirect()->route('admin-pertanyaan')->with('success', 'Data Berhasil Disimpan');
+        return redirect()->route('admin-pertanyaan.index')->with('success', 'Data Berhasil Diperbarui');
     }
 
     /**
@@ -109,10 +112,10 @@ class PertanyaanController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function destroy($id_pertanyaan)
+    public function destroy($id)
     {
-        $data = Pertanyaan::find($id_pertanyaan);
+        $data = Pertanyaan::find($id);
         $data->delete();
-        return redirect()->route('admin-pertanyaan')->with('success', 'Data Berhasil Dihapus');
+        return redirect()->route('admin-pertanyaan.index')->with('success', 'Data Berhasil Dihapus');
     }
 }

@@ -5,14 +5,14 @@
         <div class="card-header">
             <div class="row">
                 <div class="col-lg-8">
-                    <h5>Edit {{ $pertanyaan->pertanyaan }}</h5>
+                    <h5>Edit {{ $title }}</h5>
                 </div>
             </div>
         </div>
         <div class="table-responsive text-nowrap">
             <div class="row">
                 <form class="needs-validation forms-sample" method="POST"
-                    action="{{ route('pertanyaan.update', $pertanyaan->id_pertanyaan) }}" novalidate>
+                    action="{{ route('admin-pertanyaan.update', $pertanyaan->id) }}" novalidate>
                     @csrf
                     @method('PUT')
                     <div class="col-lg-6 offset-2 col-md-4">
@@ -20,30 +20,34 @@
                         <div class="mb-3">
                             <label for="pertanyaan" class="form-label">Nama Program Studi</label>
                             <select class="form-select form-select-lg" name="id_prodi" id="id_prodi">
-                                <option>Pilih Program Studi</option>
-                                @foreach ($pertanyaan as $item)
-                                    <option value="{{ $item->id }}"
-                                        {{ $item->id == $pertanyaan->id_prodi ? 'selected' : '' }}>
-                                        {{ $item->nama_prodi }}
-                                    </option>
+                                <option value="">Pilih Prodi</option>
+                                @foreach ($prodi as $item)
+                                    <option value="{{ $item->id_prodi }}"
+                                        {{ $item->id_prodi == $pertanyaan->id_prodi ? 'selected' : '' }}>
+                                        {{ $item->nama_prodi }}</option>
                                 @endforeach
                             </select>
+                            @if ($errors->has('id_prodi'))
+                                <span class="text-danger text-left">{{ $errors->first('id_prodi') }}</span>
+                            @endif
                         </div>
                         <div class="mb-3">
                             <label for="pertanyaan" class="form-label">Nama Kriteria</label>
                             <select class="form-select form-select-lg" name="id_kriteria" id="id_kriteria">
-                                <option>Pilih Kriteria</option>
-                                @foreach ($pertanyaan as $item)
+                                <option value="">Pilih Kriteria</option>
+                                @foreach ($kriteria as $item)
                                     <option value="{{ $item->id }}"
                                         {{ $item->id == $pertanyaan->id_kriteria ? 'selected' : '' }}>
-                                        {{ $item->nama_kriteria }}
-                                    </option>
+                                        {{ $item->nama_kriteria }}</option>
                                 @endforeach
                             </select>
+                            @if ($errors->has('id_kriteria'))
+                                <span class="text-danger text-left">{{ $errors->first('id_kriteria') }}</span>
+                            @endif
                         </div>
                         <div class="mb-3">
-                            <label for="nama_pertanyaan" class="form-label">Nama Pertanyaan</label>
-                            <input type="text" name="nama_pertanyaan" class="form-control" placeholder="Nama Pertanyaan"
+                            <label for="pertanyaan" class="form-label">Nama Pertanyaan</label>
+                            <input type="text" name="pertanyaan" class="form-control" placeholder="Nama Pertanyaan"
                                 aria-describedby="helpId" required="required" value="{{ $pertanyaan->pertanyaan }}">
                             @if ($errors->has('pertanyaan'))
                                 <span class="text-danger text-left">{{ $errors->first('pertanyaan') }}</span>

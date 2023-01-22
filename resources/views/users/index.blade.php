@@ -6,7 +6,7 @@
                 <h4 class="card-title badge rounded-pill bg-dark">Cek Program Studi</h4>
                 <div class="card-text">
                     <h3>Cek Jurusan Sekolah Asal</h3>
-                    <p>Membantu menemukan program studi yang ada di Politeknik Negeri Padang Berdasarkan jurusan sekolah
+                    <p>Membantu menemukan Program Studi yang ada di Politeknik Negeri Padang berdasarkan Jurusan Sekolah
                         asal.</p>
                 </div>
                 <div class="row">
@@ -36,11 +36,12 @@
                                     <div class="input-group input-group-merge">
                                         <span id="basic-icon-default-company2" class="input-group-text"><i
                                                 class="bx bx-buildings"></i></span>
-                                        <select class="form-select me-5" aria-label="Jurusan Sekolah">
-                                            <option selected>Pilih Jurusan Sekolah</option>
-                                            <option value="1">SMA-IPA</option>
-                                            <option value="2">SMA-IPS</option>
-                                            <option value="3">SMK</option>
+                                        <select name="jurusansekolah" class="selectpicker form-control me-5"
+                                            aria-label="Jurusan Sekolah" data-live-search="true">
+                                            <option value="">Pilih Jurusan Sekolah</option>
+                                            @foreach ($jurusan as $item)
+                                                <option value="{{ $item->id }}">{{ $item->nama_jurusan }}</option>
+                                            @endforeach
                                         </select>
                                     </div>
                                 </div>
