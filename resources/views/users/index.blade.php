@@ -23,9 +23,9 @@
                                     <div class="input-group input-group-merge">
                                         <span id="basic-icon-default-fullname2" class="input-group-text"><i
                                                 class="bx bx-user"></i></span>
-                                        <input type="text" class="form-control me-5" id="basic-icon-default-fullname"
-                                            placeholder="User Name" aria-label="User Name"
-                                            aria-describedby="basic-icon-default-fullname2" />
+                                        <input type="text" class="form-control me-5 p-2" id="basic-icon-default-fullname"
+                                            placeholder="User Name" aria-label="User Name" value="{{ auth()->user()->name }}"
+                                            aria-describedby="basic-icon-default-fullname2" readonly/>
                                     </div>
                                 </div>
                             </div>
@@ -36,13 +36,16 @@
                                     <div class="input-group input-group-merge">
                                         <span id="basic-icon-default-company2" class="input-group-text"><i
                                                 class="bx bx-buildings"></i></span>
-                                        <select name="jurusansekolah" class="selectpicker form-control me-5"
-                                            aria-label="Jurusan Sekolah" data-live-search="true">
-                                            <option value="">Pilih Jurusan Sekolah</option>
-                                            @foreach ($jurusan as $item)
-                                                <option value="{{ $item->id }}">{{ $item->nama_jurusan }}</option>
-                                            @endforeach
+                                        <div style="border: 1px solid rgb(220, 219, 219);">
+                                            <select name="jurusansekolah" class="selectpicker form-group me-5"
+                                                aria-label="Jurusan Sekolah" data-live-search="true">
+                                                <option value="">Pilih Jurusan Sekolah</option>
+                                                @foreach ($jurusan as $item)
+                                                    <option value="{{ $item->id }}">{{ $item->nama_jurusan }}</option>
+                                                @endforeach
                                         </select>
+                                        </div>
+                                       
                                     </div>
                                 </div>
                             </div>
