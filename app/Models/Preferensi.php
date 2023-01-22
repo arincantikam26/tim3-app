@@ -10,4 +10,9 @@ class Preferensi extends Model
     use HasFactory;
     protected $guarded = ['id'];
     protected $table = 'preferensi';
+
+    public function kriteria()
+    {
+        return $this->belongsTo(Kriteria::class, 'id');
+    }
 }

@@ -15,10 +15,10 @@ return new class extends Migration
     {
         Schema::create('preferensi', function (Blueprint $table) {
             $table->id();
-            $table->integer('kriteria1');
+            $table->foreignId('kriteria1');
             $table->integer('nilai');
             $table->string('keterangan');
-            $table->integer('kriteria2');
+            $table->foreignId('kriteria2');
             $table->timestamps();
         });
     }
