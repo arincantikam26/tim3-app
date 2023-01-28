@@ -36,7 +36,7 @@
                                                     <div class="checkbox">
                                                         <label>
                                                             <input type="checkbox" name="id_prodi[]"
-                                                                value="{{ $item->prodi_id }}" required />
+                                                                value="{{ $item->prodi_id }}"/>
                                                             {{ $item->prodi->nama_prodi }}
                                                         </label>
                                                     </div>
