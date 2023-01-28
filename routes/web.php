@@ -13,10 +13,11 @@ use App\Http\Controllers\ProdiController;
 use App\Http\Controllers\RegisterController;
 use App\Http\Controllers\UserController;
 use App\Http\Controllers\PreferensiController;
+use App\Http\Controllers\ProsesController;
 use App\Http\Controllers\SekolahController;
 use App\Http\Controllers\UserCrudController;
 use Illuminate\Support\Facades\Route;
-
+use PHPUnit\Runner\ResultCacheExtension;
 
 /*
 |--------------------------------------------------------------------------
@@ -62,6 +63,8 @@ Route::group(['middleware' => 'check-permission:user'], function () {
     Route::get('/user/jurusan-sekolah', [UserController::class, 'jurusan_sekolah'])->name('jurusan-sekolah');
     Route::get('/profile', [UserController::class, 'profile'])->name('user-profile');
     Route::put('/edit-profile/{id}', [UserController::class, 'update'])->name('edit-profile');
+    Route::post('/check', [ProsesController::class, 'pilihanProdi'])->name('pilihan-prodi');
+    Route::post('/pertanyaan', [ProsesController::class, 'pertanyaan'])->name('pertanyaan-prodi');
 });
 
 Route::group(['middleware' => 'check-permission:admin'], function () {

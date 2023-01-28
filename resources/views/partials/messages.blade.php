@@ -25,9 +25,9 @@
     @endif
 @endif
 
-@if (Session()->has('loginError'))
+@if (Session()->has('inputError'))
     <div class="alert alert-danger text-center" role="alert">
         <i class="bx bx-check"></i>
-        {{ session('loginError') }}
+        {{ session('inputError') }}
     </div>
 @endif

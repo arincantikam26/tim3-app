@@ -25,19 +25,10 @@ class UserController extends Controller
 
     public function dashboard()
     {
-
         return view('users.index', [
             'title' => 'Dashboard',
             'active' => 'user',
             'jurusan' => JurusanSekolah::all()
-        ]);
-    }
-
-    public function rekomendasi()
-    {
-        return view('users.rekomendasi', [
-            'title' => 'Rekomendasi',
-            'active' => 'cek_jurusan'
         ]);
     }
 
