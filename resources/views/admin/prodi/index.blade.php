@@ -28,7 +28,7 @@
                     </tr>
                 </thead>
                 <tbody class="table-border-bottom-0">
-                    @foreach ($prodi as $index => $item)
+                    @foreach ($jurusan as $index => $item)
                         <tr>
                             <th class="text-center" scope="row">{{ $index + 1 }}</th>
                             <td>

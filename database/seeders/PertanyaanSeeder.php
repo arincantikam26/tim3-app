@@ -21,60 +21,31 @@ class PertanyaanSeeder extends Seeder
                 'id_kriteria' => 1,
                 'pertanyaan' => 'Sangat berminat untuk mempelajari komputer, menginstalasi dan trouble shooting komputer secara software maupun hardware'
             ],
-            [
-                'id_prodi' => 1,
-                'id_kriteria' => 1,
-                'pertanyaan' => 'ingin mempelajari cara membangun aplikasi database sederhana pada komputer stand alone'
-            ],
-            [
-                'id_prodi' => 1,
-                'id_kriteria' => 1,
-                'pertanyaan' => 'berminat untuk bisa membangun aplikasi database dan Sistem Informasi berbasis Stand alone maupun  berbasis jaringan (LAN, Internet) untuk    berbagai kebutuhan organisasi dan bisnis'
-            ],
-            [
-                'id_prodi' => 1,
-                'id_kriteria' => 1,
-                'pertanyaan' => 'berminat untuk membangun aplikasi multimedia seperti grafis, audio , video dan animasi untuk berbagai keperluan'
-            ],
+          
             [
                 'id_prodi' => 1,
                 'id_kriteria' => 2,
-                'pertanyaan' => 'mempunyai kemampuan dasar dalam menginstalasi dan troubel shooting komputer secara software dan hardware'
-            ],
-            [
-                'id_prodi' => 1,
-                'id_kriteria' => 2,
-                'pertanyaan' => 'memiliki kemampuan adaptif dalam bidang teknologi seperti pengoperasian software'
+                'pertanyaan' => 'Mempunyai kemampuan dasar dalam menginstalasi dan troubel shooting komputer secara software dan hardware'
             ],
             [
                 'id_prodi' => 1,
                 'id_kriteria' => 3,
-                'pertanyaan' => 'sangat menyukai kegiatan pembelajaran yang berhubungan dengan pemrograman'
+                'pertanyaan' => 'Sangat menyukai kegiatan pembelajaran yang berhubungan dengan pemrograman'
             ],
             [
                 'id_prodi' => 2,
                 'id_kriteria' => 1,
-                'pertanyaan' => 'sangat berminat dalam mempelajari komputer untuk berbagai aplikasi, menginstalasi dan trouble shooting komputer secara software maupun hardware'
-            ],
-            [
-                'id_prodi' => 2,
-                'id_kriteria' => 1,
-                'pertanyaan' => 'ingin mempelajari bagaimana memperbaiki jaringan komputer'
-            ],
-            [
-                'id_prodi' => 2,
-                'id_kriteria' => 1,
-                'pertanyaan' => 'ingin Membangun aplikasi multimedia seperti Grafis, Audio, Video dan Animasi untuk berbagai  keperluan'
+                'pertanyaan' => 'Sangat berminat dalam mempelajari komputer untuk berbagai aplikasi, menginstalasi dan trouble shooting komputer secara software maupun hardware'
             ],
             [
                 'id_prodi' => 2,
                 'id_kriteria' => 2,
-                'pertanyaan' => 'mempunya kemampuan dasar dalam mengelola, merawat dan memperabaiki jaringan komputer'
+                'pertanyaan' => 'Mempunya kemampuan dasar dalam mengelola, merawat dan memperabaiki jaringan komputer'
             ],
             [
                 'id_prodi' => 2,
                 'id_kriteria' => 3,
-                'pertanyaan' => 'hobi melakukan kegiatan yang berkaitan dalam pembelajaran tentang komputer dan jaringan'
+                'pertanyaan' => 'Hobi melakukan kegiatan yang berkaitan dalam pembelajaran tentang komputer dan jaringan'
             ],
             [
                 'id_prodi' => 3,
@@ -82,16 +53,36 @@ class PertanyaanSeeder extends Seeder
                 'pertanyaan' => 'Sangat berminat untuk mempelajari komputer, menginstalasi dan trouble shooting komputer secara software maupun hardware'
             ],
             [
-                'id_prodi' => 3,
+                'id_prodi' => 10,
                 'id_kriteria' => 1,
-                'pertanyaan' => 'ingin mempelajari cara membangun aplikasi database dan analisis pada komputer stand alone'
+                'pertanyaan' => 'Menyukai mesin dan hal-hal yang berkaitan dengan teknik'
             ],
             [
-                'id_prodi' => 3,
+                'id_prodi' => 10,
+                'id_kriteria' => 2,
+                'pertanyaan' => 'Memiliki keahlian dalam perawatan mesin serta bidang keahlian fisika dan matematika'
+            ],
+            [
+                'id_prodi' => 10,
+                'id_kriteria' => 3,
+                'pertanyaan' => 'Hobi dalam merakit, merawat dan pembelajaran tentang mesin'
+            ],
+            [
+                'id_prodi' => 4,
                 'id_kriteria' => 1,
-                'pertanyaan' => 'berminat untuk bisa membangun aplikasi database dan Sistem Informasi berbasis Stand alone maupun berbasis jaringan (LAN, Internet) untuk berbagai kebutuhan organisasi dan bisnis hingga tahap analisis'
+                'pertanyaan' => 'Berminat dalam ilmu perhitungan, sistem keuangan dan etiket bisnis'
+            ],
+            [
+                'id_prodi' => 4,
+                'id_kriteria' => 2,
+                'pertanyaan' => 'Memiliki keahlian dasar matematika dan software akuntansi'
+            ],
+            [
+                'id_prodi' => 4,
+                'id_kriteria' => 3,
+                'pertanyaan' => 'Hobi melakukan pembuatan laporan keuangan, melakukan analisis pasar keuangan dan senang berbisnis'
             ]
-           
+
 
             ];
             Pertanyaan::insert($data);

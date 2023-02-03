@@ -29,19 +29,17 @@ class ProsesController extends Controller
 
     public function pertanyaan(Request $request)
     {
-
+        $title = 'Dashboard';
+        $active = 'user';
         $idProdi = $request->id_prodi;
-
         $prodi = Prodi::whereIn('id_prodi', $idProdi)->get();
         $kriteria = Kriteria::all();
         $pertanyaan = Pertanyaan::all();
 
-        return view('users.proses.pertanyaan', [
-            'title' => 'Dashboard',
-            'active' => 'user',
-            'prodi' => $prodi,
-            'kriteria' => $kriteria,
-            'pertanyaan' => $pertanyaan
-        ]);
+        return view('users.proses.pertanyaan', compact('title','active','prodi','kriteria','pertanyaan'));
+    }
+
+    public function hasilProdi(Request $request) {
+        dd($request);
     }
 }

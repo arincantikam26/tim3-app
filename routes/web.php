@@ -65,6 +65,7 @@ Route::group(['middleware' => 'check-permission:user'], function () {
     Route::put('/edit-profile/{id}', [UserController::class, 'update'])->name('edit-profile');
     Route::post('/check', [ProsesController::class, 'pilihanProdi'])->name('pilihan-prodi');
     Route::post('/pertanyaan', [ProsesController::class, 'pertanyaan'])->name('pertanyaan-prodi');
+    Route::post('/hasilpilihan', [ProsesController::class, 'hasilProdi'])->name('hasil-prodi');
 });
 
 Route::group(['middleware' => 'check-permission:admin'], function () {
@@ -74,8 +75,6 @@ Route::group(['middleware' => 'check-permission:admin'], function () {
     Route::get('/admin/profile', [AdminController::class, 'profile'])->name('admin-profile');
     Route::get('/admin/jurusan-sekolah', [AdminController::class, 'sekolah'])->name('admin-sekolah');
     Route::get('/admin/preferensi', [AdminController::class, 'preferensi'])->name('admin-preferensi');
-    Route::get('/admin/pertanyaan', [AdminController::class, 'pertanyaan'])->name('admin-pertanyaan');
-
 
     Route::resource('prodi', ProdiController::class);
     Route::resource('jurusan', JurusanController::class);
