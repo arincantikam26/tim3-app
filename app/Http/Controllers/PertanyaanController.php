@@ -25,6 +25,7 @@ class PertanyaanController extends Controller
             'title' => 'Pertanyaan',
             'active' => 'pertanyaan',
             'pertanyaan' => Pertanyaan::with(['prodi', 'kriteria'])->get()
+         
         ]);
     }
 

@@ -20,29 +20,32 @@
                 <thead>
                     <tr>
                         <th class="text-center">No</th>
-                        <th class="ps-5">Nama Program Studi</th>
+                        <th>action</th>
+                        <th>nama prodi</th>
+                        
                         <th class="ps-5">Nama Kriteria</th>
-                        <th class="ps-5">Pertanyaan</th>
-                        <th class="ps-5">Action</th>
+                        <th class="ps-5">Pertanyaan</th>                        
                     </tr>
                 </thead>
                 <tbody class="table-border-bottom-0">
                     @foreach ($pertanyaan as $index => $item)
                         <tr>
                             <th class="text-center" scope="row">{{ $index + 1 }}</th>
-                            <td>{{ $item->prodi->nama_prodi }}</td>
-                            <td>{{ $item->kriteria->nama_kriteria }}</td>
-                            <td>{{ $item->pertanyaan }}</td>
                             <td>
                                 <a href="{{ route('admin-pertanyaan.edit', $item->id) }}">
-                                    <i class='bx bx-edit crud-icon' style="font-size: 1.5em; color:green;"
-                                        title="Edit"></i>
+                                <i class='bx bx-edit crud-icon' style="font-size: 1.5em; color:green;"
+                                    title="Edit"></i>
                                 </a>
                                 <button type="button" class="bg-transparent border-0" data-bs-toggle="modal"
                                     data-bs-target="#basicModal{{ $item->id }}">
                                     <i class='bx bxs-eraser' style="font-size: 1.5em; color:red;"title="Hapus"></i>
                                 </button>
                             </td>
+                            <td>
+                                {{ $item->prodi->nama_prodi }}
+                            </td>
+                            <td>{{ $item->kriteria->nama_kriteria }}</td>
+                            <td class="text-truncate" style="max-width:400px">{{ $item->pertanyaan }}</td> 
                         </tr>
 
                         {{-- Modal --}}

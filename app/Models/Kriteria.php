@@ -10,4 +10,9 @@ class Kriteria extends Model
     use HasFactory;
     protected $table = 'kriteria';
     protected $guarded = ['id'];
+
+    public function pertanyaans()
+    {
+        return $this->hasMany(Pertanyaan::class, 'id_kriteria');
+    }
 }
