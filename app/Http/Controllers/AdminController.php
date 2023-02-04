@@ -51,7 +51,7 @@ class AdminController extends Controller
         return view('admin.prodi.index', [
             'title' => 'Program Studi',
             'active' => 'prodi',
-            'prodi' => Jurusan::all(),
+            'jurusan' => Jurusan::all(),
 
         ]);
     }
