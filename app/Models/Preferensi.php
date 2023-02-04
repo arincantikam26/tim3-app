@@ -13,6 +13,10 @@ class Preferensi extends Model
 
     public function kriteria()
     {
-        return $this->belongsTo(Kriteria::class, 'id');
+        return $this->belongsTo(Kriteria::class, 'kriteria1', 'id');
+    }
+    public function kriteria_two()
+    {
+        return $this->belongsTo(Kriteria::class, 'kriteria2', 'id');
     }
 }
