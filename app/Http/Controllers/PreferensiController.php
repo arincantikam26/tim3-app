@@ -20,11 +20,7 @@ class PreferensiController extends Controller
 
     public function index()
     {
-        return view('admin.preferensi.index', [
-            'title' => 'Preferensi',    
-            'active' => 'preferensi',
-            'preferensi' => Preferensi::all(),
-        ]);
+        //
     }
 
     /**
