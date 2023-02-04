@@ -69,7 +69,6 @@
                                             Batal
                                         </button>
                                     </div>
-
                                 </div>
                             </div>
                         </div>

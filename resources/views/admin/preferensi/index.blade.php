@@ -21,10 +21,8 @@
                 <thead>
                     <tr>
                         <th class="text-center">No</th>
-                        <th>
-                            <span class="ps-5">Action</span>
-                            <span class="ps-5">Label</span>
-                        </th>
+                        <th class="ps-5">Action</th>
+                        <th class="ps-5">Keterangan</th>
                         <th>Bobot</th>
                         <th>Kriteria 1</th>
                         <th>Kriteria 2</th>
@@ -36,7 +34,6 @@
                         <tr>
                             <th class="text-center" scope="row">{{ $index + 1 }}</th>
                             <td>
-
                                 <a class="ps-5" href="{{ route('admin-preferensi.edit', $item->id) }}">
                                     <i class='bx bx-edit crud-icon'
                                         style="font-size: 1.5em; color:green;"title="Edit"></i>
@@ -74,15 +71,20 @@
 
                                         </div>
                                     </div>
-                                    {{ $item->keterangan }}
+                                </div>
+                            </td>
+                            <td>
+                                {{ $item->keterangan }}
                             </td>
                             <td>{{ $item->nilai }}</td>
+                            
                             @foreach ($item->kriteria()->get() as $kriteria)
-                                <td> {{ $kriteria->nama_kriteria }}</td>
-                                <td>{{ $kriteria->nama_kriteria }}</td>
+                                <td>{{ $kriteria->nama_kriteria }} </td>
                             @endforeach
 
-
+                            @foreach ($item->kriteria_two()->get() as $kriteria2)
+                                <td>{{ $kriteria2->nama_kriteria }} </td>
+                            @endforeach
                             <td>{{ $item->created_at->diffForHumans() }}</td>
                         </tr>
                     @endforeach
