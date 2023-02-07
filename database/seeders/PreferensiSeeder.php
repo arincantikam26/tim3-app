@@ -17,26 +17,26 @@ class PreferensiSeeder extends Seeder
     {
         $data = [
             [
-                'kriteria1' => 2,
-                'nilai' => 5,
-                'keterangan' => 'Penting dari',
-                'kriteria2' => 3,
+                'kriteria1' => 1,
+                'nilai' => 2,
+                'keterangan' => 'Sama Pentingnya',
+                'kriteria2' => 2,
                 'created_at' => now(),
                 'updated_at' => now()
             ],
             [
                 'kriteria1' => 1,
                 'nilai' => 7,
-                'keterangan' => 'Mutlak Penting',
+                'keterangan' => 'Sangat penting',
                 'kriteria2' => 3,
                 'created_at' => now(),
                 'updated_at' => now()
             ],
             [
-                'kriteria1' => 1,
+                'kriteria1' => 2,
                 'nilai' => 5,
                 'keterangan' => 'Penting dari',
-                'kriteria2' => 2,
+                'kriteria2' => 3,
                 'created_at' => now(),
                 'updated_at' => now()
             ],

@@ -1013,4 +1013,21 @@ COMMIT;
 
 /*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;
 /*!40101 SET CHARACTER_SET_RESULTS=@OLD_CHARACTER_SET_RESULTS */;
-/*!40101 SET COLLATION_CONNECTION=@OLD_COLLATION_CONNECTION */;
+/*!40101 SET COLLATION_CONNECTION=@OLD_COLLATION_CONNECTION 
+        // $comparation = [];
+        // for ($i = 0; $i < $kriteria->count(); $i++) {
+        //     for ($j = 0; $j < $kriteria->count(); $j++) {
+
+        //         if ($i == $j) {
+        //             $comparation[$i][$j] = 1;   // i==j; 
+
+        //         } elseif ($i > $j) {
+        //             $comparation[$i][$j] = 0.1;
+        //         } else {
+        //             $comparation[$i][$j] = 31;
+        //         }
+        //     }
+        // }
+        // dd($comparation);
+
+*/
