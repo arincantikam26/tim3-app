@@ -40,6 +40,13 @@ class ProsesController extends Controller
     }
 
     public function hasilProdi(Request $request) {
-        dd($request);
+        
+        return view('users.proses.hasil_pertanyaan');
+    }
+
+    public function hasilPertanyaan(Request $request) {
+        $title = 'Dashboard';
+        $active = 'user';
+        return view('users.proses.hasil_pertanyaan', compact('title', 'active'));
     }
 }

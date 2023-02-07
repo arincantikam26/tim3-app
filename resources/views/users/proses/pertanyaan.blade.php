@@ -13,7 +13,7 @@
             <div class="card-body">
                 <div class="row">
                     <div class="col-lg-8 offset-2 text-start">
-                        <form action="/hasil" style="margin:1em" method="post">
+                        <form action="/hasilpertanyaan" style="margin:1em" method="post">
                             @csrf
 
                             @foreach ($prodi as $index => $pilih)
