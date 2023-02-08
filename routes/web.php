@@ -65,8 +65,7 @@ Route::group(['middleware' => 'check-permission:user'], function () {
     Route::put('/edit-profile/{id}', [UserController::class, 'update'])->name('edit-profile');
     Route::post('/check', [ProsesController::class, 'pilihanProdi'])->name('pilihan-prodi');
     Route::post('/pertanyaan', [ProsesController::class, 'pertanyaan'])->name('pertanyaan-prodi');
-    Route::post('/hasilpilihan', [ProsesController::class, 'hasilProdi'])->name('hasil-prodi');
-    Route::post('/hasilpertanyaan', [ProsesController::class, 'hasilPertanyaan'])->name('hasil-pertanyaan');
+    Route::post('/hasilpilihan', [ProsesController::class, 'hasilPilihan'])->name('hasil-pilihan');
 });
 
 Route::group(['middleware' => 'check-permission:admin'], function () {
