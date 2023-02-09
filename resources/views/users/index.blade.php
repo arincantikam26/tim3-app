@@ -38,7 +38,7 @@
                                     <div class="input-group input-group-merge">
                                         <span id="basic-icon-default-company2" class="input-group-text"><i
                                                 class="bx bx-buildings"></i></span>
-                                        <div style="border: 1px solid rgb(220, 219, 219);">
+                                        <div style="border: 1px solid rgb(220, 219, 219); width:430px;">
                                             <select name="jurusansekolah_id" id="jurusansekolah_id"
                                                 class="selectpicker form-group me-5" aria-label="Jurusan Sekolah"
                                                 data-live-search="true" required>

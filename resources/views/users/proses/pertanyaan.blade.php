@@ -5,7 +5,7 @@
             <div class="card-header">
                 <h4 class="card-title badge rounded-pill bg-dark">Cek Program Studi</h4>
                 <div class="card-text">
-                    <h3>Cek Jurusan Sekolah Asal</h3>
+                    <h3>Cek Minat, Bakat, dan Hobi terhadap Program Studi</h3>
                     <p>Jawablah Pertanyaan Berikut dengan Baik</p>
                 </div>
             </div>
@@ -27,31 +27,35 @@
                                                 <h5>{{ $kri->nama_kriteria }}</h5>
                                             </div>
                                             @php
-                                                $subIndex = 0;    
+                                                $subIndex = 0;
                                             @endphp
                                             @foreach ($pertanyaan as $question)
                                                 @if ($question->id_prodi == $pilih->id_prodi && $question->id_kriteria == $kri->id)
                                                     <li class="mb-3">
                                                         {{ $question->pertanyaan }}
-                                                        <input type="range" name="data[{{ $index }}][{{ $kri->nama_kriteria }}][{{ $subIndex }}]" class="form-range" min="0" id="vol" max="5" step="1" onClick="hey()" id="{{ $kri->nama_kriteria }}">
+                                                        <input type="range"
+                                                            name="data[{{ $index }}][{{ $kri->nama_kriteria }}][{{ $subIndex }}]"
+                                                            class="form-range" min="1" id="vol" max="5"
+                                                            step="1" onClick="hey()" id="{{ $kri->nama_kriteria }}">
                                                     </li>
                                                     @php
                                                         $subIndex++;
                                                     @endphp
-                                                @endif 
+                                                @endif
                                             @endforeach
                                         @endforeach
-                                        <input type="hidden" name="data[{{ $index }}][nama]" value="{{ $prodi[$index]->nama_prodi }}">
+                                        <input type="hidden" name="data[{{ $index }}][nama]"
+                                            value="{{ $prodi[$index]->nama_prodi }}">
                                     </div>
                                 </div>
                                 <hr>
                                 @php
                                     $subIndex = 0;
-                                    $index++;    
+                                    $index++;
                                 @endphp
                             @endforeach
                             <input type="submit" class="btn btn-primary" value="submit">
-                            
+
                         </form>
                     </div>
                 </div>

@@ -25,7 +25,7 @@ class AdminSeeder extends Seeder
                 'is_permission' => 1
             ],
             [
-                'name' => 'algo',
+                'name' => 'Abdullah',
                 'username' => 'user',
                 'email' => 'user@gmail.com',
                 'email_verified_at' => now(),

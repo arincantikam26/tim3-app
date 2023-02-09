@@ -47,15 +47,15 @@
                         </div>
                         <div class="mb-3">
                             <label for="pertanyaan" class="form-label">Nama Pertanyaan</label>
-                            <input type="text" name="pertanyaan" class="form-control" placeholder="Nama Pertanyaan"
-                                aria-describedby="helpId" required="required" value="{{ $pertanyaan->pertanyaan }}">
+                            <textarea type="text" name="pertanyaan" class="form-control" placeholder="Nama Pertanyaan" aria-describedby="helpId"
+                                required="required">{{ $pertanyaan->pertanyaan }}</textarea>
                             @if ($errors->has('pertanyaan'))
                                 <span class="text-danger text-left">{{ $errors->first('pertanyaan') }}</span>
                             @endif
                         </div>
                         <div class="mb-5">
                             <button type="submit" class="btn btn-primary">Simpan</button>
-                            <a href="{{ route('admin-prodi') }}" class="btn btn-danger">Batal</a>
+                            <a href="{{ route('admin-pertanyaan.index') }}" class="btn btn-danger">Batal</a>
                         </div>
                     </div>
                 </form>

@@ -43,8 +43,8 @@
                         </div>
                         <div class="mb-3">
                             <label for="pertanyaan" class="form-label">Pertanyaan</label>
-                            <input type="text" name="pertanyaan" class="form-control" placeholder="Pertanyaan"
-                                aria-describedby="helpId" required="required" value="{{ old('pertanyaan') }}">
+                            <textarea type="text" name="pertanyaan" class="form-control" placeholder="Pertanyaan" aria-describedby="helpId"
+                                required="required" value="{{ old('pertanyaan') }}"></textarea>
                             @if ($errors->has('pertanyaan'))
                                 <span class="text-danger text-left">{{ $errors->first('pertanyaan') }}</span>
                             @endif
