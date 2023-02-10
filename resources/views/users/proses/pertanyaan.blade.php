@@ -34,7 +34,7 @@
                                                     <li class="mb-3">
                                                         {{ $question->pertanyaan }}
                                                         <input type="range"
-                                                            name="data[{{ $index }}][{{ $kri->nama_kriteria }}][{{ $subIndex }}]"
+                                                            name="data[{{ $index }}][p{{ $kri->id }}]"
                                                             class="form-range" min="1" id="vol" max="5"
                                                             step="1" onClick="hey()" id="{{ $kri->nama_kriteria }}">
                                                     </li>
