@@ -1,6 +1,6 @@
 @extends('layouts.main_users')
 @section('content')
-    <h1>Hasil Rekomenasi Program Studi</h1>
+    <h1>Hasil Rekomendasi Program Studi</h1>
     <div class="card mb-3">
         <div class="card-header">
             <div class="row">
@@ -23,9 +23,6 @@
                         </strong>
                     </thead>
                     <tbody>
-                        @php
-                            $q = 1;
-                        @endphp
                         @foreach ($result['data'] as $index => $item)
                             <tr>
                                 <th>{{ $item['nama'] }}</th>
@@ -70,7 +67,19 @@
                         </tr>
                     </thead>
                     <tbody>
-
+                        @php
+                            $normal = [];
+                        @endphp
+                        @foreach ($result['data'] as $index => $item)
+                            <tr>
+                                <th>{{ $item['nama'] }}</th>
+                                @foreach ($result['normalisasi'] as $key => $value)
+                                    <td>
+                                        {{ $value[$key] }}
+                                    </td>
+                                @endforeach
+                            </tr>
+                        @endforeach
                     </tbody>
 
                 </table>
