@@ -149,12 +149,13 @@ class Hasil extends Model
         $data = $request->get('data');
 
         $countobj = [];
-        //mengambil nilai kriteria
+        //mengambil key dari data
         foreach ($id as $item) {
             $countobj[] = 'p' . $item;
         }
 
         $combainvalue = [];
+
 
         for ($a = 0; $a < count($data); $a++) {
             for ($b = 0; $b < count($countobj); $b++) {
@@ -163,15 +164,30 @@ class Hasil extends Model
             }
         }
 
+        //mencari nilai max
         $max = [];
-        foreach ($combainvalue as $key => $index) {
-            $max[$key] = max($index);
+        foreach ($combainvalue as $key => $value) {
+            $max[$key] = max($value); //melooping nilai max per kriteria
         }
+
+        //melakukan normalisasi
+
+        $normalisasi = [];
+        for ($k = 0; $k < count($data); $k++) {
+            for ($l = 0; $l < count($countobj); $l++) {
+                $temp = $countobj[$l];
+                $normalisasi[$temp][] = $data[$k][$temp] / $max['p' . $l + 1];
+            }
+        }
+
+
 
         return ([
             'data' => $data,
             'id' => $id,
             'countobj' => $countobj,
+            'combainvalue' => $combainvalue,
+            'normalisasi' => $normalisasi,
             'max' => $max,
             'nama' => $nama,
         ]);

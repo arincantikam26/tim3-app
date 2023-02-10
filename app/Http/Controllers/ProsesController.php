@@ -42,7 +42,7 @@ class ProsesController extends Controller
     public function hasilPilihan(Request $request)
     {
         // return $request->all();
-        // return Hasil::hasilakhir($request);
+        return Hasil::hasilakhir($request);
 
         return view('users.proses.hasil_pilihan', [
             'title' => 'Hasil',
