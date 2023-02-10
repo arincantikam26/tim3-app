@@ -23,19 +23,24 @@
                         </strong>
                     </thead>
                     <tbody>
+                        @php
+                            $q = 1;
+                        @endphp
                         @foreach ($result['data'] as $index => $item)
                             <tr>
                                 <th>{{ $item['nama'] }}</th>
-                                <td>{{ $item['Minat'][0] }}</td>
-                                <td>{{ $item['Bakat'][0] }}</td>
-                                <td>{{ $item['Hobi'][0] }}</td>
+                                @foreach ($result['id'] as $value)
+                                    <td>
+                                        {{ $item['p' . $value] }}
+                                    </td>
+                                @endforeach
                             </tr>
                         @endforeach
                     </tbody>
                     <tfoot>
                         <tr class="fw-bold">
                             <td>Max</td>
-                            @foreach ($result['max_value'] as $item)
+                            @foreach ($result['max'] as $item)
                                 <td>{{ $item }}</td>
                             @endforeach
 

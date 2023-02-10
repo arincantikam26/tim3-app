@@ -3,12 +3,10 @@
 namespace App\Http\Controllers;
 
 use App\Models\Hasil;
-use App\Models\Jurusan;
 use App\Models\JurusanSekolah;
 use App\Models\Kriteria;
 use App\Models\Pertanyaan;
 use App\Models\Pilihan;
-use App\Models\Preferensi;
 use App\Models\Prodi;
 use Illuminate\Http\Request;
 
@@ -43,6 +41,9 @@ class ProsesController extends Controller
 
     public function hasilPilihan(Request $request)
     {
+        // return $request->all();
+        // return Hasil::hasilakhir($request);
+
         return view('users.proses.hasil_pilihan', [
             'title' => 'Hasil',
             'active' => 'user',

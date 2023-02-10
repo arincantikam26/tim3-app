@@ -14,13 +14,22 @@ class Hasil extends Model
         $kriteria = Kriteria::all();
         $kriteria[0]->nilai = 1;
         $namaKriteria = array();
+        $idKriteria = array();
+
         $i = 0;
+        $y = 0;
 
         //perulangan nama kriteria 
         foreach ($kriteria as $item) {
             $namaKriteria[$i] = $item->nama_kriteria;
             $i++;
         }
+        // perulangan id kriteria
+        foreach ($kriteria as $item) {
+            $idKriteria[$y] = $item->id;
+            $y++;
+        }
+
 
 
         $preference = Preferensi::all();
@@ -111,6 +120,7 @@ class Hasil extends Model
 
         return ([
             'namaKriteria' => $namaKriteria,
+            'idKriteria' => $idKriteria,
             'comparation' => $comparation,
             'total' => $total,
             'normalisasi' => $normalisasi,
@@ -126,9 +136,6 @@ class Hasil extends Model
 
     public static function hasilakhir($request)
     {
-        $maxArr = array();
-        $avgArr = array();
-
         $pre = Preferensi::all();
         if ($pre->count()) {
             $metoda = Hasil::metoda();
@@ -137,58 +144,35 @@ class Hasil extends Model
         }
 
         $nama = $metoda['namaKriteria'];
-        $eigen = $metoda['eigen'];
-        $totaleigen = $metoda['totaleigen'];
+        $id = $metoda['idKriteria'];
 
         $data = $request->get('data');
-        // $data[0]['Minat'][0] 
-        // $index = 0;
-        // for ($a = 0; $a < count($data); $a++) {
-        //     for ($i = 0; $i < count($data[$a]) - 1; $i++) {
-        //         $max = 0;
-        //         $value = 0;
-        //         for ($j = 0; $j < count($data[$a][$nama[$i]]); $j++) {
-        //             $value = $data[$a][$nama[$i]][$j]; //mengambil value nilai kriteria
-        //             $max = $value / 1;
-        //         }
-        //         $maxArr[$nama[$i]] = $max;
-        //         $nilaimax[$i] = max($maxArr);
-        //     }
-        // }
 
-        $maxArr = array();
-        $avgArr = array(); // untuk data rata-rata nilai pertanyaan masing-masing minat 
-        // for ($i=0; $i < (count($data[0])-1); $i++) { 
+        $countobj = [];
+        //mengambil nilai kriteria
+        foreach ($id as $item) {
+            $countobj[] = 'p' . $item;
+        }
 
-        for ($a = 0; $a < (count($data)); $a++) { // prodi 3, 0 1 2
-            for ($i = 0; $i < (count($nama)); $i++) { // kriteria                
-                $max = 0;
-                $avg = 0;
-                for ($j = 0; $j < count($data[$a][$nama[$i]]); $j++) {
-                    $avg = $avg + $data[$a][$nama[$i]][$j];
-                    if ($j == (count($data[$a][$nama[$i]]) - 1)) {
-                        $avgArr[$a][$nama[$i]] = $avg / ($j + 1); // set nilai rata2 dari masing2 kriteria
-                        if (($avg / ($j + 1)) > $max) {
-                            $max = $avg / ($j + 1);
-                        }
-                    }
-                }
-                $maxArr[$nama[$i]] = $max; // set nilai max dari setiap kriteria yg ada
+        $combainvalue = [];
+
+        for ($a = 0; $a < count($data); $a++) {
+            for ($b = 0; $b < count($countobj); $b++) {
+                $temp = $countobj[$b];
+                $combainvalue[$temp][] = $data[$a][$temp];
             }
         }
-        // dd($maxArr);
-        // $next = array();
-        // for ($i = 0; $i < count($data); $i++) {
-        //     for ($j = 0; $j < count($nama); $j++) {
-        //         $next[$i][$j] = $avgArr[$i][$nama[$j]] / $maxArr[$nama[$j]];
-        //     }
-        // }
 
+        $max = [];
+        foreach ($combainvalue as $key => $index) {
+            $max[$key] = max($index);
+        }
 
         return ([
             'data' => $data,
-            'max_value' => $maxArr,
-            // 'next' => $next,
+            'id' => $id,
+            'countobj' => $countobj,
+            'max' => $max,
             'nama' => $nama,
         ]);
     }
