@@ -75,11 +75,7 @@
                                 @endforeach
                             <td> {{ $item->nama_prodi }} </td>
                             </td>  
-                           
-    
-                        </tr>
-
-                        
+                        </tr>      
                     @endforeach
                 </tbody>
             </table>
