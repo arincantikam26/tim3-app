@@ -9,6 +9,7 @@ use App\Models\Kriteria;
 use App\Models\Pertanyaan;
 use Illuminate\Http\Request;
 use App\Models\JurusanSekolah;
+use Elibyy\TCPDF\Facades\TCPDF;
 
 
 class ProsesController extends Controller
@@ -52,4 +53,27 @@ class ProsesController extends Controller
         ]);
     }
 
+    public function createPDF()
+    {
+        $filename = 'hasil_rekomendasi_prodi.pdf';
+
+        $data = [
+            'title' => 'Hello world!'
+        ];
+
+        $html = view()->make('users.proses.cetak_pdf', $data)->render();
+
+        $pdf = new TCPDF();
+
+        $pdf::SetTitle('Hasil Rekomendasi Program Studi'); //title di tag <title></title>
+        $pdf::AddPage();
+        //output html content
+        //param : html,In,Fill,reseth,cell, align 
+        $pdf::writeHTML($html, true, false, true, false, '');
+
+        //param : name , dest F : menyimpan ke lokal dengan nama sesuai param name
+        $pdf::Output(public_path($filename), 'F');
+
+        return response()->download(public_path($filename));
+    }
 }

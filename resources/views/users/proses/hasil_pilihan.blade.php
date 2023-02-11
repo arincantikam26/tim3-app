@@ -7,7 +7,12 @@
                 <div class="col-lg-8">
                     <h5>Hasil Rekomendasi Program Studi</h5>
                 </div>
+                <div class="col-lg-4 text-end mb-3">
+                    <a href="{{ route('createPDF') }}" class="btn btn-success"><i class='bx bx-download'
+                            style="font-size: 1.5em"></i> Unduh Hasil </a>
+                </div>
             </div>
+
         </div>
         <div class="card-body">
             <div class="row">
