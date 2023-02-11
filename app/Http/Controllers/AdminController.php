@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use App\Http\Controllers\Controller;
+use App\Metode\Hasil as MetodeHasil;
 use App\Models\Hasil;
 use App\Models\Jurusan;
 use App\Models\JurusanSekolah;
@@ -61,7 +62,7 @@ class AdminController extends Controller
     {
         $pre = Preferensi::all();
         if ($pre->count()) {
-            $metoda = Hasil::metoda();
+            $metoda = MetodeHasil::metoda();
         } else {
             $metoda = '';
         }

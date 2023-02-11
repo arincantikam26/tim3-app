@@ -1,13 +1,12 @@
 <?php
 
-namespace App\Models;
+namespace App\Metode;
 
-use Illuminate\Database\Eloquent\Factories\HasFactory;
-use Illuminate\Database\Eloquent\Model;
+use App\Models\Kriteria;
+use App\Models\Preferensi;
 
-class Hasil extends Model
+class Hasil
 {
-    use HasFactory;
 
     public static function metoda()
     {

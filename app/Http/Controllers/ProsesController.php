@@ -2,8 +2,7 @@
 
 namespace App\Http\Controllers;
 
-
-use App\Models\Hasil;
+use App\Metode\Hasil as MetodeHasil;
 use App\Models\Prodi;
 use App\Models\Pilihan;
 use App\Models\Kriteria;
@@ -50,7 +49,7 @@ class ProsesController extends Controller
         return view('users.proses.hasil_pilihan', [
             'title' => 'Hasil',
             'active' => 'user',
-            'result' => Hasil::hasilakhir($request)
+            'result' => MetodeHasil::hasilakhir($request)
         ]);
     }
 
