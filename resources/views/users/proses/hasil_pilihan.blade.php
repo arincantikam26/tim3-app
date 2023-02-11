@@ -7,10 +7,6 @@
                 <div class="col-lg-8">
                     <h5>Hasil Rekomendasi Program Studi</h5>
                 </div>
-                <div class="col-lg-4 text-end mb-3">
-                    <a href="" class="text-end btn btn-success"><i class='bx bx-printer' style="font-size: 1.5em"></i>
-                        Cetak Hasil </a>
-                </div>
             </div>
         </div>
         <div class="card-body">

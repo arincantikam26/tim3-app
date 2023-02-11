@@ -23,6 +23,6 @@ class Prodi extends Model
     }
     public function pertanyaans()
     {
-        return $this->hasMany(Pertanyaan::class);
+        return $this->belongsTo(Pertanyaan::class, 'id_prodi', 'id');
     }
 }
