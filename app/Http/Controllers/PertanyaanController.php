@@ -24,7 +24,8 @@ class PertanyaanController extends Controller
         return view('admin.pertanyaan.index', [
             'title' => 'Pertanyaan',
             'active' => 'pertanyaan',
-            'pertanyaan' => Pertanyaan::with(['prodi', 'kriteria'])->get()
+            // 'pertanyaan' => Pertanyaan::with(['prodi', 'kriteria'])->get()
+            'prodi' => Prodi::all()
          
         ]);
     }

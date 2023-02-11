@@ -20,59 +20,66 @@
                 <thead>
                     <tr>
                         <th class="text-center">No</th>
-                        <th>action</th>
-                        <th>nama prodi</th>
+                        <th>
+                            <span class="ps-5">Action </span>
+                            <span class="ps-5"> Pertanyaan</span>
+                        </th>
 
-                        <th class="ps-5">Nama Kriteria</th>
-                        <th class="ps-5">Pertanyaan</th>
+                        <th>Nama Kriteria</th>
+                        <th>Nama Prodi</th>
                     </tr>
                 </thead>
                 <tbody class="table-border-bottom-0">
-                    @foreach ($pertanyaan as $index => $item)
+                    @foreach ($prodi as $index => $item)
                         <tr>
                             <th class="text-center" scope="row">{{ $index + 1 }}</th>
                             <td>
-                                <a href="{{ route('admin-pertanyaan.edit', $item->id) }}">
-                                    <i class='bx bx-edit crud-icon' style="font-size: 1.5em; color:green;"
-                                        title="Edit"></i>
-                                </a>
-                                <button type="button" class="bg-transparent border-0" data-bs-toggle="modal"
-                                    data-bs-target="#basicModal{{ $item->id }}">
-                                    <i class='bx bxs-eraser' style="font-size: 1.5em; color:red;"title="Hapus"></i>
-                                </button>
-                            </td>
-                            <td>
-                                {{ $item->prodi->nama_prodi }}
-                            </td>
-                            <td class="text-center">{{ $item->kriteria->nama_kriteria }}</td>
-                            <td class="text-truncate" style="max-width:400px">{{ $item->pertanyaan }}</td>
+                                @foreach ($item->pertanyaans()->get() as $pertanyaan)
+                                    <p>
+                                        <a href="{{ route('admin-pertanyaan.edit', $pertanyaan->id) }}">
+                                            <i class='bx bx-edit crud-icon' style="font-size: 1.5em; color:green;"
+                                                title="Edit"></i>
+                                        </a>
+                                        <button type="button" class="bg-transparent border-0" data-bs-toggle="modal"
+                                            data-bs-target="#basicModal{{ $pertanyaan->id }}">
+                                            <i class='bx bxs-eraser' style="font-size: 1.5em; color:red;"title="Hapus"></i>
+                                        </button>
+                                        {{ Str::limit($pertanyaan->pertanyaan, 60) }}
+                                    </p>  
+                                    {{-- Modal --}}
+                                    <div class="modal fade" id="basicModal{{ $pertanyaan->id }}" tabindex="-1" aria-hidden="true">
+                                        <div class="modal-dialog" role="document">
+                                            <div class="modal-content">
+                                                <div class="modal-header">
+                                                    <h5 class="modal-title" id="exampleModalLabel1">Hapus Data {{ $title }}</h5>
+                                                    <button type="button" class="btn-close" data-bs-dismiss="modal"
+                                                        aria-label="Close"></button>
+                                                </div>
+                                                <div class="modal-body">Apakah Anda Yakin Ingin Menghapus?</div>
+                                                <div class="modal-footer">
+                                                    <form action="{{ route('admin-pertanyaan.destroy', $pertanyaan->id) }}" method="POST">
+                                                        @csrf
+                                                        @method('DELETE')
+                                                        <button type="submit" class="btn btn-danger">Hapus</button>
+                                                    </form>
+
+                                                    <button type="button" class="btn btn-outline-secondary" data-bs-dismiss="modal">
+                                                        Batal
+                                                    </button>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    {{-- end modal --}}
+                                    <td class="text-center">{{ $pertanyaan->id_kriteria }}</td>
+                                @endforeach
+                            <td> {{ $item->nama_prodi }} </td>
+                            </td>  
+                           
+    
                         </tr>
 
-                        {{-- Modal --}}
-                        <div class="modal fade" id="basicModal{{ $item->id }}" tabindex="-1" aria-hidden="true">
-                            <div class="modal-dialog" role="document">
-                                <div class="modal-content">
-                                    <div class="modal-header">
-                                        <h5 class="modal-title" id="exampleModalLabel1">Hapus Data {{ $title }}</h5>
-                                        <button type="button" class="btn-close" data-bs-dismiss="modal"
-                                            aria-label="Close"></button>
-                                    </div>
-                                    <div class="modal-body">Apakah Anda Yakin Ingin Menghapus?</div>
-                                    <div class="modal-footer">
-                                        <form action="{{ route('admin-pertanyaan.destroy', $item->id) }}" method="POST">
-                                            @csrf
-                                            @method('DELETE')
-                                            <button type="submit" class="btn btn-danger">Hapus</button>
-                                        </form>
-
-                                        <button type="button" class="btn btn-outline-secondary" data-bs-dismiss="modal">
-                                            Batal
-                                        </button>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-                        {{-- end modal --}}
+                        
                     @endforeach
                 </tbody>
             </table>
