@@ -69,19 +69,103 @@
                     <tbody>
                         @php
                             $normal = [];
+                            $id = 0;
                         @endphp
-                        @foreach ($result['data'] as $index => $item)
+                        @foreach ($result['data'] as $item)
                             <tr>
                                 <th>{{ $item['nama'] }}</th>
-                                @foreach ($result['normalisasi'] as $key => $value)
-                                    <td>
-                                        {{ $value[$key] }}
-                                    </td>
+                                
+                                @foreach ($result['normalisasi'] as $index => $item)
+                                    <td>{{ round($item[$id],2) }}</td>
                                 @endforeach
+                                @php
+                                    $id = $id + 1;    
+                                @endphp
                             </tr>
                         @endforeach
                     </tbody>
-
+                </table>
+            </div>
+        </div>
+    </div>
+    <div class="card mb-3">
+        <div class="card-header">
+            <div class="row">
+                <div class="col-lg-8">
+                    <h5>Tabel Nilai Preferensi</h5>
+                </div>
+            </div>
+        </div>
+        <div class="card-body">
+            <div class="row">
+                <table class="table table-bordered">
+                    <thead>
+                        <tr>
+                            <th scope="col">Nama Prodi</th>
+                            @foreach ($result['nama'] as $index => $item)
+                                <th scope="col">{{ $item }}</th>
+                            @endforeach
+                        </tr>
+                    </thead>
+                    <tbody>
+                        @php
+                            $id_pref = 0;
+                        @endphp
+                        @foreach ($result['data'] as $item)
+                            <tr>
+                                <th>{{ $item['nama'] }}</th>
+                                @foreach ($result['preferensi'] as $index => $pref)
+                                    <td>{{ round($pref[$id_pref],2) }}</td>
+                                @endforeach
+                                @php
+                                    $id_pref = $id_pref + 1;    
+                                @endphp
+                            </tr>
+                        @endforeach
+                    </tbody>
+                </table>
+            </div>
+        </div>
+    </div>
+    <div class="card mb-3">
+        <div class="card-header">
+            <div class="row">
+                <div class="col-lg-8">
+                    <h5>Tabel Perangkingan</h5>
+                </div>
+            </div>
+        </div>
+        <div class="card-body">
+            <div class="row">
+                <table class="table table-bordered">
+                    <thead>
+                        <tr>
+                            <th scope="col">Nama Prodi</th>
+                            <th scope="col">Nilai</th>
+                            <th scope="col">Peringkat</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        @php
+                            $id_pref = 1;
+                        @endphp
+                        @foreach ($result['sort_rank'] as $index => $item )
+                            <tr
+                                @if ($id_pref == 1)
+                                    style="background: rgb(192, 221, 255);"
+                                @endif
+                            >
+                                <td>{{ $index }}</td>
+                                <td>{{ round($item, 2) }}</td>
+                                <td>{{ $id_pref }}</td>
+                                @php
+                                    $id_pref = $id_pref + 1;    
+                                @endphp
+                            </tr>                          
+                        @endforeach
+                        
+                    </tbody>
+                    
                 </table>
             </div>
         </div>
@@ -98,7 +182,7 @@
             <div class="row">
                 <div class="col-md-12">
                     <h1>Halo, {{ auth()->user()->name }}</h1>
-                    <h2>Hasil pemilihan adalah <span style="color:red"></span></h2>
+                    <h2>Hasil pemilihan anda adalah <span style="color:red">{{ $result['prodi_max'] }}</span></h2>
                 </div>
             </div>
         </div>
