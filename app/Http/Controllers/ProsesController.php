@@ -2,13 +2,16 @@
 
 namespace App\Http\Controllers;
 
+
 use App\Models\Hasil;
-use App\Models\JurusanSekolah;
+use App\Models\Prodi;
+use App\Models\Pilihan;
 use App\Models\Kriteria;
 use App\Models\Pertanyaan;
-use App\Models\Pilihan;
-use App\Models\Prodi;
 use Illuminate\Http\Request;
+use App\Models\JurusanSekolah;
+use PDF;
+
 
 class ProsesController extends Controller
 {
@@ -49,5 +52,16 @@ class ProsesController extends Controller
             'active' => 'user',
             'result' => Hasil::hasilakhir($request)
         ]);
+    }
+
+    public function createPDF()
+    {
+        // // retreive all records from db
+        // $data = Kriteria::all();
+        // // share data to view
+        // view()->share('users.proses.cetak_hasil', $data);
+        // // $pdf = PDF::loadView('pdf_view', $data);
+        // // download PDF file with download method
+        // return $pdf->download('pdf_file.pdf');
     }
 }

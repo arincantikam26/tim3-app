@@ -177,15 +177,14 @@ class Hasil extends Model
             for ($l = 0; $l < count($countobj); $l++) {
                 $temp = $countobj[$l];
                 $normalisasi[$temp][] = $data[$k][$temp] / $max['p' . $l + 1];
-                
             }
         }
 
         // Menghitung nilai Preferensi
         $bobot = $metoda['prioritas'];
         $preferensi = [];
-        for($i = 0; $i < count($data); $i++) {
-            for($j = 0; $j < count($countobj); $j++) {
+        for ($i = 0; $i < count($data); $i++) {
+            for ($j = 0; $j < count($countobj); $j++) {
                 $temp = $countobj[$j];
                 $preferensi[$temp][] = $normalisasi[$temp][$i] * $bobot[$j];
             }
@@ -193,22 +192,22 @@ class Hasil extends Model
 
         // Ubah preferensi berdasarkan prodi
         $change_preferensi = [];
-        for($i = 0; $i < count($data); $i++) {
-            for($j = 0; $j < count($countobj); $j++){
-                $change_preferensi[$data[$i]['nama']][] = $preferensi['p'. $j+1][$i];
-            }     
+        for ($i = 0; $i < count($data); $i++) {
+            for ($j = 0; $j < count($countobj); $j++) {
+                $change_preferensi[$data[$i]['nama']][] = $preferensi['p' . $j + 1][$i];
+            }
         }
         // total preferensi
         $sum_preferensi = [];
-        foreach($change_preferensi as $key => $value) {
+        foreach ($change_preferensi as $key => $value) {
             $sum_preferensi[$key] = array_sum($value);
         }
 
         //perangkingan max
-        $sort_rank = [] ;
-        
+        $sort_rank = [];
+
         foreach ($sum_preferensi as $key => $value) {
-            $sort_rank[$key]= $value;
+            $sort_rank[$key] = $value;
         }
 
         arsort($sort_rank);
@@ -232,5 +231,8 @@ class Hasil extends Model
             'sort_rank' => $sort_rank,
             'prodi_max' => $prodi_max
         ]);
+    }
+    public static function cetak()
+    {
     }
 }
