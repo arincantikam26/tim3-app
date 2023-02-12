@@ -2,8 +2,8 @@
 
 namespace App\Http\Controllers;
 
+use App\Models\User;
 use Illuminate\Http\Request;
-use App\Http\Requests\LoginRequest;
 use Illuminate\Support\Facades\Auth;
 
 class LoginController extends Controller
@@ -15,38 +15,36 @@ class LoginController extends Controller
         ]);
     }
 
-    /**
-     * Handle account login request
-     * 
-     * @param LoginRequest $request
-     * 
-     * @return \Illuminate\Http\Response
-     */
-    public function login(LoginRequest $request)
+    public function login(Request $request)
     {
-        $credentials = $request->getCredentials();
+        // dd($request);
+        $credential = $request->validate([
+            'username' => 'required',
+            'password' => 'required'
+        ]);
 
-        if (!Auth::validate($credentials)) :
-            return redirect()->to('login')
-                ->withErrors(trans('auth.failed'));
-        endif;
+        if (Auth::attempt($credential)) {
+            $request->session()->regenerate();
+            return redirect()->intended('/dashboard');
+        }
 
-        $user = Auth::getProvider()->retrieveByCredentials($credentials);
-        Auth::login($user);
-
-        return $this->authenticated($request, $user);
+        return back()->with('inputError', 'Login Failed');
     }
 
-    /**
-     * Handle response after user authenticated
-     * 
-     * @param Request $request
-     * @param Auth $user
-     * 
-     * @return \Illuminate\Http\Response
-     */
-    protected function authenticated(Request $request, $user)
+    public function registrasi(Request $request)
     {
-        return redirect()->intended('dashboard');
+
+        $validateData = $request->validate([
+            'name' => 'required',
+            'email' => 'required|email|unique:users,email',
+            'username' => 'required|unique:users,username',
+            'password' => 'required|min:8',
+            'password_confirmation' => 'required|same:password',
+            'is_permission' => 'required'
+        ]);
+        $validateData['password'] = bcrypt($validateData['password']);
+        User::create($validateData);
+
+        return redirect('login')->with('success', "Registrasi Berhasil !! Silahkan Login.");
     }
 }

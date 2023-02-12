@@ -4,7 +4,6 @@ namespace App\Http\Controllers;
 
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Session;
-use Illuminate\Http\Request;
 
 class LogoutController extends Controller
 {
@@ -15,6 +14,7 @@ class LogoutController extends Controller
 
     public function perform()
     {
+        //untuk menghapus semua nilai pada session
         Session::flush();
 
         Auth::logout();

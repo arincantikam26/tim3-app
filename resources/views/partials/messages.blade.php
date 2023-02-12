@@ -27,7 +27,7 @@
 
 @if (Session()->has('inputError'))
     <div class="alert alert-danger text-center" role="alert">
-        <i class="bx bx-check"></i>
+        <i class="bx bx-info-circle"></i>
         {{ session('inputError') }}
     </div>
 @endif
