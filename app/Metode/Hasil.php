@@ -29,8 +29,6 @@ class Hasil
             $y++;
         }
 
-
-
         $preference = Preferensi::all();
         $n = $kriteria->count();
         //menyimpan hasil pembagian nilai kriteria

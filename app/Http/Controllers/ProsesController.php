@@ -10,7 +10,7 @@ use App\Models\Pertanyaan;
 use Illuminate\Http\Request;
 use App\Models\JurusanSekolah;
 use Elibyy\TCPDF\Facades\TCPDF;
-
+use Illuminate\Support\Facades\Redirect;
 
 class ProsesController extends Controller
 {
@@ -45,6 +45,7 @@ class ProsesController extends Controller
     {
         // return $request->all();
         // return Hasil::hasilakhir($request);
+        $request->session()->put('result', MetodeHasil::hasilakhir($request));
 
         return view('users.proses.hasil_pilihan', [
             'title' => 'Hasil',
@@ -53,12 +54,17 @@ class ProsesController extends Controller
         ]);
     }
 
-    public function createPDF()
+    public function createPDF(Request $request)
     {
+        if (!$request->session()->get('result')) {
+            return redirect()->route('dashboard-user');
+        }
+
         $filename = 'hasil_rekomendasi_prodi.pdf';
 
         $data = [
-            'title' => 'Hello world!'
+            'title' => 'Hasil Rekomendasi Program Studi',
+            'result' => $request->session()->get('result')
         ];
 
         $html = view()->make('users.proses.cetak_pdf', $data)->render();
@@ -69,10 +75,12 @@ class ProsesController extends Controller
         $pdf::AddPage();
         //output html content
         //param : html,In,Fill,reseth,cell, align 
-        $pdf::writeHTML($html, true, false, true, false, '');
+        $pdf::writeHTML($html, true, false, true, true, '');
 
         //param : name , dest F : menyimpan ke lokal dengan nama sesuai param name
         $pdf::Output(public_path($filename), 'F');
+        
+        // return $data;
 
         return response()->download(public_path($filename));
     }
