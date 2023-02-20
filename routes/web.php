@@ -15,6 +15,7 @@ use App\Http\Controllers\UserController;
 use App\Http\Controllers\PreferensiController;
 use App\Http\Controllers\ProsesController;
 use App\Http\Controllers\SekolahController;
+use App\Http\Controllers\TestingController;
 use App\Http\Controllers\UserCrudController;
 use Illuminate\Support\Facades\Route;
 use PHPUnit\Runner\ResultCacheExtension;
@@ -46,8 +47,6 @@ Route::get('/', [HomeController::class, 'home']);
 Route::get('/home/prodi', [HomeController::class, 'prodi'])->name('prodi');
 Route::get('/home/jurusan', [HomeController::class, 'jurusan'])->name('jurusan');
 Route::get('/logout',  [LogoutController::class, 'perform'])->name('logout.perform')->middleware('auth');
-
-
 
 Route::group(['middleware' => ['guest']], function () {
     Route::get('/register', [RegisterController::class, 'show'])->name('register.show');
