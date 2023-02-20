@@ -41,6 +41,7 @@ https://trello.com/invite/b/P1IFetQ0/ATTIbcb8ef7eddd458ebc493421cf131df543EF337A
 ------
 ## Profile Team
 | No | Nim | Nama | Github |
+| ------ | ------ | ------ | ------ |
 | 1. | 2211089001 | Arin Cantika Musi | [arincantikam26](https://github.com/arincantikam26) |
 | 2. | 2211089006 | Rizkiah Rahmah Hatta | [rizkiah](https://github.com/rizkiah) |
 | 3. | 2211089012 | Utari Rezky Alfany | [utarirezalf](https://github.com/utarirezalf) |
