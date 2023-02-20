@@ -1,8 +1,12 @@
 # Proyek Akhir Tim 3 - SPK Prodi
-![Image alt text](public/assets/image/spklogo.png){:width="100px" style="display:block;margin-left:auto;margin-right:auto;"}
+
+![Image alt text](public/assets/image/spklogo.png)
+
 Website untuk memenuhi tugas pemrograman WEB D4 Alih Kredit TRPL. 
 SPK-Prodi adalah sebuah aplikasi untuk memudahkan calon mahasiswa dalam pemilihan program studi berdasarkan minat, bakat dan hobi.
+
 ------
+
 ## Langkah Menjalankan Proyek
 1. Clone proyek
 ```
