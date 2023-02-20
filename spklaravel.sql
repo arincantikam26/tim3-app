@@ -3,9 +3,9 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Waktu pembuatan: 19 Jan 2023 pada 11.10
--- Versi server: 10.4.27-MariaDB
--- Versi PHP: 8.1.12
+-- Generation Time: Feb 20, 2023 at 06:26 AM
+-- Server version: 10.4.27-MariaDB
+-- PHP Version: 8.1.12
 
 SET SQL_MODE = "NO_AUTO_VALUE_ON_ZERO";
 START TRANSACTION;
@@ -24,7 +24,7 @@ SET time_zone = "+00:00";
 -- --------------------------------------------------------
 
 --
--- Struktur dari tabel `failed_jobs`
+-- Table structure for table `failed_jobs`
 --
 
 CREATE TABLE `failed_jobs` (
@@ -40,7 +40,7 @@ CREATE TABLE `failed_jobs` (
 -- --------------------------------------------------------
 
 --
--- Struktur dari tabel `jurusans`
+-- Table structure for table `jurusans`
 --
 
 CREATE TABLE `jurusans` (
@@ -52,7 +52,7 @@ CREATE TABLE `jurusans` (
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
 
 --
--- Dumping data untuk tabel `jurusans`
+-- Dumping data for table `jurusans`
 --
 
 INSERT INTO `jurusans` (`id`, `nama_jurusan`, `keterangan`, `created_at`, `updated_at`) VALUES
@@ -67,19 +67,19 @@ INSERT INTO `jurusans` (`id`, `nama_jurusan`, `keterangan`, `created_at`, `updat
 -- --------------------------------------------------------
 
 --
--- Struktur dari tabel `jurusan_sekolahs`
+-- Table structure for table `jurusan_sekolahs`
 --
 
 CREATE TABLE `jurusan_sekolahs` (
   `id` bigint(20) UNSIGNED NOT NULL,
   `nama_jurusan` varchar(255) NOT NULL,
-  `keterangan` text NOT NULL DEFAULT '-',
+  `keterangan` text NOT NULL,
   `created_at` timestamp NULL DEFAULT NULL,
   `updated_at` timestamp NULL DEFAULT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
 
 --
--- Dumping data untuk tabel `jurusan_sekolahs`
+-- Dumping data for table `jurusan_sekolahs`
 --
 
 INSERT INTO `jurusan_sekolahs` (`id`, `nama_jurusan`, `keterangan`, `created_at`, `updated_at`) VALUES
@@ -191,7 +191,7 @@ INSERT INTO `jurusan_sekolahs` (`id`, `nama_jurusan`, `keterangan`, `created_at`
 -- --------------------------------------------------------
 
 --
--- Struktur dari tabel `kriterias`
+-- Table structure for table `kriterias`
 --
 
 CREATE TABLE `kriterias` (
@@ -202,7 +202,7 @@ CREATE TABLE `kriterias` (
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
 
 --
--- Dumping data untuk tabel `kriterias`
+-- Dumping data for table `kriterias`
 --
 
 INSERT INTO `kriterias` (`id`, `nama_kriteria`, `created_at`, `updated_at`) VALUES
@@ -213,7 +213,7 @@ INSERT INTO `kriterias` (`id`, `nama_kriteria`, `created_at`, `updated_at`) VALU
 -- --------------------------------------------------------
 
 --
--- Struktur dari tabel `migrations`
+-- Table structure for table `migrations`
 --
 
 CREATE TABLE `migrations` (
@@ -223,25 +223,26 @@ CREATE TABLE `migrations` (
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
 
 --
--- Dumping data untuk tabel `migrations`
+-- Dumping data for table `migrations`
 --
 
 INSERT INTO `migrations` (`id`, `migration`, `batch`) VALUES
 (1, '2014_10_12_000000_create_users_table', 1),
 (2, '2014_10_12_100000_create_password_resets_table', 1),
-(3, '2019_12_14_000001_create_personal_access_tokens_table', 1),
-(4, '2020_11_07_052238_create_jurusan_sekolahs_table', 1),
-(5, '2020_11_07_052447_create_jurusans_table', 1),
-(6, '2020_11_07_052625_create_kriterias_table', 1),
-(7, '2020_11_07_140403_create_prodis_table', 1),
-(8, '2020_11_07_143630_create_tabel_pilihans_table', 1),
-(9, '2021_01_17_170024_create_preferences_table', 1),
-(10, '2021_01_19_070335_create_pertanyaans_table', 1);
+(3, '2019_08_19_000000_create_failed_jobs_table', 1),
+(4, '2019_12_14_000001_create_personal_access_tokens_table', 1),
+(5, '2020_11_07_052238_create_jurusan_sekolahs_table', 1),
+(6, '2020_11_07_052447_create_jurusans_table', 1),
+(7, '2020_11_07_052625_create_kriterias_table', 1),
+(8, '2020_11_07_140403_create_prodis_table', 1),
+(9, '2020_11_07_143630_create_tabel_pilihans_table', 1),
+(10, '2021_01_17_170024_create_preferences_table', 1),
+(11, '2021_01_19_070335_create_pertanyaans_table', 1);
 
 -- --------------------------------------------------------
 
 --
--- Struktur dari tabel `password_resets`
+-- Table structure for table `password_resets`
 --
 
 CREATE TABLE `password_resets` (
@@ -253,7 +254,7 @@ CREATE TABLE `password_resets` (
 -- --------------------------------------------------------
 
 --
--- Struktur dari tabel `personal_access_tokens`
+-- Table structure for table `personal_access_tokens`
 --
 
 CREATE TABLE `personal_access_tokens` (
@@ -272,7 +273,7 @@ CREATE TABLE `personal_access_tokens` (
 -- --------------------------------------------------------
 
 --
--- Struktur dari tabel `pertanyaans`
+-- Table structure for table `pertanyaans`
 --
 
 CREATE TABLE `pertanyaans` (
@@ -284,10 +285,36 @@ CREATE TABLE `pertanyaans` (
   `updated_at` timestamp NULL DEFAULT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
 
+--
+-- Dumping data for table `pertanyaans`
+--
+
+INSERT INTO `pertanyaans` (`id`, `id_prodi`, `id_kriteria`, `pertanyaan`, `created_at`, `updated_at`) VALUES
+(1, 3, 4, 'Sangat berminat untuk mempelajari komputer, menginstalasi dan trouble shooting komputer secara software maupun hardware', '2021-08-27 18:25:32', '2021-08-27 18:25:32'),
+(2, 3, 4, 'ingin mempelajari cara membangun aplikasi database sederhana pada komputer stand alone', '2021-08-27 18:27:40', '2021-08-27 20:17:12'),
+(3, 3, 4, 'berminat untuk bisa membangun aplikasi database dan Sistem Informasi berbasis Stand alone maupun  berbasis jaringan (LAN, Internet) untuk    berbagai kebutuhan organisasi dan bisnis', '2021-08-27 18:36:26', '2021-08-27 18:36:56'),
+(4, 3, 4, 'berminat untuk membangun aplikasi multimedia seperti grafis, audio , video dan animasi untuk berbagai keperluan', '2021-08-27 18:38:14', '2021-08-27 18:38:14'),
+(5, 3, 5, 'mempunyai kemampuan dasar dalam menginstalasi dan troubel shooting komputer secara software dan hardware', '2021-08-27 18:38:57', '2021-08-27 20:52:39'),
+(6, 3, 5, 'memiliki kemampuan adaptif dalam bidang teknologi seperti pengoperasian software', '2021-08-27 18:40:28', '2021-08-27 20:21:25'),
+(7, 3, 6, 'sangat menyukai kegiatan pembelajaran yang berhubungan dengan', '2021-08-27 18:42:30', '2021-08-27 18:42:30'),
+(8, 3, 6, 'sangat menyukai kegiatan pembelajaran yang berhubungan dengan pemrograman', '2021-08-27 18:43:30', '2021-08-27 18:43:30'),
+(9, 3, 4, 'sangat berminat untuk mempelajari teknologi dan manajemen dalam teknologi', '2021-08-27 18:45:35', '2021-08-27 18:45:35'),
+(10, 5, 4, 'sangat berminat dalam mempelajari komputer untuk berbagai aplikasi, menginstalasi dan trouble shooting komputer secara software maupun hardware', '2021-08-27 18:47:22', '2021-08-27 20:22:44'),
+(11, 5, 4, 'ingin mepelajari bagaimana cara membangun jaringan komputer LAN , WAN, MAN untuk berbagai keperluan organisasi dan bisnis', '2021-08-27 18:47:52', '2021-08-27 18:47:52'),
+(13, 5, 4, 'ingin mempelajari bagaimana memperbaiki jaringan komputer', '2021-08-27 18:50:29', '2021-08-27 18:50:29'),
+(14, 5, 4, 'ingin mempelajari bagaimana cara mengelola, merawat dan memperbaiki jaringan komputer', '2021-08-27 20:07:56', '2021-08-27 20:07:56'),
+(15, 5, 4, 'ingin Membangun aplikasi multimedia seperti Grafis, Audio, Video dan Animasi untuk berbagai  keperluan', '2021-08-27 20:08:41', '2021-08-27 20:08:41'),
+(16, 5, 5, 'mempunya kemampuan dasar dalam mengelola, merawat dan memperabaiki jaringan komputer', '2021-08-27 20:10:34', '2021-08-27 20:10:34'),
+(17, 5, 6, 'hobi melakukan kegiatan yang berkaitan dalam pembelajaran tentang komputer dan jaringan', '2021-08-27 20:12:04', '2021-08-27 20:12:04'),
+(18, 10, 4, 'Sangat berminat untuk mempelajari komputer, menginstalasi dan trouble shooting komputer secara software maupun hardware', '2021-08-27 20:19:06', '2021-08-27 20:19:06'),
+(19, 10, 4, 'ingin mempelajari cara membangun aplikasi database dan analisis pada komputer stand alone', '2021-08-27 20:19:23', '2021-08-27 20:19:23'),
+(20, 10, 4, 'berminat untuk bisa membangun aplikasi database dan Sistem Informasi berbasis Stand alone maupun berbasis jaringan (LAN, Internet) untuk berbagai kebutuhan organisasi dan bisnis hingga tahap analisis', '2021-08-27 20:20:21', '2021-08-27 20:20:21'),
+(21, 10, 4, 'berminat untuk membangun aplikasi multimedia seperti grafis, audio , video dan animasi untuk berbagai keperluan', '2021-08-27 20:20:39', '2021-08-27 20:20:39');
+
 -- --------------------------------------------------------
 
 --
--- Struktur dari tabel `preferences`
+-- Table structure for table `preferences`
 --
 
 CREATE TABLE `preferences` (
@@ -301,7 +328,7 @@ CREATE TABLE `preferences` (
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
 
 --
--- Dumping data untuk tabel `preferences`
+-- Dumping data for table `preferences`
 --
 
 INSERT INTO `preferences` (`id`, `kriteria1`, `lable`, `bobot`, `kriteria2`, `created_at`, `updated_at`) VALUES
@@ -312,7 +339,7 @@ INSERT INTO `preferences` (`id`, `kriteria1`, `lable`, `bobot`, `kriteria2`, `cr
 -- --------------------------------------------------------
 
 --
--- Struktur dari tabel `prodis`
+-- Table structure for table `prodis`
 --
 
 CREATE TABLE `prodis` (
@@ -325,7 +352,7 @@ CREATE TABLE `prodis` (
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
 
 --
--- Dumping data untuk tabel `prodis`
+-- Dumping data for table `prodis`
 --
 
 INSERT INTO `prodis` (`id`, `jurusan_id`, `nama_prodi`, `keterangan`, `created_at`, `updated_at`) VALUES
@@ -353,7 +380,7 @@ INSERT INTO `prodis` (`id`, `jurusan_id`, `nama_prodi`, `keterangan`, `created_a
 -- --------------------------------------------------------
 
 --
--- Struktur dari tabel `tabel_pilihans`
+-- Table structure for table `tabel_pilihans`
 --
 
 CREATE TABLE `tabel_pilihans` (
@@ -365,7 +392,7 @@ CREATE TABLE `tabel_pilihans` (
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
 
 --
--- Dumping data untuk tabel `tabel_pilihans`
+-- Dumping data for table `tabel_pilihans`
 --
 
 INSERT INTO `tabel_pilihans` (`id`, `id_jurusan_sekolah`, `prodi_id`, `created_at`, `updated_at`) VALUES
@@ -805,7 +832,7 @@ INSERT INTO `tabel_pilihans` (`id`, `id_jurusan_sekolah`, `prodi_id`, `created_a
 -- --------------------------------------------------------
 
 --
--- Struktur dari tabel `users`
+-- Table structure for table `users`
 --
 
 CREATE TABLE `users` (
@@ -820,7 +847,7 @@ CREATE TABLE `users` (
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
 
 --
--- Dumping data untuk tabel `users`
+-- Dumping data for table `users`
 --
 
 INSERT INTO `users` (`id`, `name`, `email`, `email_verified_at`, `password`, `remember_token`, `created_at`, `updated_at`) VALUES
@@ -828,52 +855,51 @@ INSERT INTO `users` (`id`, `name`, `email`, `email_verified_at`, `password`, `re
 (2, 'admin', 'admin@gmail.com', NULL, '$2y$10$nEoKRoHzwZkoS6OMvby8POngfASgoJh3JOr4NyBpQhiLQNsEHGyJ.', NULL, '2020-11-08 17:05:13', '2020-11-08 17:05:13'),
 (3, 'resy', 'resy@gmail.com', NULL, '$2y$10$GrkfGGcoLnj8fW.t4B0z/uLH2ASqzrNl98uNZMVjjrUBQNBIMVa7C', NULL, '2020-12-16 18:55:44', '2020-12-16 18:55:44'),
 (4, 'admin', 'admin1@gmail.com', NULL, '$2y$10$UHb/wyWEPF1HNifdhzt1xOZvWZPG3Bs2ign8YQgyA7Yaza5dKXEOK', NULL, '2021-01-02 00:18:26', '2021-01-02 00:18:26'),
-(5, 'latifah', 'latifah@gmail.com', NULL, '$2y$10$rMx7.c/PUerfBAFfeKLiCuoebPCVHaI0BzcW/Ld/wOn9anWwfAwCm', NULL, '2021-08-24 01:53:52', '2021-08-24 01:53:52'),
-(6, 'superadmin', 'superadmin@gmail.com', NULL, '$2y$10$F3o8ouxKBum3UdoLTnSOeO3wbws1uQ4bl7.9zZ55Ci07JdqZ0nWlK', NULL, '2023-01-19 03:09:32', '2023-01-19 03:09:32');
+(5, 'latifah', 'latifah@gmail.com', NULL, '$2y$10$rMx7.c/PUerfBAFfeKLiCuoebPCVHaI0BzcW/Ld/wOn9anWwfAwCm', NULL, '2021-08-24 01:53:52', '2021-08-24 01:53:52');
 
 --
 -- Indexes for dumped tables
 --
 
 --
--- Indeks untuk tabel `failed_jobs`
+-- Indexes for table `failed_jobs`
 --
 ALTER TABLE `failed_jobs`
   ADD PRIMARY KEY (`id`),
   ADD UNIQUE KEY `failed_jobs_uuid_unique` (`uuid`);
 
 --
--- Indeks untuk tabel `jurusans`
+-- Indexes for table `jurusans`
 --
 ALTER TABLE `jurusans`
   ADD PRIMARY KEY (`id`);
 
 --
--- Indeks untuk tabel `jurusan_sekolahs`
+-- Indexes for table `jurusan_sekolahs`
 --
 ALTER TABLE `jurusan_sekolahs`
   ADD PRIMARY KEY (`id`);
 
 --
--- Indeks untuk tabel `kriterias`
+-- Indexes for table `kriterias`
 --
 ALTER TABLE `kriterias`
   ADD PRIMARY KEY (`id`);
 
 --
--- Indeks untuk tabel `migrations`
+-- Indexes for table `migrations`
 --
 ALTER TABLE `migrations`
   ADD PRIMARY KEY (`id`);
 
 --
--- Indeks untuk tabel `password_resets`
+-- Indexes for table `password_resets`
 --
 ALTER TABLE `password_resets`
   ADD KEY `password_resets_email_index` (`email`);
 
 --
--- Indeks untuk tabel `personal_access_tokens`
+-- Indexes for table `personal_access_tokens`
 --
 ALTER TABLE `personal_access_tokens`
   ADD PRIMARY KEY (`id`),
@@ -881,7 +907,7 @@ ALTER TABLE `personal_access_tokens`
   ADD KEY `personal_access_tokens_tokenable_type_tokenable_id_index` (`tokenable_type`,`tokenable_id`);
 
 --
--- Indeks untuk tabel `pertanyaans`
+-- Indexes for table `pertanyaans`
 --
 ALTER TABLE `pertanyaans`
   ADD PRIMARY KEY (`id`),
@@ -889,20 +915,20 @@ ALTER TABLE `pertanyaans`
   ADD KEY `pertanyaans_id_kriteria_foreign` (`id_kriteria`);
 
 --
--- Indeks untuk tabel `preferences`
+-- Indexes for table `preferences`
 --
 ALTER TABLE `preferences`
   ADD PRIMARY KEY (`id`);
 
 --
--- Indeks untuk tabel `prodis`
+-- Indexes for table `prodis`
 --
 ALTER TABLE `prodis`
   ADD PRIMARY KEY (`id`),
   ADD KEY `prodis_jurusan_id_foreign` (`jurusan_id`);
 
 --
--- Indeks untuk tabel `tabel_pilihans`
+-- Indexes for table `tabel_pilihans`
 --
 ALTER TABLE `tabel_pilihans`
   ADD PRIMARY KEY (`id`),
@@ -910,101 +936,101 @@ ALTER TABLE `tabel_pilihans`
   ADD KEY `tabel_pilihans_prodi_id_foreign` (`prodi_id`);
 
 --
--- Indeks untuk tabel `users`
+-- Indexes for table `users`
 --
 ALTER TABLE `users`
   ADD PRIMARY KEY (`id`),
   ADD UNIQUE KEY `users_email_unique` (`email`);
 
 --
--- AUTO_INCREMENT untuk tabel yang dibuang
+-- AUTO_INCREMENT for dumped tables
 --
 
 --
--- AUTO_INCREMENT untuk tabel `failed_jobs`
+-- AUTO_INCREMENT for table `failed_jobs`
 --
 ALTER TABLE `failed_jobs`
   MODIFY `id` bigint(20) UNSIGNED NOT NULL AUTO_INCREMENT;
 
 --
--- AUTO_INCREMENT untuk tabel `jurusans`
+-- AUTO_INCREMENT for table `jurusans`
 --
 ALTER TABLE `jurusans`
   MODIFY `id` bigint(20) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=12;
 
 --
--- AUTO_INCREMENT untuk tabel `jurusan_sekolahs`
+-- AUTO_INCREMENT for table `jurusan_sekolahs`
 --
 ALTER TABLE `jurusan_sekolahs`
   MODIFY `id` bigint(20) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=111;
 
 --
--- AUTO_INCREMENT untuk tabel `kriterias`
+-- AUTO_INCREMENT for table `kriterias`
 --
 ALTER TABLE `kriterias`
   MODIFY `id` bigint(20) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=7;
 
 --
--- AUTO_INCREMENT untuk tabel `migrations`
+-- AUTO_INCREMENT for table `migrations`
 --
 ALTER TABLE `migrations`
   MODIFY `id` int(10) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=12;
 
 --
--- AUTO_INCREMENT untuk tabel `personal_access_tokens`
+-- AUTO_INCREMENT for table `personal_access_tokens`
 --
 ALTER TABLE `personal_access_tokens`
   MODIFY `id` bigint(20) UNSIGNED NOT NULL AUTO_INCREMENT;
 
 --
--- AUTO_INCREMENT untuk tabel `pertanyaans`
+-- AUTO_INCREMENT for table `pertanyaans`
 --
 ALTER TABLE `pertanyaans`
   MODIFY `id` bigint(20) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=22;
 
 --
--- AUTO_INCREMENT untuk tabel `preferences`
+-- AUTO_INCREMENT for table `preferences`
 --
 ALTER TABLE `preferences`
   MODIFY `id` bigint(20) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=4;
 
 --
--- AUTO_INCREMENT untuk tabel `prodis`
+-- AUTO_INCREMENT for table `prodis`
 --
 ALTER TABLE `prodis`
   MODIFY `id` bigint(20) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=24;
 
 --
--- AUTO_INCREMENT untuk tabel `tabel_pilihans`
+-- AUTO_INCREMENT for table `tabel_pilihans`
 --
 ALTER TABLE `tabel_pilihans`
   MODIFY `id` bigint(20) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=560;
 
 --
--- AUTO_INCREMENT untuk tabel `users`
+-- AUTO_INCREMENT for table `users`
 --
 ALTER TABLE `users`
-  MODIFY `id` bigint(20) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=7;
+  MODIFY `id` bigint(20) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=6;
 
 --
--- Ketidakleluasaan untuk tabel pelimpahan (Dumped Tables)
+-- Constraints for dumped tables
 --
 
 --
--- Ketidakleluasaan untuk tabel `pertanyaans`
+-- Constraints for table `pertanyaans`
 --
 ALTER TABLE `pertanyaans`
   ADD CONSTRAINT `pertanyaans_id_kriteria_foreign` FOREIGN KEY (`id_kriteria`) REFERENCES `kriterias` (`id`) ON DELETE CASCADE,
   ADD CONSTRAINT `pertanyaans_id_prodi_foreign` FOREIGN KEY (`id_prodi`) REFERENCES `prodis` (`id`) ON DELETE CASCADE;
 
 --
--- Ketidakleluasaan untuk tabel `prodis`
+-- Constraints for table `prodis`
 --
 ALTER TABLE `prodis`
   ADD CONSTRAINT `prodis_jurusan_id_foreign` FOREIGN KEY (`jurusan_id`) REFERENCES `jurusans` (`id`) ON DELETE CASCADE;
 
 --
--- Ketidakleluasaan untuk tabel `tabel_pilihans`
+-- Constraints for table `tabel_pilihans`
 --
 ALTER TABLE `tabel_pilihans`
   ADD CONSTRAINT `tabel_pilihans_id_jurusan_sekolah_foreign` FOREIGN KEY (`id_jurusan_sekolah`) REFERENCES `jurusan_sekolahs` (`id`) ON DELETE CASCADE,
@@ -1013,21 +1039,4 @@ COMMIT;
 
 /*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;
 /*!40101 SET CHARACTER_SET_RESULTS=@OLD_CHARACTER_SET_RESULTS */;
-/*!40101 SET COLLATION_CONNECTION=@OLD_COLLATION_CONNECTION 
-        // $comparation = [];
-        // for ($i = 0; $i < $kriteria->count(); $i++) {
-        //     for ($j = 0; $j < $kriteria->count(); $j++) {
-
-        //         if ($i == $j) {
-        //             $comparation[$i][$j] = 1;   // i==j; 
-
-        //         } elseif ($i > $j) {
-        //             $comparation[$i][$j] = 0.1;
-        //         } else {
-        //             $comparation[$i][$j] = 31;
-        //         }
-        //     }
-        // }
-        // dd($comparation);
-
-*/
+/*!40101 SET COLLATION_CONNECTION=@OLD_COLLATION_CONNECTION */;

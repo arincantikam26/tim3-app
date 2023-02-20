@@ -135,6 +135,7 @@ class Hasil
     {
         $pre = Preferensi::all();
         if ($pre->count()) {
+            // get data from ahp metode
             $metoda = Hasil::metoda();
         } else {
             $metoda = '';
@@ -229,7 +230,5 @@ class Hasil
             'prodi_max' => $prodi_max
         ]);
     }
-    public static function cetak()
-    {
-    }
+
 }
